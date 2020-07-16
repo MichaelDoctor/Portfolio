@@ -19,7 +19,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 
-ALLOWED_HOSTS = ['localhost', 'michael-doctor.me', '0.0.0.0']
+ALLOWED_HOSTS = ['localhost', 'michael-doctor.me',
+                 'michael-doctor.herokuapp.com']
 
 
 # Application definition
