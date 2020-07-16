@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Skill } from './Skill';
+import axios from 'axios';
 
 export const Skills = () => {
-	const props = [
+	const [ skills, setSkills ] = useState([]);
+	useEffect(() => {
+		const getSKills = async () => {
+			try {
+				const res = await axios.get('https://www.michael-doctor.me/api/skills/');
+				setSkills(res.data);
+			} catch (error) {
+				console.error(error);
+			}
+		};
+	}, []);
+	const skills = [
 		{
 			title   : 'Photography',
 			icon    : 'fa fa-camera fa fa-md',
@@ -30,8 +42,8 @@ export const Skills = () => {
 					</div>
 
 					<div className="row">
-						{props.map((prop) => (
-							<Skill key={prop.title} title={prop.title} icon={prop.icon} content={prop.content} />
+						{skills.map((skill) => (
+							<Skill key={skill.title} title={skill.title} icon={skill.icon} content={skill.content} />
 						))}
 					</div>
 				</div>

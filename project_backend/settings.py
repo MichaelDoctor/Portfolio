@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 ALLOWED_HOSTS = ['localhost', 'michael-doctor.me', 'www.michael-doctor.me',
-                 'michael-doctor.herokuapp.com']
+                 'michael-doctor.herokuapp.com', '0.0.0.0']
 
 
 # Application definition
@@ -34,9 +34,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Packages
     'corsheaders',
-    'rest_framework'
+    'rest_framework',
     # Apps
-
+    'app_portfolio_projects',
+    'app_portfolio_skills'
 ]
 
 MIDDLEWARE = [
