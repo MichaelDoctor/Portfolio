@@ -5,7 +5,7 @@ import axios from 'axios';
 export const Skills = () => {
 	const [ skills, setSkills ] = useState([]);
 	useEffect(() => {
-		const getSKills = async () => {
+		const getSkills = async () => {
 			try {
 				const res = await axios.get('https://www.michael-doctor.me/api/skills/');
 				setSkills(res.data);
@@ -13,19 +13,8 @@ export const Skills = () => {
 				console.error(error);
 			}
 		};
+		getSkills();
 	}, []);
-	const skills = [
-		{
-			title   : 'Photography',
-			icon    : 'fa fa-camera fa fa-md',
-			content : 'Nay middleton him admitting consulted and behaviour son household'
-		},
-		{
-			title   : 'Python',
-			icon    : 'fa fa-camera fa fa-md',
-			content : 'Nay middleton him admitting consulted and behaviour son household'
-		}
-	];
 	return (
 		<div>
 			<section id="services" className="white">
