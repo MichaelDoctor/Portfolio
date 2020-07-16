@@ -1,12 +1,13 @@
 import os
 import dj_database_url
 
-DEBUG = os.environ.get('DEBUG') or True
-if DEBUG:
+try:
     import local_settings.local_settings as envs
+    DEBUG = envs.DEBUG
     SECRET_KEY = envs.SECRET_KEY
     DATABASE_URL = envs.DATABASE_URL
-else:
+except:
+    DEBUG = os.environ.get('DEBUG')
     SECRET_KEY = os.environ.get('SECRET_KEY')
     DATABASE_URL = os.environ.get('DATABASE_URL')
 
