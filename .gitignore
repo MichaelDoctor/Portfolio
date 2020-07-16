@@ -2,6 +2,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/django,react,venv,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,react,venv,python
 
+### Deploy ###
+#Need to remove build in gitignore for deployment
+build/ 
+
 ### Django ###
 *.log
 *.pot
@@ -26,7 +30,6 @@ media
 
 # Distribution / packaging
 .Python
-# build/
 develop-eggs/
 dist/
 downloads/
