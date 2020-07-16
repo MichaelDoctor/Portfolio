@@ -3,5 +3,6 @@ from .models import Skill
 
 
 class SkillSerializer(serializers.ModelSerializer):
-    model = Skill
-    fields = '__all__'
+    class Meta:
+        model = Skill
+        fields = '__all__'
