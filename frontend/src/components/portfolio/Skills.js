@@ -32,7 +32,7 @@ export const Skills = () => {
 
 					<div className="row">
 						{skills.map((skill) => (
-							<Skill key={skill.title} title={skill.title} icon={skill.icon} content={skill.content} />
+							<Skill key={skill.id} title={skill.title} icon={skill.icon} content={skill.content} />
 						))}
 					</div>
 				</div>
