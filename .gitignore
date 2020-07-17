@@ -4,7 +4,6 @@
 
 ### Deploy ###
 #Need to remove build in gitignore for deployment
-build/
 
 ### Django ###
 *.log
