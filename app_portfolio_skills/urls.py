@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import SkillView, SkillsView
+from .views import LanguagesView, FrameworksView
 
 urlpatterns = [
-    path('', SkillsView.as_view()),
-    path('<pk>', SkillView.as_view())
+    path('languanges/', LanguagesView.as_view()),
+    path('frameworks/', FrameworksView.as_view())
 ]

@@ -1,10 +1,16 @@
 from django.contrib import admin
-from .models import Skill
+from .models import Language, Framework
 
 
-class SkillAdmin(admin.ModelAdmin):
+class LanguageAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'icon', 'content')
     list_display_links = ('id', 'title')
 
 
-admin.site.register(Skill, SkillAdmin)
+class FrameworkAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'icon', 'content')
+    list_display_links = ('id', 'title')
+
+
+admin.site.register(Language, LanguageAdmin)
+admin.site.register(Framework, FrameworkAdmin)

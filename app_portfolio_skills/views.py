@@ -1,17 +1,16 @@
-from rest_framework.generics import ListAPIView, RetrieveAPIView
-from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView
 from rest_framework import permissions
-from .models import Skill
-from .serializers import SkillSerializer
+from .models import Language, Framework
+from .serializers import LanguageSerializer, FrameworkSerializer
 
 
-class SkillsView(ListAPIView):
+class LanguagesView(ListAPIView):
     permission_classes = (permissions.AllowAny,)
-    queryset = Skill.objects.all().order_by()
-    serializer_class = SkillSerializer
+    queryset = Language.objects.all().order_by()
+    serializer_class = LanguageSerializer
 
 
-class SkillView(RetrieveAPIView):
+class FrameworksView(ListAPIView):
     permission_classes = (permissions.AllowAny,)
-    queryset = Skill.objects.all()
-    serializer_class = SkillSerializer
+    queryset = Framework.objects.all().order_by()
+    serializer_class = FrameworkSerializer

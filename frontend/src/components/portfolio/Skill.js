@@ -8,8 +8,8 @@ export const Skill = ({ icon, title, content }) => {
 					<i className={icon} />
 				</div>
 				<div className="media-body fade-up no-display animated fadeInUp appear">
-					<h3 className="media-heading"> {title}</h3>
-					<p>{content}</p>
+					<h3> {title}</h3>
+					{/* <p>{content}</p> */}
 				</div>
 			</div>
 		</div>

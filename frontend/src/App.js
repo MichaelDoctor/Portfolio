@@ -13,7 +13,8 @@ export const App = () => {
 			<Navbar />
 			<MainSlider />
 			<div id="content-wrapper">
-				<Skills />
+				<Skills heading="Languages" />
+				<Skills heading="Frameworks" />
 				<About />
 				<Projects />
 			</div>

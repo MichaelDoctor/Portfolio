@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Skill } from './Skill';
 import axios from 'axios';
 
-export const Skills = () => {
+export const Skills = ({ heading }) => {
 	const [ skills, setSkills ] = useState([]);
 	useEffect(() => {
 		const getSkills = async () => {
 			try {
-				const res = await axios.get('https://www.michael-doctor.me/api/skills/');
+				const res = await axios.get(`https://michael-doctor.herokuapp.com/api/skills/${heading}/`);
 				setSkills(res.data);
 			} catch (error) {
 				console.error(error);
@@ -23,9 +23,9 @@ export const Skills = () => {
 					<div className="row">
 						<div className="col-md-12">
 							<div className="center gap fade-down section-heading">
-								<h2 className="main-title">Skills</h2>
+								<h2 className="main-title">{heading}</h2>
 								<hr />
-								<p>These are the languages and frameworks that I'm confident in.</p>
+								<p>These are the {heading} I know.</p>
 							</div>
 						</div>
 					</div>
