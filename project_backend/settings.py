@@ -7,7 +7,7 @@ try:
     SECRET_KEY = envs.SECRET_KEY
     DATABASE_URL = envs.DATABASE_URL
 except:
-    DEBUG = os.environ.get('DEBUG')
+    DEBUG = False or os.environ.get('DEBUG')
     SECRET_KEY = os.environ.get('SECRET_KEY')
     DATABASE_URL = os.environ.get('DATABASE_URL')
 
