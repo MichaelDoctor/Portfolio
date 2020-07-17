@@ -4,11 +4,11 @@ export const Skill = ({ icon, title, content }) => {
 	return (
 		<div className="col-md-4 col-sm-6">
 			<div className="service-block">
-				<div className="pull-left bounce-in">
+				<div className="pull-left bounce-in no-display animated bounceIn appear">
 					<i className={icon} />
 				</div>
-				<div className="media-body fade-up">
-					<h3 className="media-heading">{title}</h3>
+				<div className="media-body fade-up no-display animated fadeInUp appear">
+					<h3 className="media-heading"> {title}</h3>
 					<p>{content}</p>
 				</div>
 			</div>
