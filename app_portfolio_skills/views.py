@@ -7,7 +7,7 @@ from .serializers import SkillSerializer
 
 class SkillsView(ListAPIView):
     permission_classes = (permissions.AllowAny,)
-    queryset = Skill.objects.order_by('id').all()
+    queryset = Skill.objects.order_by('-id').all()
     serializer_class = SkillSerializer
 
 
