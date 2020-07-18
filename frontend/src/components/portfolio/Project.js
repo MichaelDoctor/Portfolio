@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Project = ({ className, img, title, author, datetime, date, content, link }) => {
 	return (
@@ -6,11 +7,11 @@ export const Project = ({ className, img, title, author, datetime, date, content
 			<div className="item-inner">
 				<div className="post">
 					<div className="post-img-content">
-						<img src={img} className="img-responsive" />
+						<img src={img} className="img-responsive" alt={`${title}`} />
 						<div className="overlay">
-							<a className="preview btn btn-outlined btn-primary" href="#">
+							<Link className="preview btn btn-outlined btn-primary" to="#">
 								<i className="fa fa-link" />
-							</a>
+							</Link>
 						</div>
 					</div>
 					<div className="content">
@@ -21,9 +22,9 @@ export const Project = ({ className, img, title, author, datetime, date, content
 						</div>
 						<div>{content}</div>
 						<div className="read-more-wrapper">
-							<a href={link} className="btn btn-outlined btn-primary">
+							<Link to={link} className="btn btn-outlined btn-primary">
 								Read more
-							</a>
+							</Link>
 						</div>
 					</div>
 				</div>

@@ -4,17 +4,20 @@ import axios from 'axios';
 
 export const Skills = ({ heading }) => {
 	const [ skills, setSkills ] = useState([]);
-	useEffect(() => {
-		const getSkills = async () => {
-			try {
-				const res = await axios.get(`https://michael-doctor.herokuapp.com/api/skills/${heading}/`);
-				setSkills(res.data);
-			} catch (error) {
-				console.error(error);
-			}
-		};
-		getSkills();
-	}, []);
+	useEffect(
+		() => {
+			const getSkills = async () => {
+				try {
+					const res = await axios.get(`https://michael-doctor.herokuapp.com/api/skills/${heading}/`);
+					setSkills(res.data);
+				} catch (error) {
+					console.error(error);
+				}
+			};
+			getSkills();
+		},
+		[ heading ]
+	);
 	return (
 		<div>
 			<section id="services" className="white">

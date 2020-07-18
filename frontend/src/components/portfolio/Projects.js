@@ -72,22 +72,22 @@ export const Projects = () => {
 				</div>
 				<ul className="portfolio-filter fade-down center">
 					<li>
-						<a className="btn btn-outlined btn-primary active" href="#" data-filter="*">
+						<a className="btn btn-outlined btn-primary active" href="#!" data-filter="*">
 							All
 						</a>
 					</li>
 					<li>
-						<a className="btn btn-outlined btn-primary" href="#" data-filter=".apps">
+						<a className="btn btn-outlined btn-primary" href="#!" data-filter=".apps">
 							Apps
 						</a>
 					</li>
 					<li>
-						<a className="btn btn-outlined btn-primary" href="#" data-filter=".nature">
+						<a className="btn btn-outlined btn-primary" href="#!" data-filter=".nature">
 							Nature
 						</a>
 					</li>
 					<li>
-						<a className="btn btn-outlined btn-primary" href="#" data-filter=".design">
+						<a className="btn btn-outlined btn-primary" href="#!" data-filter=".design">
 							Design
 						</a>
 					</li>

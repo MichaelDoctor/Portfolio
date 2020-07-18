@@ -1,23 +1,22 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import { Home } from './containers/Home';
+import { NotFound } from './containers/NotFound';
 import { Navbar } from './components/portfolio/Navbar';
-import { MainSlider } from './components/portfolio/MainSlider';
-import { Skills } from './components/portfolio/Skills';
-import { About } from './components/portfolio/About';
-import { Preloader } from './components/portfolio/Preloader';
-import { Projects } from './components/portfolio/Projects';
 
 export const App = () => {
 	return (
 		<div>
-			<Preloader />
-			<Navbar />
-			<MainSlider />
-			<div id="content-wrapper">
-				<Skills heading="languages" />
-				<Skills heading="frameworks" />
-				<About />
-				<Projects />
-			</div>
+			<Router>
+				<Navbar>
+					<Switch>
+						<Route exact path="/" component={Home} />
+						{/* Catches if one of these routes aren't provided */}
+						<Route component={NotFound} />
+					</Switch>
+				</Navbar>
+			</Router>
 		</div>
 	);
 };

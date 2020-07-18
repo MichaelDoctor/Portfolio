@@ -17,7 +17,8 @@ export const MainSlider = () => {
 										<h2 className="boxed animation animated-item-1 fade-down">Michael Doctor</h2>
 										<hr />
 										<p className="boxed animation animated-item-2 fade-up">
-											I can't perform cpr or save a life but I can code!<i className="fab fa-python" />
+											I can't perform cpr or save a life but I can code!&nbsp;
+											<i className="fab fa-python" />
 										</p>
 										<br />
 										<a className="btn btn-md animation bounce-in" href="#portfolio">
