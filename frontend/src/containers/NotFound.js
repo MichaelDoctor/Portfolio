@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import { Footer } from '../components/portfolio/Footer';
 
 export const NotFound = () => {
+	const scripts = [
+		'https://michaeldoctor.imfast.io/portfolio/js/plugins.js',
+		'https://michaeldoctor.imfast.io/portfolio/js/bootstrap.min.js',
+		'https://michaeldoctor.imfast.io/portfolio/js/jquery.prettyPhoto.js',
+		'https://michaeldoctor.imfast.io/portfolio/js/init.js'
+	];
+	useEffect(
+		() => {
+			const createScripts = (srcs) => {
+				srcs.forEach((src) => {
+					const script = document.createElement('script');
+					script.src = src;
+					document.body.appendChild(script);
+				});
+			};
+
+			createScripts(scripts);
+		},
+		[ scripts ]
+	);
 	return (
 		<div>
 			<Helmet>
@@ -37,7 +56,6 @@ export const NotFound = () => {
 					</div>
 				</div>
 			</section>
-			<Footer />
 		</div>
 	);
 };
