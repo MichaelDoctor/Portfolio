@@ -1,8 +1,28 @@
-import React, { Fragment } from 'react';
+import React, { useEffect } from 'react';
 
 export const Footer = () => {
+	const scripts = [
+		'https://michaeldoctor.imfast.io/portfolio/js/plugins.js',
+		'https://michaeldoctor.imfast.io/portfolio/js/bootstrap.min.js',
+		'https://michaeldoctor.imfast.io/portfolio/js/jquery.prettyPhoto.js',
+		'https://michaeldoctor.imfast.io/portfolio/js/init.js'
+	];
+	useEffect(
+		() => {
+			const createScripts = (srcs) => {
+				srcs.forEach((src) => {
+					const script = document.createElement('script');
+					script.src = src;
+					document.body.appendChild(script);
+				});
+			};
+
+			createScripts(scripts);
+		},
+		[ scripts ]
+	);
 	return (
-		<Fragment>
+		<div>
 			<div id="footer-wrapper">
 				<section id="bottom" className="">
 					<div className="container">
@@ -110,6 +130,6 @@ export const Footer = () => {
 					</div>
 				</footer>
 			</div>
-		</Fragment>
+		</div>
 	);
 };

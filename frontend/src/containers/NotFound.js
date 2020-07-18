@@ -1,15 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Preloader } from '../components/portfolio/Preloader';
 import { Link } from 'react-router-dom';
+import { Footer } from '../components/portfolio/Footer';
 
 export const NotFound = () => {
 	return (
-		<Fragment>
+		<div>
 			<Helmet>
 				<title>Page Not Found</title>
 			</Helmet>
-			<Preloader />
 			<section id="main-slider" className="no-margin">
 				<div className="carousel slide" data-ride="carousel">
 					<div className="carousel-inner">
@@ -27,9 +26,9 @@ export const NotFound = () => {
 												Head home to try again.
 											</p>
 											<br />
-											<a className="btn btn-md animation bounce-in" href="/">
+											<Link className="btn btn-md animation bounce-in" to="/">
 												Home
-											</a>
+											</Link>
 										</div>
 									</div>
 								</div>
@@ -38,6 +37,7 @@ export const NotFound = () => {
 					</div>
 				</div>
 			</section>
-		</Fragment>
+			<Footer />
+		</div>
 	);
 };
