@@ -17,7 +17,7 @@ export const Home = () => {
 				<Skills heading="languages" />
 				<Skills heading="frameworks" />
 				<About />
-				<Projects />
+				<Projects heading="projects" />
 			</div>
 			<Footer />
 		</div>
