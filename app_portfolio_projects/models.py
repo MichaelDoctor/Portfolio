@@ -8,8 +8,9 @@ class Project(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     date_time = models.DateTimeField(default=datetime.now, blank=True)
-    date = models.CharField(max_length=100)
+    date = models.CharField(max_length=100, blank=True)
     content = models.TextField(max_length=200, blank=True)
+    link = models.CharField(max_length=50, default='#')
 
     class Meta:
         ordering = ['id']
