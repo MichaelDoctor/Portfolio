@@ -55,7 +55,7 @@ export const Navbar = () => {
 								</a>
 								<ul className="dropdown-menu">
 									<li>
-										<Link to="/admin">Admin Login</Link>
+										<a href="/admin/">Admin Login</a>
 									</li>
 									<li>
 										<Link to="/404">404</Link>

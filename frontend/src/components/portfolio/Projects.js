@@ -64,7 +64,7 @@ export const Projects = () => {
 					<h2 className="main-title">Projects</h2>
 					<hr />
 					<p>
-						Check out my{'  '}
+						Check out my&nbsp;
 						<a href="https://github.com/MichaelDoctor">
 							<i className="fab fa-github" /> Github
 						</a>
@@ -77,18 +77,18 @@ export const Projects = () => {
 						</a>
 					</li>
 					<li>
-						<a className="btn btn-outlined btn-primary" href="#!" data-filter=".apps">
-							Apps
+						<a className="btn btn-outlined btn-primary" href="#!" data-filter=".python">
+							Python
 						</a>
 					</li>
 					<li>
-						<a className="btn btn-outlined btn-primary" href="#!" data-filter=".nature">
-							Nature
+						<a className="btn btn-outlined btn-primary" href="#!" data-filter=".javascript">
+							JavaScript
 						</a>
 					</li>
 					<li>
-						<a className="btn btn-outlined btn-primary" href="#!" data-filter=".design">
-							Design
+						<a className="btn btn-outlined btn-primary" href="#!" data-filter=".java">
+							Java
 						</a>
 					</li>
 				</ul>

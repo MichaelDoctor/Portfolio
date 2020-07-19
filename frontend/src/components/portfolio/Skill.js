@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Skill = ({ icon, title, content }) => {
 	return (
-		<div className="col-md-4 col-sm-6">
+		<div className="col-md-4 col-sm-6 col-xs-12">
 			<div className="service-block">
 				<div className="pull-left bounce-in no-display animated bounceIn appear">
 					<i className={icon} />
