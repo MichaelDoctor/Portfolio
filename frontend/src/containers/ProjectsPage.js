@@ -1,14 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Projects } from '../components/portfolio/Projects';
 import { Footer } from '../components/portfolio/Footer';
-import { renderHead } from '../components/portfolio/head';
+import { HeadHelmet } from '../components/portfolio/HeadHelmet';
 
 export const ProjectsPage = () => {
-	useEffect(() => {
-		renderHead("Michael Doctor's Projects");
-	}, []);
 	return (
 		<div>
+			<HeadHelmet title="Michael Doctor's Portfolio" />
 			<div id="content-wrapper">
 				<Projects heading="projects" />
 			</div>

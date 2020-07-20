@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { renderScripts } from '../components/portfolio/scripts';
-import { renderHead } from '../components/portfolio/head';
+import { HeadHelmet } from '../components/portfolio/HeadHelmet';
+import { Preloader } from '../components/portfolio/Preloader';
 
 export const NotFound = () => {
+	const [ loading, setLoading ] = useState(true);
 	useEffect(() => {
-		renderHead('Page Not Found');
-		renderScripts();
+		setLoading(false);
 	}, []);
 
 	return (
 		<div>
+			<HeadHelmet title="Michael Doctor's Portfolio" />
+			{loading ? <Preloader /> : ''}
 			<section id="main-slider" className="no-margin">
 				<div className="carousel slide" data-ride="carousel">
 					<div className="carousel-inner">

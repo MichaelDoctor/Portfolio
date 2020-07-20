@@ -1,10 +1,6 @@
-import React, { useEffect } from 'react';
-import { renderScripts } from './scripts';
+import React from 'react';
 
 export const Footer = () => {
-	useEffect(() => {
-		renderScripts();
-	}, []);
 	return (
 		<div>
 			<div id="footer-wrapper">

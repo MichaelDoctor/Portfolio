@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Skill } from './Skill';
 import axios from 'axios';
+import { Preloader } from './Preloader';
 
 export const Skills = ({ heading }) => {
 	const [ skills, setSkills ] = useState([]);
+	const [ loading, setLoading ] = useState(true);
 	useEffect(
 		() => {
 			const getSkills = async () => {
 				try {
 					const res = await axios.get(`https://michael-doctor.herokuapp.com/api/skills/${heading}/`);
-					setSkills(res.data);
+					setSkills(await res.data);
+					setLoading(false);
 				} catch (error) {
 					console.error(error);
 				}
 			};
 			getSkills();
 		},
-		[ heading ]
+		[ heading, setSkills ]
 	);
 	return (
 		<div>
+			{loading ? <Preloader /> : ''}
 			<section id="services" className="white">
 				<div className="container">
 					<div className="gap" />

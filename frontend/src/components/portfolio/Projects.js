@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Project } from './Project';
 import axios from 'axios';
+import { Preloader } from './Preloader';
 
 export const Projects = ({ heading }) => {
 	const [ projects, setProjects ] = useState([]);
+	const [ loading, setLoading ] = useState(true);
 	useEffect(
 		() => {
 			const getProjects = async () => {
 				try {
 					const res = await axios.get(`https://michael-doctor.herokuapp.com/api/${heading}/`);
-					setProjects(res.data);
+					await setProjects(res.data);
+					setLoading(false);
 				} catch (err) {
 					console.error(err);
 				}
 			};
 			getProjects();
 		},
-		[ heading ]
+		[ setProjects ]
 	);
 	return (
 		<div>
+			{loading ? <Preloader /> : ''}
 			<section id="portfolio" className="white">
 				<div className="container">
 					<div className="gap" />
@@ -35,22 +39,22 @@ export const Projects = ({ heading }) => {
 					</div>
 					<ul className="portfolio-filter fade-down center">
 						<li>
-							<a className="btn btn-outlined btn-primary active" href="#!" data-filter="*">
+							<a className="btn btn-outlined btn-primary active" href="#" data-filter="*">
 								All
 							</a>
 						</li>
 						<li>
-							<a className="btn btn-outlined btn-primary" href="#!" data-filter=".python">
+							<a className="btn btn-outlined btn-primary" href="#" data-filter=".python">
 								Python
 							</a>
 						</li>
 						<li>
-							<a className="btn btn-outlined btn-primary" href="#!" data-filter=".javascript">
+							<a className="btn btn-outlined btn-primary" href="#" data-filter=".javascript">
 								JavaScript
 							</a>
 						</li>
 						<li>
-							<a className="btn btn-outlined btn-primary" href="#!" data-filter=".java">
+							<a className="btn btn-outlined btn-primary" href="#" data-filter=".java">
 								Java
 							</a>
 						</li>
