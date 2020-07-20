@@ -19,6 +19,8 @@ psycopg2 = "*"
 whitenoise = "*"
 pillow = "*"
 psycopg2-binary = "*"
+cloudinary = "*"
+django-cloudinary-storage = "*"
 
 [requires]
 python_version = "3.8"
