@@ -6,20 +6,10 @@ try:
     DEBUG = envs.DEBUG
     SECRET_KEY = envs.SECRET_KEY
     DATABASE_URL = envs.DATABASE_URL
-    CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': envs.CLOUD_NAME,
-        'API_KEY': envs.CLOUD_KEY,
-        'API_SECRET': envs.CLOUD_SECRET
-    }
 except:
     DEBUG = False or os.environ.get('DEBUG')
     SECRET_KEY = os.environ.get('SECRET_KEY')
     DATABASE_URL = os.environ.get('DATABASE_URL')
-    CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
-        'API_KEY': os.environ.get('CLOUD_KEY'),
-        'API_SECRET': os.environ.get('CLOUD_SECRET')
-    }
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -156,5 +146,18 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 # File sizing
 FILE_UPLOAD_PERMISSIONS = 0o640
+
+try:
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': envs.CLOUD_NAME,
+        'API_KEY': envs.CLOUD_KEY,
+        'API_SECRET': envs.CLOUD_SECRET
+    }
+except:
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
+        'API_KEY': os.environ.get('CLOUD_KEY'),
+        'API_SECRET': os.environ.get('CLOUD_SECRET')
+    }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
