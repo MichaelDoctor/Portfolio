@@ -10,7 +10,7 @@ export const Skills = ({ heading }) => {
 		() => {
 			const getSkills = async () => {
 				try {
-					const res = await axios.get(`https://michael-doctor.herokuapp.com/api/skills/${heading}/`);
+					const res = await axios.get(`https://michael-doctor.me/api/skills/${heading}/`);
 					setSkills(await res.data);
 					setLoading(false);
 				} catch (error) {

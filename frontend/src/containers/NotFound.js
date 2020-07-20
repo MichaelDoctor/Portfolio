@@ -5,9 +5,12 @@ import { Preloader } from '../components/portfolio/Preloader';
 
 export const NotFound = () => {
 	const [ loading, setLoading ] = useState(true);
-	useEffect(() => {
-		setLoading(false);
-	}, []);
+	useEffect(
+		() => {
+			setLoading(false);
+		},
+		[ setLoading ]
+	);
 
 	return (
 		<div>

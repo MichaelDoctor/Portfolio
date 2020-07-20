@@ -8,7 +8,7 @@ export const ProjectsPage = () => {
 		<div>
 			<HeadHelmet title="Michael Doctor's Portfolio" />
 			<div id="content-wrapper">
-				<Projects heading="projects" />
+				<Projects />
 			</div>
 			<Footer />
 		</div>
