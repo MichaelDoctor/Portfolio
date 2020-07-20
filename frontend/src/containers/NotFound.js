@@ -1,33 +1,16 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import { renderScripts } from '../components/portfolio/scripts';
+import { renderHead } from '../components/portfolio/head';
 
 export const NotFound = () => {
-	const scripts = [
-		'https://michaeldoctor.imfast.io/portfolio/js/plugins.js',
-		'https://michaeldoctor.imfast.io/portfolio/js/bootstrap.min.js',
-		'https://michaeldoctor.imfast.io/portfolio/js/jquery.prettyPhoto.js',
-		'https://michaeldoctor.imfast.io/portfolio/js/init.js'
-	];
-	useEffect(
-		() => {
-			const createScripts = (srcs) => {
-				srcs.forEach((src) => {
-					const script = document.createElement('script');
-					script.src = src;
-					document.body.appendChild(script);
-				});
-			};
+	useEffect(() => {
+		renderHead('Page Not Found');
+		renderScripts();
+	}, []);
 
-			createScripts(scripts);
-		},
-		[ scripts ]
-	);
 	return (
 		<div>
-			<Helmet>
-				<title>Page Not Found</title>
-			</Helmet>
 			<section id="main-slider" className="no-margin">
 				<div className="carousel slide" data-ride="carousel">
 					<div className="carousel-inner">

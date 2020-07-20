@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
+export const renderHead = (title) => {
+	const head = document.querySelector('head');
+	head.innerHTML = `<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000" />
     <link rel="manifest" href="https://michaeldoctor.imfast.io/portfolio/manifest.json" />
@@ -21,7 +20,7 @@
 				<link href="https://michaeldoctor.imfast.io/portfolio/css/animate.css" rel="stylesheet" >
 				<link href="https://michaeldoctor.imfast.io/portfolio/style.css" rel="stylesheet" >
     <script src="https://michaeldoctor.imfast.io/portfolio/js/jquery.js" ></script>
-    <title>Michael Doctor's Portfolio</title>
+    <title>${title}</title>
     
     <script type="text/javascript">
       jQuery(document).ready(function ($) {
@@ -35,16 +34,5 @@
           "https://michaeldoctor.imfast.io/portfolio/images/bg/bg6.jpg"// https://unsplash.com/photos/4ZPrc2__Kr0 @denisseleon
         ], { duration: 5000, fade: 500, centeredY: true });
       });
-    </script>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <div id="scripts">
-    <script src='https://michaeldoctor.imfast.io/portfolio/js/plugins.js'></script>
-    <scipt src="https://michaeldoctor.imfast.io/portfolio/js/bootstrap.min.js"></script>
-    <script src = 'https://michaeldoctor.imfast.io/portfolio/js/jquery.prettyPhoto.js'></script>
-    <script src ='https://michaeldoctor.imfast.io/portfolio/js/init.js'></script>
-    </div>
-  </body>
-</html>
+    </script>`;
+};

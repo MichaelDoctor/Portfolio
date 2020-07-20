@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const MainSlider = () => {
 	return (
@@ -21,9 +22,9 @@ export const MainSlider = () => {
 											<i className="fab fa-python" />
 										</p>
 										<br />
-										<a className="btn btn-md animation bounce-in" href="#portfolio">
+										<Link className="btn btn-md animation bounce-in" to="/projects">
 											Check out my projects
-										</a>
+										</Link>
 									</div>
 								</div>
 							</div>

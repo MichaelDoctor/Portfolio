@@ -1,26 +1,10 @@
 import React, { useEffect } from 'react';
+import { renderScripts } from './scripts';
 
 export const Footer = () => {
-	const scripts = [
-		'https://michaeldoctor.imfast.io/portfolio/js/plugins.js',
-		'https://michaeldoctor.imfast.io/portfolio/js/bootstrap.min.js',
-		'https://michaeldoctor.imfast.io/portfolio/js/jquery.prettyPhoto.js',
-		'https://michaeldoctor.imfast.io/portfolio/js/init.js'
-	];
-	useEffect(
-		() => {
-			const createScripts = (srcs) => {
-				srcs.forEach((src) => {
-					const script = document.createElement('script');
-					script.src = src;
-					document.body.appendChild(script);
-				});
-			};
-
-			createScripts(scripts);
-		},
-		[ scripts ]
-	);
+	useEffect(() => {
+		renderScripts();
+	}, []);
 	return (
 		<div>
 			<div id="footer-wrapper">

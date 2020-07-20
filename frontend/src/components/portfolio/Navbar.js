@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-export const Navbar = () => {
+export const Navbar = ({ children }) => {
 	return (
 		<div>
 			<Helmet>
@@ -38,13 +38,7 @@ export const Navbar = () => {
 								<Link to="/">Home</Link>
 							</li>
 							<li>
-								<Link to="#services">Skills</Link>
-							</li>
-							<li>
-								<Link to="#about-us">About Me</Link>
-							</li>
-							<li>
-								<Link to="#portfolio">Projects</Link>
+								<Link to="/projects">Projects</Link>
 							</li>
 							<li>
 								<Link to="/404">Contact Me</Link>
@@ -71,6 +65,7 @@ export const Navbar = () => {
 					</div>
 				</div>
 			</header>
+			{children}
 		</div>
 	);
 };
