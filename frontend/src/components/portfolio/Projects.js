@@ -6,83 +6,104 @@ import { Preloader } from './Preloader';
 export const Projects = () => {
 	const [ projects, setProjects ] = useState([]);
 	const [ loading, setLoading ] = useState(true);
-	const [ allProjects, setAllProjects ] = useState([]);
-	useEffect(
-		() => {
-			const getProjects = () => {
-				try {
-					axios.get(`https://michael-doctor.me/api/projects/`).then((res) => res.data).then((result) => {
-						setProjects(result);
-						setAllProjects(result);
-						setLoading(false);
-					});
-				} catch (err) {
-					console.error(err);
-				}
-			};
-			getProjects();
-		},
-		[ projects, loading, allProjects ]
-	);
+	const [ filtered, setFiltered ] = useState([]);
+	useEffect(() => {
+		const getProjects = () => {
+			try {
+				axios.get(`https://michael-doctor.me/api/projects/`).then((res) => res.data).then((result) => {
+					setProjects(result);
+					setFiltered(result);
+					setLoading(false);
+				});
+			} catch (err) {
+				console.error(err);
+			}
+		};
+		getProjects();
+		console.log('ini');
+	}, []);
 
-	const handleClick = (word) => {
-		console.log(word);
+	useEffect(() => {}, [ filtered ]);
+
+	const handleClick = (e, word) => {
+		const filters = document.getElementsByName('project-filter');
+		filters.forEach((filter) => {
+			filter.className = 'btn btn-outlined btn-primary';
+		});
+		e.target.className = `${e.target.className} active`;
+		let results = [];
 		if (word === 'all') {
-			setProjects(allProjects);
+			setFiltered(projects);
+		}
+		else {
+			projects.forEach((project) => {
+				if (project.class_name.includes(word)) results.push(project);
+			});
+			setFiltered(results);
 		}
 	};
 
 	return (
 		<div id="projects">
-			{loading ? (
-				<Preloader />
-			) : (
-				<section id="portfolio" className="white">
-					<div className="container">
-						<div className="gap" />
-						<div className="center gap fade-down section-heading">
-							<h2 className="main-title">projects</h2>
-							<hr />
-							<p>
-								Check out my&nbsp;
-								<a href="https://github.com/MichaelDoctor">
-									<i className="fab fa-github" /> Github
-								</a>
-							</p>
-						</div>
-						<ul className="portfolio-filter fade-down center">
-							<li>
-								<a className="btn btn-outlined btn-primary active" data-filter="*">
-									All
-								</a>
-							</li>
-							<li>
-								<a className="btn btn-outlined btn-primary" data-filter=".python">
-									Python
-								</a>
-							</li>
-							<li>
-								<a className="btn btn-outlined btn-primary" data-filter=".js">
-									JavaScript
-								</a>
-							</li>
-							<li>
-								<a className="btn btn-outlined btn-primary" data-filter=".java">
-									Java
-								</a>
-							</li>
-							<li>
-								<button className="btn btn-outlined btn-primary" onClick={() => handleClick('python')}>
-									Python
-								</button>
-							</li>
-						</ul>
+			<section id="portfolio" className="white">
+				<div className="container">
+					<div className="gap" />
+					<div className="center gap fade-down section-heading">
+						<h2 className="main-title">projects</h2>
+						<hr />
+						<p>
+							Check out my&nbsp;
+							<a href="https://github.com/MichaelDoctor">
+								<i className="fab fa-github" /> Github
+							</a>
+						</p>
 					</div>
-
+					<ul className="portfolio-filter fade-down center">
+						<li>
+							<button
+								name="project-filter"
+								className="btn btn-outlined btn-primary active"
+								onClick={(e) => handleClick(e, 'all')}
+							>
+								All
+							</button>
+						</li>
+						<li>
+							<button
+								name="project-filter"
+								className="btn btn-outlined btn-primary"
+								onClick={(e) => handleClick(e, 'python')}
+							>
+								Python
+							</button>
+						</li>
+						<li>
+							<button
+								name="project-filter"
+								className="btn btn-outlined btn-primary"
+								onClick={(e) => handleClick(e, 'js')}
+							>
+								JavaScript
+							</button>
+						</li>
+						<li>
+							<button
+								name="project-filter"
+								className="btn btn-outlined btn-primary"
+								onClick={(e) => handleClick(e, 'java')}
+							>
+								Java
+							</button>
+						</li>
+					</ul>
+				</div>
+				{loading ? (
+					<Preloader />
+				) : (
 					<section id="blog" className="white">
 						<div className="container">
 							<ul className="portfolio-items isotope fade-up row">
-								{projects.map((project) => (
+								{filtered.map((project) => (
 									<Project
 										key={project.id}
 										className={project.class_name}
@@ -98,8 +119,8 @@ export const Projects = () => {
 							</ul>
 						</div>
 					</section>
-				</section>
-			)}
+				)}
+			</section>
 		</div>
 	);
 };
