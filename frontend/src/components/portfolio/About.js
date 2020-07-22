@@ -17,10 +17,10 @@ export const About = () => {
 				<div className="row">
 					<div className="col-md-10 col-md-offset-1 fade-up">
 						<p>
-							Currently, I'm a software development student at Southern Alberta Institute of Technology
-							(SAIT). I'm passionate in full-stack web development. My preferred frontend and backend
-							frameworks are React and Django, respectively. The programming languages I excel in are
-							Python and JavaScript. I enjoy creating responsive and dynamic web apps by integrating
+							&emsp;Currently, I'm a software development student at Southern Alberta Institute of
+							Technology (SAIT). I'm passionate in full-stack web development. My preferred frontend and
+							backend frameworks are React and Django, respectively. The programming languages I excel in
+							are Python and JavaScript. I enjoy creating responsive and dynamic web apps by integrating
 							bootstrap with React. Along with web development, I'm passionate in learning about
 							Artificial Intelligence using python.
 						</p>

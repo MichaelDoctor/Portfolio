@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Skill = ({ icon, title, content }) => {
+export const Skill = ({ icon, title }) => {
 	return (
 		<div className="col-md-4 col-sm-6 col-xs-12">
 			<div className="service-block">
