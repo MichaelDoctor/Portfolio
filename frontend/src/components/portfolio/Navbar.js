@@ -28,7 +28,7 @@ export const Navbar = ({ children }) => {
 								<Link to="/">Home</Link>
 							</li>
 							<li>
-								<Link to="/projects">Projects</Link>
+								<a href="#projects">Projects</a>
 							</li>
 							<li>
 								<Link to="/404">Contact Me</Link>

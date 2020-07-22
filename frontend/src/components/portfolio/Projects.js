@@ -6,24 +6,34 @@ import { Preloader } from './Preloader';
 export const Projects = () => {
 	const [ projects, setProjects ] = useState([]);
 	const [ loading, setLoading ] = useState(true);
+	const [ allProjects, setAllProjects ] = useState([]);
 	useEffect(
 		() => {
-			const getProjects = async () => {
+			const getProjects = () => {
 				try {
-					const res = await axios.get(`https://michael-doctor.me/api/projects/`);
-					setProjects(await res.data);
-					setLoading(false);
+					axios.get(`https://michael-doctor.me/api/projects/`).then((res) => res.data).then((result) => {
+						setProjects(result);
+						setAllProjects(result);
+						setLoading(false);
+					});
 				} catch (err) {
 					console.error(err);
 				}
 			};
 			getProjects();
 		},
-		[ projects, loading ]
+		[ projects, loading, allProjects ]
 	);
 
+	const handleClick = (word) => {
+		console.log(word);
+		if (word === 'all') {
+			setProjects(allProjects);
+		}
+	};
+
 	return (
-		<div>
+		<div id="projects">
 			{loading ? (
 				<Preloader />
 			) : (
@@ -42,27 +52,33 @@ export const Projects = () => {
 						</div>
 						<ul className="portfolio-filter fade-down center">
 							<li>
-								<a className="btn btn-outlined btn-primary active" href="#" data-filter="*">
+								<a className="btn btn-outlined btn-primary active" data-filter="*">
 									All
 								</a>
 							</li>
 							<li>
-								<a className="btn btn-outlined btn-primary" href="#" data-filter=".python">
+								<a className="btn btn-outlined btn-primary" data-filter=".python">
 									Python
 								</a>
 							</li>
 							<li>
-								<a className="btn btn-outlined btn-primary" href="#" data-filter=".javascript">
+								<a className="btn btn-outlined btn-primary" data-filter=".js">
 									JavaScript
 								</a>
 							</li>
 							<li>
-								<a className="btn btn-outlined btn-primary" href="#" data-filter=".java">
+								<a className="btn btn-outlined btn-primary" data-filter=".java">
 									Java
 								</a>
 							</li>
+							<li>
+								<button className="btn btn-outlined btn-primary" onClick={() => handleClick('python')}>
+									Python
+								</button>
+							</li>
 						</ul>
 					</div>
+
 					<section id="blog" className="white">
 						<div className="container">
 							<ul className="portfolio-items isotope fade-up row">

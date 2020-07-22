@@ -4,6 +4,7 @@ import { Skills } from '../components/portfolio/Skills';
 import { About } from '../components/portfolio/About';
 import { Footer } from '../components/portfolio/Footer';
 import { HeadHelmet } from '../components/portfolio/HeadHelmet';
+import { Projects } from '../components/portfolio/Projects';
 
 export const Home = () => {
 	return (
@@ -14,6 +15,7 @@ export const Home = () => {
 				<Skills heading="languages" />
 				<Skills heading="frameworks" />
 				<About />
+				<Projects />
 			</div>
 			<Footer />
 		</div>
