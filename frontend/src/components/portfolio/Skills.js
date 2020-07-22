@@ -1,29 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Skill } from './Skill';
 import axios from 'axios';
-import { Preloader } from './Preloader';
 
 export const Skills = ({ heading }) => {
 	const [ skills, setSkills ] = useState([]);
-	const [ loading, setLoading ] = useState(true);
 	useEffect(
 		() => {
-			const getSkills = async () => {
+			const getSkills = () => {
 				try {
-					const res = await axios.get(`https://michael-doctor.me/api/skills/${heading}/`);
-					setSkills(await res.data);
-					setLoading(false);
+					axios
+						.get(`https://michael-doctor.me/api/skills/${heading}/`)
+						.then((res) => res.data)
+						.then((result) => {
+							setSkills(result);
+						});
 				} catch (error) {
 					console.error(error);
 				}
 			};
 			getSkills();
 		},
-		[ heading, setSkills ]
+		[ heading ]
 	);
 	return (
 		<div>
-			{loading ? <Preloader /> : ''}
 			<section id="services" className="white">
 				<div className="container">
 					<div className="gap" />

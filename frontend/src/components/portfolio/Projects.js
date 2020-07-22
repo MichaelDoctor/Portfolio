@@ -7,6 +7,7 @@ export const Projects = () => {
 	const [ projects, setProjects ] = useState([]);
 	const [ loading, setLoading ] = useState(true);
 	const [ filtered, setFiltered ] = useState([]);
+	const [ type, setType ] = useState('All');
 	useEffect(() => {
 		const getProjects = () => {
 			try {
@@ -20,10 +21,9 @@ export const Projects = () => {
 			}
 		};
 		getProjects();
-		console.log('ini');
 	}, []);
 
-	useEffect(() => {}, [ filtered ]);
+	useEffect(() => {}, [ filtered, type ]);
 
 	const handleClick = (e, word) => {
 		const filters = document.getElementsByName('project-filter');
@@ -39,8 +39,13 @@ export const Projects = () => {
 			projects.forEach((project) => {
 				if (project.class_name.includes(word)) results.push(project);
 			});
+
 			setFiltered(results);
 		}
+		if (word === 'js') {
+			word = 'JavaScript';
+		}
+		setType(word);
 	};
 
 	return (
@@ -49,7 +54,7 @@ export const Projects = () => {
 				<div className="container">
 					<div className="gap" />
 					<div className="center gap fade-down section-heading">
-						<h2 className="main-title">projects</h2>
+						<h2 className="main-title">{type} projects</h2>
 						<hr />
 						<p>
 							Check out my&nbsp;

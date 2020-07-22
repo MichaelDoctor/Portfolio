@@ -3,7 +3,8 @@ from datetime import datetime
 
 
 class Project(models.Model):
-    class_name = models.CharField(max_length=150)
+    class_name = models.CharField(
+        max_length=150, default='col-lg-3 col-md-4 portfolio-item isotope-item')
     img = models.ImageField(upload_to='photos/%Y/%m/%d/')
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)

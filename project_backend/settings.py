@@ -32,15 +32,56 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Needed for all auth
+    'django.contrib.sites',
     # Packages
     'corsheaders',
     'rest_framework',
     'cloudinary_storage',
     'cloudinary',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.amazon',
+    # 'allauth.socialaccount.providers.discord',
+    # 'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.instagram',
+    # 'allauth.socialaccount.providers.kakao',
+    # 'allauth.socialaccount.providers.linkedin',
+    # 'allauth.socialaccount.providers.linkedin_oauth2',
+    # 'allauth.socialaccount.providers.naver',
+    # 'allauth.socialaccount.providers.mailchimp',
+    # 'allauth.socialaccount.providers.paypal',
+    # 'allauth.socialaccount.providers.spotify',
+    # 'allauth.socialaccount.providers.steam',
+    # 'allauth.socialaccount.providers.twitch',
+    # 'allauth.socialaccount.providers.twitter',
+
     # Apps
     'app_portfolio_projects',
     'app_portfolio_skills'
 ]
+
+# Need for all auth
+SITE_ID = 1
+
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': [
+            'user',
+            'repo',
+        ]
+    },
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email'
+        ]
+    }
+}
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -57,6 +98,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'project_backend.urls'
 
+# Needed for djagno-allauth
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -68,6 +115,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # Need for django-allauth
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -161,3 +210,17 @@ except:
     }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# allauth config
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATED_METHOD = "email"
+ACCOUNT_CONFIRM_EMAIL_ON_GET = False
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
+ACCOUNT_EMAIL_VERIFICATION = "optional"
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
+ACCOUNT_LOGOUT_REDIRECT_URL = "/"
+ACCOUNT_PRESERVE_USERNAME_CASING = False
