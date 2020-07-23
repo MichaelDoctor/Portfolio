@@ -5,10 +5,12 @@ import { App } from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-ReactDOM.render(
-	<Router basename="/" forceRefresh>
-		<App />
-	</Router>,
+ReactDOM.hydrate(
+	<div>
+		<Router basename="/" forceRefresh>
+			<App />
+		</Router>
+	</div>,
 	document.getElementById('root')
 );
 serviceWorker.unregister();
