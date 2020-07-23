@@ -24,10 +24,6 @@ export const Projects = () => {
 	}, []);
 
 	const handleClick = (e, word) => {
-		const filters = document.getElementsByName('project-filter');
-		filters.forEach((filter) => {
-			filter.className = 'btn btn-outlined btn-primary';
-		});
 		e.target.className = `${e.target.className} active`;
 		let results = [];
 		if (word === 'all') {
