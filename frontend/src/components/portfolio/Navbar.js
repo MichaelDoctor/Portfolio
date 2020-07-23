@@ -35,14 +35,14 @@ export const Navbar = ({ children }) => {
 							</li>
 							<li className="dropdown active">
 								<a href="#" className="dropdown-toggle" data-toggle="dropdown">
-									Pages <i className="icon-angle-down" />
+									Auth <i className="icon-angle-down" />
 								</a>
 								<ul className="dropdown-menu">
 									<li>
-										<a href="/admin/">Admin Login</a>
+										<Link to="/register/">Register</Link>
 									</li>
 									<li>
-										<Link to="/404">404</Link>
+										<Link to="/login/">Login</Link>
 									</li>
 								</ul>
 							</li>

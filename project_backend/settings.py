@@ -212,6 +212,8 @@ except:
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # allauth config
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Change later
+
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATED_METHOD = "email"
