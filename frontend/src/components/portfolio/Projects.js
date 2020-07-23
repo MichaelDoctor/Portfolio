@@ -23,8 +23,6 @@ export const Projects = () => {
 		getProjects();
 	}, []);
 
-	// useEffect(() => {}, [ filtered, type ]);
-
 	const handleClick = (e, word) => {
 		const filters = document.getElementsByName('project-filter');
 		filters.forEach((filter) => {
