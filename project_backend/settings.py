@@ -37,32 +37,33 @@ INSTALLED_APPS = [
     # Packages
     'corsheaders',
     'rest_framework',
-    'cloudinary_storage',
-    'cloudinary',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.google',
-    # 'allauth.socialaccount.providers.amazon',
-    # 'allauth.socialaccount.providers.discord',
-    # 'allauth.socialaccount.providers.facebook',
-    # 'allauth.socialaccount.providers.instagram',
-    # 'allauth.socialaccount.providers.kakao',
-    # 'allauth.socialaccount.providers.linkedin',
-    # 'allauth.socialaccount.providers.linkedin_oauth2',
-    # 'allauth.socialaccount.providers.naver',
-    # 'allauth.socialaccount.providers.mailchimp',
-    # 'allauth.socialaccount.providers.paypal',
-    # 'allauth.socialaccount.providers.spotify',
-    # 'allauth.socialaccount.providers.steam',
-    # 'allauth.socialaccount.providers.twitch',
-    # 'allauth.socialaccount.providers.twitter',
+    'cloudinary_storage',
+    'cloudinary',
+
+
 
     # Apps
     'app_portfolio_projects',
     'app_portfolio_skills'
 ]
+
+# rest framework
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated'
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 # Need for all auth
 SITE_ID = 1
@@ -183,12 +184,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# rest framework
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated'
-    ]
-}
+REST_USE_JWT = True
+JWT_AUTH_COOKIE = 'doctor-auth'
 
 # Middleware so any host can access backend
 CORS_ORIGIN_ALLOW_ALL = True
@@ -215,6 +212,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Change later
 
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+LOGIN_REDIRECT_URL = "/"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATED_METHOD = "email"
 ACCOUNT_CONFIRM_EMAIL_ON_GET = False

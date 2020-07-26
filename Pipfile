@@ -23,6 +23,7 @@ cloudinary = "*"
 django-utils-six = "*"
 django-cloudinary-storage = "*"
 django-allauth = "*"
+dj-rest-auth = "*"
 
 [requires]
 python_version = "3.8"
