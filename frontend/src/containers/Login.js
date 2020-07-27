@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import DjangoCSRFToken from 'django-react-csrftoken';
 import { HeadHelmet } from '../components/portfolio/HeadHelmet';
 import { Footer } from '../components/portfolio/Footer';
-import { register } from '../redux/actions/auth';
+import { login } from '../redux/actions/auth';
 import { createMessage } from '../redux/actions/messages';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-const Register = ({ register, createMessage, isAuthenticated }) => {
+const Login = ({ login, createMessage, isAuthenticated }) => {
 	const [ inputs, setInputs ] = useState({});
 	useEffect(() => {
 		setInputs({ csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value });
@@ -22,30 +22,34 @@ const Register = ({ register, createMessage, isAuthenticated }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const { csrfmiddlewaretoken, email, username, password1, password2 } = inputs;
-		if (password1 !== password2) {
-			createMessage({ passwordMatch: 'Passwords do not match' });
-		}
-		else {
-			register(username, email, password1, password2, csrfmiddlewaretoken);
-		}
+		const { csrfmiddlewaretoken, email, password } = inputs;
+
+		login(email, password, csrfmiddlewaretoken);
+
 		if (isAuthenticated) return <Redirect to="/" />;
 	};
 	return (
 		<div>
-			<HeadHelmet title="User Signup" />
+			<HeadHelmet title="User Login" />
 			<div id="content-wrapper">
-				<section id="register" className="white">
+				<section id="login" className="white">
 					<div className="container">
 						<div class="gap" />
 						<div class="row">
 							<div class="col-md-12 fade-up">
-								<h1 class="text-center">Register</h1>
+								<h1 class="text-center">Login</h1>
 								<br />
 								<br />
-								<div id="register" />
+								<div id="login" />
 
-								<form id="registerform" onSubmit={handleSubmit}>
+								<button class="btn btn-lg btn-google btn-block text-uppercase" type="button">
+									<i class="fab fa-google mr-2" /> Sign in with Google
+								</button>
+								<button class="btn btn-lg btn-github btn-block text-uppercase" type="button">
+									<i class="fab fa-github mr-2" /> Sign in with Github
+								</button>
+								<hr class="my-4" />
+								<form id="loginform" onSubmit={handleSubmit}>
 									<DjangoCSRFToken />
 									<input
 										type="email"
@@ -56,31 +60,15 @@ const Register = ({ register, createMessage, isAuthenticated }) => {
 										onChange={handleChange}
 									/>
 									<input
-										type="text"
-										name="username"
-										placeholder="Username"
-										required
-										id="input"
-										onChange={handleChange}
-									/>
-									<input
 										type="password"
-										name="password1"
+										name="password"
 										placeholder="Password"
 										required
 										id="input"
 										onChange={handleChange}
 									/>
-									<input
-										type="password"
-										name="password2"
-										placeholder="Confrim Password"
-										required
-										id="input"
-										onChange={handleChange}
-									/>
 									<button class="btn btn-outlined btn-primary" type="submit" name="submit">
-										Sign up
+										Login
 									</button>
 								</form>
 							</div>
@@ -94,8 +82,8 @@ const Register = ({ register, createMessage, isAuthenticated }) => {
 	);
 };
 
-Register.propTypes = {
-	register        : PropTypes.func.isRequired,
+Login.propTypes = {
+	login           : PropTypes.func.isRequired,
 	createMessage   : PropTypes.func.isRequired,
 	isAuthenticated : PropTypes.bool
 };
@@ -104,4 +92,4 @@ const mapStateToProps = (state) => ({
 	isAuthenticated : state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps, { register, createMessage })(Register);
+export default connect(mapStateToProps, { login, createMessage })(Login);
