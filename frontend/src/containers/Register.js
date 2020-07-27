@@ -27,10 +27,10 @@ const Register = ({ register, createMessage, isAuthenticated }) => {
 			createMessage({ passwordMatch: 'Passwords do not match' });
 		}
 		else {
-			register(username, email, password1, password2, csrfmiddlewaretoken);
+			register({ username, email, password1, password2, csrfmiddlewaretoken });
 		}
-		if (isAuthenticated) return <Redirect to="/" />;
 	};
+	if (isAuthenticated) return <Redirect to="/" />;
 	return (
 		<div>
 			<HeadHelmet title="User Signup" />

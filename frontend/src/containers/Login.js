@@ -24,10 +24,9 @@ const Login = ({ login, createMessage, isAuthenticated }) => {
 		e.preventDefault();
 		const { csrfmiddlewaretoken, email, password } = inputs;
 
-		login(email, password, csrfmiddlewaretoken);
-
-		if (isAuthenticated) return <Redirect to="/" />;
+		login({ email, password, csrfmiddlewaretoken });
 	};
+	// if (isAuthenticated) return <Redirect to="/" />;
 	return (
 		<div>
 			<HeadHelmet title="User Login" />

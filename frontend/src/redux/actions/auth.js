@@ -21,9 +21,12 @@ export const register = ({ username, email, password1, password2, csrfmiddleware
 			'X-CSRFTOKEN'  : csrfmiddlewaretoken
 		}
 	};
+	console.log(username);
+
+	const body = JSON.stringify({ username, password1, password2, email });
 
 	axios
-		.post(`${baseUrl}/auth/register/`, { username, password1, password2, email }, config)
+		.post(`${baseUrl}/auth/register/`, body, config)
 		.then((res) => {
 			dispatch({
 				type    : REGISTER_SUCCESS,
@@ -45,8 +48,10 @@ export const login = ({ email, password, csrfmiddlewaretoken }) => (dispatch) =>
 		}
 	};
 
+	const body = JSON.stringify({ email, password });
+
 	axios
-		.post(`${baseUrl}/auth/login/`, { email, password }, config)
+		.post(`${baseUrl}/auth/login/`, body, config)
 		.then((res) => {
 			dispatch({
 				type    : LOGIN_SUCCESS,
