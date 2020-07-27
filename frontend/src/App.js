@@ -8,6 +8,7 @@ import { Register } from './containers/Register';
 
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import './App.css';
 
 export const App = () => {
 	return (

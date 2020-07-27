@@ -1,1 +1,21 @@
+.btn-google {
+	color: white;
+	background-color: #ea4335;
+}
 
+.btn-github {
+	color: white;
+	background-color: #24292f;
+}
+.btn-github:hover {
+	color: grey;
+}
+#registerform input#input,
+#loginform input#input {
+	width: 100%;
+	padding: 10px 5px;
+	margin-bottom: 15px;
+	background-color: rgba(0, 0, 0, 0.1);
+	color: aliceblue;
+	border: none;
+}

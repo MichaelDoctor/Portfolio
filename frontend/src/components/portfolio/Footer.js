@@ -24,6 +24,10 @@ export const Footer = () => {
 											<a href="https://github.com/MichaelDoctor">Github</a>
 										</li>
 										<li>
+											<i className="fab fa-linkedin" />&nbsp;
+											<a href="https://www.linkedin.com/in/michael-doctor-403/">Linked in</a>
+										</li>
+										<li>
 											<i className="fab fa-instagram" />&nbsp;
 											<a href="https://www.instagram.com/docdoc_whosthere/">Instagram</a>
 										</li>

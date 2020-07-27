@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import DjangoCSRFToken from 'django-react-csrftoken';
 import { HeadHelmet } from '../components/portfolio/HeadHelmet';
 import { Footer } from '../components/portfolio/Footer';
-import axios from 'axios';
+import { register } from '../redux/actions/auth';
+import { createMessage } from '../redux/actions/messages';
 
 export const Register = () => {
 	const [ inputs, setInputs ] = useState({});
@@ -19,26 +20,12 @@ export const Register = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const { csrfmiddlewaretoken, email, username, password1, password2 } = inputs;
-		const config = {
-			headers : {
-				'Content-Type' : 'application/json',
-				'X-CSRFTOKEN'  : csrfmiddlewaretoken
-			}
-		};
-		axios
-			.post('http://0.0.0.0:5000/auth/register/', { username, password1, password2, email }, config)
-			.then((response) => {
-				return response.data;
-			})
-			.then((result) => {
-				console.log(result);
-				axios.defaults.headers.common = {
-					'doctor-auth' : result.access_token
-				};
-			})
-			.catch((err) => {
-				console.log(err.response.data);
-			});
+		if (password1 !== password2) {
+			createMessage({ passwordMatch: 'Passwords do not match' });
+		}
+		else {
+			register(username, email, password1, password2, csrfmiddlewaretoken);
+		}
 	};
 	return (
 		<div>
@@ -46,48 +33,60 @@ export const Register = () => {
 			<div id="content-wrapper">
 				<section id="register" className="white">
 					<div className="container">
-						<div className="row">
-							<h1>Test Signup</h1>
-							<form id="signup-form" onSubmit={handleSubmit}>
-								<DjangoCSRFToken />
-								<input
-									type="email"
-									name="email"
-									placeholder="Email"
-									required
-									id="id_email"
-									onChange={handleChange}
-								/>
+						<div class="gap" />
+						<div class="row">
+							<div class="col-md-12 fade-up">
+								<h1 class="text-center">Register</h1>
 								<br />
-								<input
-									type="text"
-									name="username"
-									placeholder="Username"
-									required
-									id="id_username"
-									onChange={handleChange}
-								/>
 								<br />
-								<input
-									type="password"
-									name="password1"
-									placeholder="Password"
-									required
-									id="id_password1"
-									onChange={handleChange}
-								/>
-								<br />
-								<input
-									type="password"
-									name="password2"
-									placeholder="Confrim Password"
-									required
-									id="id_password2"
-									onChange={handleChange}
-								/>
-								<br />
-								<button type="submit">Sign up</button>
-							</form>
+								<div id="register" />
+
+								<button class="btn btn-lg btn-google btn-block text-uppercase" type="button">
+									<i class="fab fa-google mr-2" /> Sign in with Google
+								</button>
+								<button class="btn btn-lg btn-github btn-block text-uppercase" type="button">
+									<i class="fab fa-github mr-2" /> Sign in with Github
+								</button>
+								<hr class="my-4" />
+								<form id="registerform" onSubmit={handleSubmit}>
+									<DjangoCSRFToken />
+									<input
+										type="email"
+										name="email"
+										placeholder="Email"
+										required
+										id="input"
+										onChange={handleChange}
+									/>
+									<input
+										type="text"
+										name="username"
+										placeholder="Username"
+										required
+										id="input"
+										onChange={handleChange}
+									/>
+									<input
+										type="password"
+										name="password1"
+										placeholder="Password"
+										required
+										id="input"
+										onChange={handleChange}
+									/>
+									<input
+										type="password"
+										name="password2"
+										placeholder="Confrim Password"
+										required
+										id="input"
+										onChange={handleChange}
+									/>
+									<button class="btn btn-outlined btn-primary" type="submit" name="submit">
+										Sign up
+									</button>
+								</form>
+							</div>
 						</div>
 					</div>
 				</section>
