@@ -11,6 +11,8 @@ import {
 import { errorMessage } from './messages';
 import axios from 'axios';
 
+const baseUrl = 'http://0.0.0.0:5000';
+
 //Register
 export const register = ({ username, email, password1, password2, csrfmiddlewaretoken }) => (dispatch) => {
 	const config = {
@@ -21,7 +23,7 @@ export const register = ({ username, email, password1, password2, csrfmiddleware
 	};
 
 	axios
-		.post('http://0.0.0.0:5000/auth/register/', { username, password1, password2, email }, config)
+		.post(`${baseUrl}/auth/register/`, { username, password1, password2, email }, config)
 		.then((res) => {
 			dispatch({
 				type    : REGISTER_SUCCESS,
@@ -35,24 +37,80 @@ export const register = ({ username, email, password1, password2, csrfmiddleware
 };
 
 //Login
+export const login = ({ email, password, csrfmiddlewaretoken }) => (dispatch) => {
+	const config = {
+		headers : {
+			'Content-Type' : 'application/json',
+			'X-CSRFTOKEN'  : csrfmiddlewaretoken
+		}
+	};
+
+	axios
+		.post(`${baseUrl}/auth/login/`, { email, password }, config)
+		.then((res) => {
+			dispatch({
+				type    : LOGIN_SUCCESS,
+				payload : res.data
+			});
+		})
+		.catch((err) => {
+			dispatch(errorMessage(err.response.data, err.response.status));
+			dispatch({ type: LOGIN_FAIL });
+		});
+};
 
 //logout
+export const logout = ({ csrfmiddlewaretoken }) => (dispatch, getState) => {
+	axios
+		.post(`${baseUrl}/auth/logout/`, tokenConfig(getState, csrfmiddlewaretoken))
+		.then((res) => {
+			dispatch({
+				type : LOGOUT
+			});
+		})
+		.catch((err) => {
+			dispatch(errorMessage(err.response.data, err.response.status));
+		});
+};
 
 //Check token and load user
 export const loadUser = () => (dispatch, getState) => {
 	dispatch({ type: USER_LOADING });
-	//add the rest later
+	axios
+		.get(`${baseUrl}/auth/user/`, null, tokenConfig(getState, ''))
+		.then((res) => {
+			dispatch({
+				type    : USER_LOADED,
+				payload : res.data
+			});
+		})
+		.catch((err) => {
+			dispatch(errorMessage(err.response.data, err.response.status));
+			dispatch({ type: AUTH_ERROR });
+		});
 };
 
 //token config
-export const tokenConfig = (getState) => {
+export const tokenConfig = (getState, csrfmiddlewaretoken) => {
+	let config = {};
+	if (csrfmiddlewaretoken === '') {
+		config = {
+			headers : {
+				'Content-Type' : 'application/json'
+			}
+		};
+	}
+	else {
+		config = {
+			headers : {
+				'Content-Type' : 'application/json',
+				'X-CSRFTOKEN'  : csrfmiddlewaretoken
+			}
+		};
+	}
+
 	const token = getState().auth.token;
 
-	const config = {
-		headers : {
-			'Content-Type' : 'application/json'
-		}
-	};
 	if (token) {
 		config.headers['Authorization'] = `Token ${token}`;
 	}
