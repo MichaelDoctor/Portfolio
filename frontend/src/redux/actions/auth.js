@@ -11,7 +11,8 @@ import {
 import { errorMessage } from './messages';
 import axios from 'axios';
 
-const baseUrl = 'http://0.0.0.0:5000';
+// const baseUrl = 'http://0.0.0.0:5000';
+const baseUrl = 'https://michael-doctor.me';
 
 //Register
 export const register = ({ username, email, password1, password2, csrfmiddlewaretoken }) => (dispatch) => {
