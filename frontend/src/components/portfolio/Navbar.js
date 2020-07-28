@@ -1,7 +1,44 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { logout } from '../../redux/actions/auth';
 
-export const Navbar = ({ children }) => {
+const Navbar = ({ children, logout, auth: { isAuthenticated, user } }) => {
+	const authLinks = (
+		<li className="dropdown active">
+			<a href="#" className="dropdown-toggle" data-toggle="dropdown">
+				{user ? `Welcome ${user.username}` : `Welcome`} <i className="icon-angle-down" />
+			</a>
+			<ul className="dropdown-menu">
+				<li>
+					<Link to="/profile/">Profile</Link>
+				</li>
+				<li>
+					<a href="#!" onClick={logout}>
+						Logout
+					</a>
+				</li>
+			</ul>
+		</li>
+	);
+
+	const guestLinks = (
+		<li className="dropdown active">
+			<a href="#" className="dropdown-toggle" data-toggle="dropdown">
+				Account <i className="icon-angle-down" />
+			</a>
+			<ul className="dropdown-menu">
+				<li>
+					<Link to="/register/">Register</Link>
+				</li>
+				<li>
+					<Link to="/login/">Login</Link>
+				</li>
+			</ul>
+		</li>
+	);
+
 	return (
 		<div>
 			<header className="navbar navbar-inverse navbar-fixed-top " role="banner">
@@ -33,19 +70,7 @@ export const Navbar = ({ children }) => {
 							<li>
 								<Link to="/404">Contact Me</Link>
 							</li>
-							<li className="dropdown active">
-								<a href="#" className="dropdown-toggle" data-toggle="dropdown">
-									Auth <i className="icon-angle-down" />
-								</a>
-								<ul className="dropdown-menu">
-									<li>
-										<Link to="/register/">Register</Link>
-									</li>
-									<li>
-										<Link to="/login/">Login</Link>
-									</li>
-								</ul>
-							</li>
+							{isAuthenticated ? authLinks : guestLinks}
 							<li>
 								<span className="search-trigger">
 									<i className="fa fa-search" />
@@ -59,3 +84,13 @@ export const Navbar = ({ children }) => {
 		</div>
 	);
 };
+
+Navbar.propTypes = {
+	logout : PropTypes.func.isRequired,
+	auth   : PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+	auth : state.auth
+});
+export default connect(mapStateToProps, { logout })(Navbar);

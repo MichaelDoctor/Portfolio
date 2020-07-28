@@ -30,7 +30,7 @@ const Register = ({ register, createMessage, isAuthenticated }) => {
 			register({ username, email, password1, password2, csrfmiddlewaretoken });
 		}
 	};
-	if (isAuthenticated) return <Redirect to="/" />;
+	if (isAuthenticated) return <Redirect to="/profile/" />;
 	return (
 		<div>
 			<HeadHelmet title="User Signup" />

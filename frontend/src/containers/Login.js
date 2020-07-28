@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-const Login = ({ login, createMessage, isAuthenticated }) => {
+const Login = ({ login, isAuthenticated }) => {
 	const [ inputs, setInputs ] = useState({});
 	useEffect(() => {
 		setInputs({ csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value });
@@ -26,7 +26,7 @@ const Login = ({ login, createMessage, isAuthenticated }) => {
 
 		login({ email, password, csrfmiddlewaretoken });
 	};
-	// if (isAuthenticated) return <Redirect to="/" />;
+	if (isAuthenticated) return <Redirect to="/profile/" />;
 	return (
 		<div>
 			<HeadHelmet title="User Login" />
