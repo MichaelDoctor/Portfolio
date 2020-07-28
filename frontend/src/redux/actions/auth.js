@@ -10,6 +10,7 @@ import {
 } from './types';
 import { errorMessage } from './messages';
 import axios from 'axios';
+import { setErrors, setAlert } from './alerts';
 
 // const baseUrl = 'http://0.0.0.0:5000';
 const baseUrl = 'https://michael-doctor.me';
@@ -22,7 +23,6 @@ export const register = ({ username, email, password1, password2, csrfmiddleware
 			'X-CSRFTOKEN'  : csrfmiddlewaretoken
 		}
 	};
-	console.log(username);
 
 	const body = JSON.stringify({ username, password1, password2, email });
 
@@ -33,8 +33,10 @@ export const register = ({ username, email, password1, password2, csrfmiddleware
 				type    : REGISTER_SUCCESS,
 				payload : res.data
 			});
+			dispatch(setAlert('Successfully Registered', 'success'));
 		})
 		.catch((err) => {
+			dispatch(setErrors(err.response.data));
 			dispatch(errorMessage(err.response.data, err.response.status));
 			dispatch({ type: REGISTER_FAIL });
 		});
@@ -60,6 +62,7 @@ export const login = ({ email, password, csrfmiddlewaretoken }) => (dispatch) =>
 			});
 		})
 		.catch((err) => {
+			dispatch(setErrors(err.response.data));
 			dispatch(errorMessage(err.response.data, err.response.status));
 			dispatch({ type: LOGIN_FAIL });
 		});
@@ -75,6 +78,7 @@ export const logout = ({ csrfmiddlewaretoken }) => (dispatch, getState) => {
 			});
 		})
 		.catch((err) => {
+			dispatch(setErrors(err.response.data));
 			dispatch(errorMessage(err.response.data, err.response.status));
 		});
 };
@@ -91,6 +95,7 @@ export const loadUser = () => (dispatch, getState) => {
 			});
 		})
 		.catch((err) => {
+			dispatch(setErrors(err.response.data));
 			dispatch(errorMessage(err.response.data, err.response.status));
 			dispatch({ type: AUTH_ERROR });
 		});

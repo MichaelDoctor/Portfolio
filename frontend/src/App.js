@@ -14,6 +14,8 @@ import PrivateRoute from './components/portfolio/PrivateRoute';
 
 import { persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
+import Alert from './components/portfolio/Alert';
+import { clearAlerts } from './redux/actions/alerts';
 export const App = () => {
 	return (
 		<div>

@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logout } from '../../redux/actions/auth';
+import Alert from './Alert';
+import { clearAlerts } from '../../redux/actions/alerts';
 
-const Navbar = ({ children, logout, auth: { isAuthenticated, user } }) => {
+const Navbar = ({ children, clearAlerts, logout, auth: { isAuthenticated, user } }) => {
 	const authLinks = (
 		<li className="dropdown active">
 			<a href="#" className="dropdown-toggle" data-toggle="dropdown">
@@ -80,17 +82,22 @@ const Navbar = ({ children, logout, auth: { isAuthenticated, user } }) => {
 					</div>
 				</div>
 			</header>
+			<div id="alerts" className="center centered">
+				{clearAlerts()}
+				<Alert />
+			</div>
 			{children}
 		</div>
 	);
 };
 
 Navbar.propTypes = {
-	logout : PropTypes.func.isRequired,
-	auth   : PropTypes.object.isRequired
+	logout      : PropTypes.func.isRequired,
+	auth        : PropTypes.object.isRequired,
+	clearAlerts : PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
 	auth : state.auth
 });
-export default connect(mapStateToProps, { logout })(Navbar);
+export default connect(mapStateToProps, { logout, clearAlerts })(Navbar);

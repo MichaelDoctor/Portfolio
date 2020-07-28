@@ -3,12 +3,13 @@ import DjangoCSRFToken from 'django-react-csrftoken';
 import { HeadHelmet } from '../components/portfolio/HeadHelmet';
 import { Footer } from '../components/portfolio/Footer';
 import { register } from '../redux/actions/auth';
+import { setAlert } from '../redux/actions/alerts';
 import { createMessage } from '../redux/actions/messages';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-const Register = ({ register, createMessage, isAuthenticated }) => {
+const Register = ({ register, createMessage, isAuthenticated, setAlert }) => {
 	const [ inputs, setInputs ] = useState({});
 	useEffect(() => {
 		setInputs({ csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value });
@@ -24,6 +25,7 @@ const Register = ({ register, createMessage, isAuthenticated }) => {
 		e.preventDefault();
 		const { csrfmiddlewaretoken, email, username, password1, password2 } = inputs;
 		if (password1 !== password2) {
+			setAlert('Passwords do no match', 'danger');
 			createMessage({ passwordMatch: 'Passwords do not match' });
 		}
 		else {
@@ -44,7 +46,6 @@ const Register = ({ register, createMessage, isAuthenticated }) => {
 								<br />
 								<br />
 								<div id="register" />
-
 								<form id="registerform" onSubmit={handleSubmit}>
 									<DjangoCSRFToken />
 									<input
@@ -97,6 +98,7 @@ const Register = ({ register, createMessage, isAuthenticated }) => {
 Register.propTypes = {
 	register        : PropTypes.func.isRequired,
 	createMessage   : PropTypes.func.isRequired,
+	setAlert        : PropTypes.func.isRequired,
 	isAuthenticated : PropTypes.bool
 };
 
@@ -104,4 +106,4 @@ const mapStateToProps = (state) => ({
 	isAuthenticated : state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps, { register, createMessage })(Register);
+export default connect(mapStateToProps, { register, createMessage, setAlert })(Register);

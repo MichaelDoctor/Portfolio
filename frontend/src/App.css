@@ -19,3 +19,8 @@
 	color: aliceblue;
 	border: none;
 }
+#alerts {
+	position: relative;
+	z-index: 5;
+	margin-top: 70px;
+}

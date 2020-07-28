@@ -1,4 +1,5 @@
 import React from 'react';
+import Alert from './Alert';
 
 export const MainSlider = () => {
 	return (
@@ -11,7 +12,9 @@ export const MainSlider = () => {
 								<div className="col-sm-12">
 									<div className="carousel-content center centered">
 										<i className="home-icon fas fa-user-md bounce-in" />
+
 										<br />
+
 										<p className="boxed animation animated-item-2 fade-up">Hi, my name is</p>
 										<br />
 										<h2 className="boxed animation animated-item-1 fade-down">Michael Doctor</h2>
