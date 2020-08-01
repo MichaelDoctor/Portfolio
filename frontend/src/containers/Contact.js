@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DjangoCSRFToken from 'django-react-csrftoken';
-import { HeadHelmet } from '../components/portfolio/HeadHelmet';
-import { Footer } from '../components/portfolio/Footer';
+import { HeadHelmet } from '../components/all/HeadHelmet';
+import { Footer } from '../components/all/Footer';
 import { contact } from '../redux/actions/contact';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';

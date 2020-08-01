@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { HeadHelmet } from '../components/portfolio/HeadHelmet';
-import { Preloader } from '../components/portfolio/Preloader';
+import { HeadHelmet } from '../components/all/HeadHelmet';
+import { Preloader } from '../components/all/Preloader';
 
 export const NotFound = () => {
 	const [ loading, setLoading ] = useState(true);

@@ -3,10 +3,12 @@ import { Route, Switch } from 'react-router-dom';
 
 import Home from './containers/Home';
 import { NotFound } from './containers/NotFound';
-import Navbar from './components/portfolio/Navbar';
+import Navbar from './components/all/Navbar';
 import Register from './containers/Register';
 import Login from './containers/Login';
 import Contact from './containers/Contact';
+import BlogPosts from './containers/BlogPosts';
+import BlogPost from './containers/BlogPost';
 
 import { Provider } from 'react-redux';
 import store from './redux/store';
@@ -25,6 +27,9 @@ export const App = () => {
 							<Route path="/register/" component={Register} />
 							<Route path="/login/" component={Login} />
 							<Route path="/contact/" component={Contact} />
+							<Route path="/blog/*/" component={BlogPost} />
+							<Route path="/blog/" component={BlogPosts} />
+
 							<Route component={NotFound} />
 						</Switch>
 					</Navbar>

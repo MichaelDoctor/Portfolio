@@ -28,7 +28,7 @@ const Navbar = ({ children, clearAlerts, logout, auth: { isAuthenticated, user }
 	const guestLinks = (
 		<li className="dropdown active">
 			<a className="dropdown-toggle" data-toggle="dropdown">
-				Account <i className="icon-angle-down" />
+				Profile <i className="icon-angle-down" />
 			</a>
 			<ul className="dropdown-menu">
 				<li>
