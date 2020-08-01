@@ -17,7 +17,7 @@ export const contact = ({ name, email, subject, message, csrfmiddlewaretoken }) 
 	const body = JSON.stringify({ name, email, subject, message });
 
 	axios
-		.post(`${baseUrl}/contact/`, body, config)
+		.post(`${baseUrl}/api/contact/`, body, config)
 		.then((res) => {
 			dispatch({
 				type : CONTACT_SUCCESS
