@@ -5,8 +5,12 @@ import { About } from '../components/portfolio/About';
 import { Footer } from '../components/portfolio/Footer';
 import { HeadHelmet } from '../components/portfolio/HeadHelmet';
 import { Projects } from '../components/portfolio/Projects';
+import { connect } from 'react-redux';
+import { resetSent } from '../redux/actions/contact';
+import PropTypes from 'prop-types';
 
-export const Home = () => {
+const Home = ({ isSent, resetSent }) => {
+	if (isSent) resetSent();
 	return (
 		<div>
 			<HeadHelmet title="Michael Doctor's Portfolio" />
@@ -21,3 +25,14 @@ export const Home = () => {
 		</div>
 	);
 };
+
+Home.propTypes = {
+	isSent    : PropTypes.bool,
+	resetSent : PropTypes.func.isRequired
+};
+
+const mapStateToProps = (state) => ({
+	isSent : state.contact.isSent
+});
+
+export default connect(mapStateToProps, { resetSent })(Home);

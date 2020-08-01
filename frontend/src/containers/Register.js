@@ -7,7 +7,7 @@ import { setAlert } from '../redux/actions/alerts';
 import { createMessage } from '../redux/actions/messages';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 const Register = ({ register, createMessage, isAuthenticated, setAlert }) => {
 	const [ inputs, setInputs ] = useState({});
@@ -84,6 +84,9 @@ const Register = ({ register, createMessage, isAuthenticated, setAlert }) => {
 										Sign up
 									</button>
 								</form>
+								<p>
+									Already have an account? <Link to="/login/">Sign in</Link>
+								</p>
 							</div>
 						</div>
 					</div>

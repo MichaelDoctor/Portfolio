@@ -11,13 +11,19 @@
 	color: grey;
 }
 #registerform input#input,
-#loginform input#input {
+#loginform input#input,
+#contactform input#input {
 	width: 100%;
 	padding: 10px 5px;
 	margin-bottom: 15px;
 	background-color: rgba(0, 0, 0, 0.1);
 	color: aliceblue;
 	border: none;
+}
+
+#contactform textarea#comments {
+	background-color: rgba(0, 0, 0, 0.1);
+	color: aliceblue;
 }
 #alerts {
 	position: relative;

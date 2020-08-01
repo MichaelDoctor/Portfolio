@@ -15,6 +15,10 @@ export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
 export const CLEAR_ALERTS = 'CLEAR_ALERTS';
 
+// Contact
+export const CONTACT_SUCCESS = 'CONTACT_SUCCESS';
+export const CONTACT_FAIL = 'CONTACT_FAIL';
+
 // Blog Profiles
 export const GET_PROFILES = 'GET_PROFILES';
 export const DELETE_PROFILE = 'DELETE_PROFILE';

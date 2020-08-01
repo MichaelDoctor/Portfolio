@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import DjangoCSRFToken from 'django-react-csrftoken';
 import { HeadHelmet } from '../components/portfolio/HeadHelmet';
 import { Footer } from '../components/portfolio/Footer';
-import { login } from '../redux/actions/auth';
-import { createMessage } from '../redux/actions/messages';
+import { contact } from '../redux/actions/contact';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
-const Login = ({ login, isAuthenticated }) => {
+const Contact = ({ contact, isSent }) => {
 	const [ inputs, setInputs ] = useState({});
 	useEffect(() => {
 		setInputs({ csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value });
@@ -22,34 +21,33 @@ const Login = ({ login, isAuthenticated }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const { csrfmiddlewaretoken, email, password } = inputs;
-
-		login({ email, password, csrfmiddlewaretoken });
+		const { csrfmiddlewaretoken, name, email, subject, message } = inputs;
+		contact({ name, email, subject, message, csrfmiddlewaretoken });
 	};
-	if (isAuthenticated) return <Redirect to="/profile/" />;
+	if (isSent) return <Redirect to="/" />;
 	return (
 		<div>
-			<HeadHelmet title="User Login" />
+			<HeadHelmet title="Contact Michael Doctor" />
 			<div id="content-wrapper">
-				<section id="login" className="white">
+				<section id="contact" className="white">
 					<div className="container">
 						<div class="gap" />
 						<div class="row">
 							<div class="col-md-12 fade-up">
-								<h1 class="text-center">Login</h1>
+								<h1 class="text-center">Contact Me</h1>
 								<br />
 								<br />
-								<div id="login" />
-
-								<button class="btn btn-lg btn-google btn-block text-uppercase" type="button">
-									<i class="fab fa-google mr-2" /> Sign in with Google
-								</button>
-								<button class="btn btn-lg btn-github btn-block text-uppercase" type="button">
-									<i class="fab fa-github mr-2" /> Sign in with Github
-								</button>
-								<hr class="my-4" />
-								<form id="loginform" onSubmit={handleSubmit}>
+								<div id="contact" />
+								<form id="contactform" onSubmit={handleSubmit}>
 									<DjangoCSRFToken />
+									<input
+										type="text"
+										name="name"
+										placeholder="Name"
+										required
+										id="input"
+										onChange={handleChange}
+									/>
 									<input
 										type="email"
 										name="email"
@@ -59,20 +57,24 @@ const Login = ({ login, isAuthenticated }) => {
 										onChange={handleChange}
 									/>
 									<input
-										type="password"
-										name="password"
-										placeholder="Password"
+										type="text"
+										name="subject"
+										placeholder="Subject"
 										required
 										id="input"
 										onChange={handleChange}
 									/>
+									<textarea
+										name="message"
+										placeholder="Message"
+										required
+										id="comments"
+										onChange={handleChange}
+									/>
 									<button class="btn btn-outlined btn-primary" type="submit" name="submit">
-										Login
+										Submit
 									</button>
 								</form>
-								<p>
-									Don't have an account? <Link to="/register/">Sign up</Link>
-								</p>
 							</div>
 						</div>
 					</div>
@@ -84,14 +86,12 @@ const Login = ({ login, isAuthenticated }) => {
 	);
 };
 
-Login.propTypes = {
-	login           : PropTypes.func.isRequired,
-	createMessage   : PropTypes.func.isRequired,
-	isAuthenticated : PropTypes.bool
+Contact.propTypes = {
+	contact : PropTypes.func.isRequired,
+	isSent  : PropTypes.bool
 };
 
 const mapStateToProps = (state) => ({
-	isAuthenticated : state.auth.isAuthenticated
+	isSent : state.contact.isSent
 });
-
-export default connect(mapStateToProps, { login, createMessage })(Login);
+export default connect(mapStateToProps, { contact })(Contact);

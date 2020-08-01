@@ -9,7 +9,7 @@ import { clearAlerts } from '../../redux/actions/alerts';
 const Navbar = ({ children, clearAlerts, logout, auth: { isAuthenticated, user } }) => {
 	const authLinks = (
 		<li className="dropdown active">
-			<a href="#" className="dropdown-toggle" data-toggle="dropdown">
+			<a className="dropdown-toggle" data-toggle="dropdown">
 				{user ? `Welcome ${user.username}` : `Welcome`} <i className="icon-angle-down" />
 			</a>
 			<ul className="dropdown-menu">
@@ -27,7 +27,7 @@ const Navbar = ({ children, clearAlerts, logout, auth: { isAuthenticated, user }
 
 	const guestLinks = (
 		<li className="dropdown active">
-			<a href="#" className="dropdown-toggle" data-toggle="dropdown">
+			<a className="dropdown-toggle" data-toggle="dropdown">
 				Account <i className="icon-angle-down" />
 			</a>
 			<ul className="dropdown-menu">
@@ -70,14 +70,9 @@ const Navbar = ({ children, clearAlerts, logout, auth: { isAuthenticated, user }
 								<a href="#projects">Projects</a>
 							</li>
 							<li>
-								<Link to="/404">Contact Me</Link>
+								<Link to="/contact/">Contact Me</Link>
 							</li>
 							{isAuthenticated ? authLinks : guestLinks}
-							<li>
-								<span className="search-trigger">
-									<i className="fa fa-search" />
-								</span>
-							</li>
 						</ul>
 					</div>
 				</div>

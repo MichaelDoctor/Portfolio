@@ -52,7 +52,8 @@ INSTALLED_APPS = [
 
     # Apps
     'app_portfolio_projects',
-    'app_portfolio_skills'
+    'app_portfolio_skills',
+    'app_portfolio_contact',
 ]
 
 # rest framework
@@ -193,6 +194,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 # File sizing
 FILE_UPLOAD_PERMISSIONS = 0o640
 
+
 try:
     CLOUDINARY_STORAGE = {
         'CLOUD_NAME': envs.CLOUD_NAME,
@@ -206,11 +208,22 @@ except:
         'API_SECRET': os.environ.get('CLOUD_SECRET')
     }
 
+# email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+try:
+    EMAIL_HOST_USER = envs.GMAIL_USER
+    EMAIL_HOST_PASSWORD = envs.GMAIL_PASS
+except:
+    EMAIL_HOST_USER = os.environ.get('GMAIL_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_PASS')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# allauth config
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Change later
 
+# alauth config
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 LOGIN_REDIRECT_URL = "/"
 ACCOUNT_EMAIL_REQUIRED = True

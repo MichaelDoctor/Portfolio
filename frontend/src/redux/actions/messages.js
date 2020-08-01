@@ -1,5 +1,4 @@
 import { CREATE_MESSAGE, GET_ERRORS } from './types';
-import { setErrors } from './alerts';
 
 // Create message
 export const createMessage = (msg) => {

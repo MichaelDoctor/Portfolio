@@ -21,8 +21,8 @@ export const About = () => {
 							Technology (SAIT). I'm passionate in full-stack web development. My preferred frontend and
 							backend frameworks are React and Django, respectively. The programming languages I excel in
 							are Python and JavaScript. I enjoy creating responsive and dynamic web apps by integrating
-							bootstrap with React. Along with web development, I'm passionate in learning about
-							Artificial Intelligence using python.
+							bootstrap with React. Along with web development, I'm interested in learning about
+							Artificial Intelligence using Python.
 						</p>
 					</div>
 					<div className="col-md-4 fade-up" />
