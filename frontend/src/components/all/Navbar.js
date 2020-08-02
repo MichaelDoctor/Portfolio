@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { logout } from '../../redux/actions/auth';
+import { logout, authenticated } from '../../redux/actions/auth';
 import Alert from './Alert';
 import { clearAlerts } from '../../redux/actions/alerts';
+import DjangoCSRFToken from 'django-react-csrftoken';
 
-const Navbar = ({ children, clearAlerts, logout, auth: { isAuthenticated, user } }) => {
+const Navbar = ({ children, authenticated, clearAlerts, logout, auth: { isAuthenticated, user } }) => {
+	const [ input, setInput ] = useState({});
+	useEffect(() => {
+		setInput({ csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value });
+		authenticated();
+	}, []);
+
+	const getToken = () => {
+		logout(input);
+	};
 	const authLinks = (
 		<li className="dropdown active">
 			<a className="dropdown-toggle" data-toggle="dropdown">
@@ -17,9 +27,7 @@ const Navbar = ({ children, clearAlerts, logout, auth: { isAuthenticated, user }
 					<Link to="/profile/">Profile</Link>
 				</li>
 				<li>
-					<a href="#!" onClick={logout}>
-						Logout
-					</a>
+					<a onClick={getToken}>Logout</a>
 				</li>
 			</ul>
 		</li>
@@ -77,6 +85,7 @@ const Navbar = ({ children, clearAlerts, logout, auth: { isAuthenticated, user }
 					</div>
 				</div>
 			</header>
+			<DjangoCSRFToken />
 			<div id="alerts" className="center centered">
 				{clearAlerts()}
 				<Alert />
@@ -87,12 +96,13 @@ const Navbar = ({ children, clearAlerts, logout, auth: { isAuthenticated, user }
 };
 
 Navbar.propTypes = {
-	logout      : PropTypes.func.isRequired,
-	auth        : PropTypes.object.isRequired,
-	clearAlerts : PropTypes.func.isRequired
+	logout        : PropTypes.func.isRequired,
+	auth          : PropTypes.object.isRequired,
+	clearAlerts   : PropTypes.func.isRequired,
+	authenticated : PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
 	auth : state.auth
 });
-export default connect(mapStateToProps, { logout, clearAlerts })(Navbar);
+export default connect(mapStateToProps, { logout, clearAlerts, authenticated })(Navbar);

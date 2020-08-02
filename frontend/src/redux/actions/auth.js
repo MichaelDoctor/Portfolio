@@ -6,11 +6,13 @@ import {
 	LOGIN_SUCCESS,
 	LOGOUT,
 	REGISTER_FAIL,
-	REGISTER_SUCCESS
+	REGISTER_SUCCESS,
+	AUTHENTICATED
 } from './types';
 import { errorMessage } from './messages';
 import axios from 'axios';
 import { setErrors, setAlert } from './alerts';
+import DjangoCSRFToken from 'django-react-csrftoken';
 
 // const baseUrl = 'http://0.0.0.0:5000';
 const baseUrl = 'https://michael-doctor.me';
@@ -66,6 +68,21 @@ export const login = ({ email, password, csrfmiddlewaretoken }) => (dispatch) =>
 			dispatch(errorMessage(err.response.data, err.response.status));
 			dispatch({ type: LOGIN_FAIL });
 		});
+};
+
+export const authenticated = () => (dispatch) => {
+	console.log('authenticate check');
+	axios.get(`${baseUrl}/auth/current/`).then((res) => {
+		if (res.data.pk !== 'None') {
+			dispatch({
+				type    : AUTHENTICATED,
+				payload : res.data
+			});
+		}
+		else {
+			dispatch({ type: AUTH_ERROR });
+		}
+	});
 };
 
 //logout
