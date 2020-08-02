@@ -9,7 +9,7 @@ class CurrentUser(APIView):
     authentication_classes = (SessionAuthentication, BasicAuthentication,)
 
     def get(self, request):
-        if str(requset.user.id) != "None":
+        if str(request.user.id) != "None":
             content = {
                 'pk': int(str(request.user.id)),
                 'username': str(request.user),

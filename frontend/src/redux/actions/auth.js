@@ -86,9 +86,15 @@ export const authenticated = () => (dispatch) => {
 };
 
 //logout
-export const logout = ({ csrfmiddlewaretoken }) => (dispatch, getState) => {
+export const logout = ({ csrfmiddlewaretoken }) => (dispatch) => {
+	const config = {
+		headers : {
+			'Content-Type' : 'application/json',
+			'X-CSRFTOKEN'  : csrfmiddlewaretoken
+		}
+	};
 	axios
-		.post(`${baseUrl}/auth/logout/`, tokenConfig(getState, csrfmiddlewaretoken))
+		.post(`${baseUrl}/auth/logout/`, null, config)
 		.then((res) => {
 			dispatch({
 				type : LOGOUT
