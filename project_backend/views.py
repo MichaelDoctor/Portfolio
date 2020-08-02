@@ -11,6 +11,6 @@ class CurrentUser(APIView):
     def get(self, request):
         content = {
             'user': str(request.user),
-            'auth': str(request.auth)
+            'id': str(request.user.id)
         }
         return Response(content)

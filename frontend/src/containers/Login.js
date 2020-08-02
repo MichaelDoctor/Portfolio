@@ -40,17 +40,16 @@ const Login = ({ login, isAuthenticated }) => {
 								<br />
 								<br />
 								<div id="login" />
-
-								<button class="btn btn-lg btn-google btn-block text-uppercase" type="button">
-									<a href="/allauth/google/login/?process=login">
+								<a href="/allauth/google/login/?process=login">
+									<button class="btn btn-lg btn-google btn-block text-uppercase" type="button">
 										<i class="fab fa-google mr-2" /> Sign in with Google
-									</a>
-								</button>
-								<button class="btn btn-lg btn-github btn-block text-uppercase" type="button">
-									<a href="/allauth/github/login/?process=login">
+									</button>
+								</a>
+								<a href="/allauth/github/login/?process=login">
+									<button class="btn btn-lg btn-github btn-block text-uppercase" type="button">
 										<i class="fab fa-github mr-2" /> Sign in with Github
-									</a>
-								</button>
+									</button>
+								</a>
 								<hr class="my-4" />
 								<form id="loginform" onSubmit={handleSubmit}>
 									<DjangoCSRFToken />
