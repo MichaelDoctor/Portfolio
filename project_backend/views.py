@@ -1,14 +1,16 @@
 from rest_framework.views import APIView
 from rest_framework import permissions
 from rest_framework.response import Response
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 
 
 class CurrentUser(APIView):
     permission_classes = (permissions.AllowAny,)
+    authentication_classes = (SessionAuthentication, BasicAuthentication,)
 
     def get(self, request):
-        user = request.user
-        if user:
-            return Response({'pk': user.id, 'username': user.username})
-        else:
-            return Response({'msg': 'No request user'})
+        content = {
+            'user': unicode(request.user),
+            'auth': unicode(request.auth)
+        }
+        return Response(content)
