@@ -9,6 +9,6 @@ class CurrentUser(APIView):
     def get(self, request):
         user = request.user
         if user:
-            return Response({'pk': user.id, 'username': user.username, 'first_name': user.first_name, 'last_name': user.last_name})
+            return Response({'pk': user.id, 'username': user.username})
         else:
             return Response({'msg': 'No request user'})
