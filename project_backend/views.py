@@ -10,7 +10,7 @@ class CurrentUser(APIView):
 
     def get(self, request):
         content = {
-            'user': unicode(request.user),
-            'auth': unicode(request.auth)
+            'user': str(request.user),
+            'auth': str(request.auth)
         }
         return Response(content)
