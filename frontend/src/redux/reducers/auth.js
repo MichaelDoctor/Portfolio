@@ -43,7 +43,7 @@ export default (state = initialState, action) => {
 			};
 		case AUTHENTICATED:
 			return {
-				...state,
+				token           : null,
 				isAuthenticated : true,
 				isLoading       : false,
 				user            : action.payload

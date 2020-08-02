@@ -45,11 +45,6 @@ const Login = ({ login, isAuthenticated }) => {
 										<i class="fab fa-google mr-2" /> Sign in with Google
 									</button>
 								</a>
-								<a href="/allauth/github/login/?process=login">
-									<button class="btn btn-lg btn-github btn-block text-uppercase" type="button">
-										<i class="fab fa-github mr-2" /> Sign in with Github
-									</button>
-								</a>
 								<hr class="my-4" />
 								<form id="loginform" onSubmit={handleSubmit}>
 									<DjangoCSRFToken />

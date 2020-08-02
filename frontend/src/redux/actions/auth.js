@@ -71,7 +71,6 @@ export const login = ({ email, password, csrfmiddlewaretoken }) => (dispatch) =>
 };
 
 export const authenticated = () => (dispatch) => {
-	console.log('authenticate check');
 	axios.get(`${baseUrl}/auth/current/`).then((res) => {
 		if (res.data.pk !== 'None') {
 			dispatch({
