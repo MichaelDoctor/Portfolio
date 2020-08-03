@@ -5,6 +5,7 @@ import { Banner } from '../components/all/Banner';
 import { Footer } from '../components/all/Footer';
 import { BlogList } from '../components/blog/BlogList';
 import { connect } from 'react-redux';
+import { Pagination } from '../components/all/Pagination';
 
 const BlogPosts = () => {
 	const description =
@@ -28,34 +29,7 @@ const BlogPosts = () => {
 									comments={[ 1, 2 ]}
 									content="This is the body of the post."
 								/>
-								<h1>Fix pagination style and script with api pagination!!!!</h1>
-								<ul class="pagination pagination-lg">
-									<li>
-										<a href="#">
-											<i class="fa fa-angle-left" />
-										</a>
-									</li>
-									<li class="active">
-										<a href="#">1</a>
-									</li>
-									<li>
-										<a href="#">2</a>
-									</li>
-									<li>
-										<a href="#">3</a>
-									</li>
-									<li>
-										<a href="#">4</a>
-									</li>
-									<li>
-										<a href="#">5</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fa fa-angle-right" />
-										</a>
-									</li>
-								</ul>
+								<Pagination />
 							</div>
 						</div>
 					</div>

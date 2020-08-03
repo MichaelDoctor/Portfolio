@@ -6,7 +6,7 @@ export const BlogDetail = () => {
 		<div className="blog">
 			<div className="blog-item">
 				<div class="blog-featured-image">
-					<img class="img-responsive img-blog" src="https://placehold.it/1200x600" alt="Post image" />
+					<img class="img-responsive img-blog" src="https://placehold.it/1200x600" alt="Blog Post" />
 					<div class="overlay">
 						<a class="preview btn btn-outlined btn-primary" href="#blog-content" rel="prettyPhoto">
 							<i class="fa fa-link" />
@@ -55,7 +55,7 @@ export const BlogDetail = () => {
 					<hr />
 					<div id="comments">
 						<div id="comments-list">
-							<h3>3 Comments. CHANGE STYLING LATER!!!!!!!!</h3>
+							<h3>3 Comments</h3>
 							<Comment>
 								<Comment />
 								<Comment />

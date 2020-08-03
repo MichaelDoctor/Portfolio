@@ -12,7 +12,6 @@ import {
 import { errorMessage } from './messages';
 import axios from 'axios';
 import { setErrors, setAlert } from './alerts';
-import DjangoCSRFToken from 'django-react-csrftoken';
 
 // const baseUrl = 'http://0.0.0.0:5000';
 const baseUrl = 'https://michael-doctor.me';

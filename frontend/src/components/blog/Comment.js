@@ -4,7 +4,7 @@ export const Comment = ({ children }) => {
 	return (
 		<div class="media">
 			<div class="pull-left">
-				<img class="avatar img-thumbnail comment-avatar" src="http://placehold.it/400x400" alt="User image" />
+				<img class="avatar img-thumbnail comment-avatar" src="http://placehold.it/400x400" alt="User avatar" />
 			</div>
 			<div class="media-body">
 				<div class="well">

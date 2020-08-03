@@ -9,10 +9,14 @@ import DjangoCSRFToken from 'django-react-csrftoken';
 
 const Navbar = ({ children, authenticated, clearAlerts, logout, auth: { isAuthenticated, user } }) => {
 	const [ input, setInput ] = useState({});
-	useEffect(() => {
-		setInput({ csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value });
-		authenticated();
-	}, []);
+	useEffect(
+		() => {
+			setInput({ csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value });
+			authenticated();
+			console.log('hi');
+		},
+		[ authenticated ]
+	);
 
 	const getToken = () => {
 		logout(input);

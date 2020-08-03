@@ -7,7 +7,7 @@ const CommentForm = (props) => {
 			<h3 class="main-title">Leave a comment</h3>
 			<hr />
 			<h5>Login to leave a comment. Show this message if user not logged in.</h5>
-			<form class="form-horizontal" role="form">
+			<form class="form-horizontal">
 				<div class="form-group">
 					<div class="col-sm-12">
 						<textarea rows="8" class="form-control" placeholder="Comment" />

@@ -7,7 +7,7 @@ export const BlogList = ({ title, author, date, img, slug, comments, content }) 
 			<div className="blog-item">
 				<h1>Fix styling of hover later!!!!!!!!!!!!And add a form for posting if user is authenticated</h1>
 				<div className="blog-featured-image">
-					<img className="img-responsive img-blog" src={img} alt="post image" />
+					<img className="img-responsive img-blog" src={img} alt="Blog Post" />
 					<div className="overlay">
 						<Link className="preview btn btn-outlined btn-primary" to={slug}>
 							<i className="fa fa-link" />
