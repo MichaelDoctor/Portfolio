@@ -13,7 +13,6 @@ const Navbar = ({ children, authenticated, clearAlerts, logout, auth: { isAuthen
 		() => {
 			setInput({ csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value });
 			authenticated();
-			console.log('hi');
 		},
 		[ authenticated ]
 	);

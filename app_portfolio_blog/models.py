@@ -37,7 +37,8 @@ class BlogPost(models.Model):
 class Comment(models.Model):
     blog = models.ForeignKey(
         BlogPost, on_delete=models.CASCADE, related_name='comments')
-    reply = models.ForeignKey('self', related_name='replies')
+    parent = models.ForeignKey(
+        'self', related_name='replies', null=True, blank=True)
     author = models.ForeignKey(User, related_name='blog_comments')
     content = models.TextField()
     date = models.DateTimeField(default=datetime.now, blank=True)
@@ -46,4 +47,17 @@ class Comment(models.Model):
         ordering = ('-date')
 
     def __str__(self):
-        return f'{self.author}: {self.content} on {self.blog}'
+        if not self.parent:
+            return f'comment by {self.author}: {self.content} on {self.blog}'
+        else:
+            return f'reply by {self.author}: {self.content} on {self.blog}'
+
+    def __repr__(self):
+        return self.__str__()
+
+    def replies(self):
+        return self.__class__.objects.filter(parent=self).order_by()
+
+    @property
+    def is_parent(self):
+        return self.parent is None
