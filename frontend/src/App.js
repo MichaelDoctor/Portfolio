@@ -9,6 +9,8 @@ import Login from './containers/Login';
 import Contact from './containers/Contact';
 import BlogPosts from './containers/BlogPosts';
 import BlogPost from './containers/BlogPost';
+import BlogForm from './containers/BlogForm';
+import PrivateRoute from './components/all/PrivateRoute';
 
 import { Provider } from 'react-redux';
 import store from './redux/store';
@@ -27,7 +29,8 @@ export const App = () => {
 							<Route path="/register/" component={Register} />
 							<Route path="/login/" component={Login} />
 							<Route path="/contact/" component={Contact} />
-							<Route path="/blog/*/" component={BlogPost} />
+							<Route path="/blog/slug/*/" component={BlogPost} />
+							<PrivateRoute path="/blog/create/" component={BlogForm} />
 							<Route path="/blog/" component={BlogPosts} />
 
 							<Route component={NotFound} />

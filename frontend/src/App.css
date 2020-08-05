@@ -67,3 +67,10 @@ ul.pagination > li:hover > a.active {
 img.avatar.img-thumbnail.comment-avatar {
 	background: #151617;
 }
+.form-control:disabled {
+	padding: 10px 5px;
+	background-color: rgba(0, 0, 0, 0.1);
+	color: #202020;
+	border: none;
+	border-radius: 0;
+}

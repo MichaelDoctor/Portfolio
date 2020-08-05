@@ -1,27 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const CommentForm = (props) => {
+const CommentForm = ({ isAuthenticated }) => {
 	return (
 		<div id="comment-form">
-			<h3 class="main-title">Leave a comment</h3>
+			<h3 className="main-title">Leave a comment</h3>
 			<hr />
-			<h5>Login to leave a comment. Show this message if user not logged in.</h5>
-			<form class="form-horizontal">
-				<div class="form-group">
-					<div class="col-sm-12">
-						<textarea rows="8" class="form-control" placeholder="Comment" />
+			<form className="form-horizontal">
+				<div className="form-group">
+					<div className="col-sm-12">
+						<textarea
+							rows="8"
+							className="form-control"
+							placeholder={isAuthenticated ? 'Comment' : 'Login to Leave a Comment'}
+							disabled={isAuthenticated ? 'false' : 'true'}
+						/>
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary btn-outlined">
-					{' '}
-					Comment
-				</button>
+
+				{isAuthenticated ? (
+					<button type="submit" className="btn btn-primary btn-outlined">
+						&nbsp; Comment
+					</button>
+				) : (
+					<a className="btn btn-primary btn-outlined disabled"> Comment</a>
+				)}
 			</form>
 		</div>
 	);
 };
 
-CommentForm.propTypes = {};
+CommentForm.propTypes = {
+	isAuthenticated : PropTypes.bool
+};
 
-export default CommentForm;
+const mapStateToProps = (state) => ({ isAuthenticated: state.auth.isAuthenticated });
+
+export default connect(mapStateToProps)(CommentForm);

@@ -7,7 +7,7 @@ from django.template.defaultfilters import slugify
 class BlogPost(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField()
-    img = models.ImageField(upload_to='photos/%Y/%m/%d/')
+    img = models.ImageField(upload_to='blog_images')
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='blog_posts')
     date = models.DateTimeField(default=datetime.now, blank=True)

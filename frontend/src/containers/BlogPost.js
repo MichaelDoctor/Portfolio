@@ -4,7 +4,7 @@ import { HeadHelmet } from '../components/all/HeadHelmet';
 import { Footer } from '../components/all/Footer';
 import { BlogDetail } from '../components/blog/BlogDetail';
 const BlogPost = (props) => {
-	const slug = window.location.pathname.slice(6, window.location.pathname.length);
+	const slug = window.location.pathname.slice(11, window.location.pathname.length - 1);
 	return (
 		<div>
 			<HeadHelmet title="Change this to post title" />

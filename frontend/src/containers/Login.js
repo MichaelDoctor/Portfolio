@@ -26,7 +26,7 @@ const Login = ({ login, isAuthenticated }) => {
 
 		login({ email, password, csrfmiddlewaretoken });
 	};
-	if (isAuthenticated) return <Redirect to="/profile/" />;
+	if (isAuthenticated) return <Redirect to="/" />;
 	return (
 		<div>
 			<HeadHelmet title="User Login" />

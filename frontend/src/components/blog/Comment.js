@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export const Comment = ({ children }) => {
+const Comment = ({ children, isAuthenticated }) => {
 	return (
 		<div class="media">
 			<div class="pull-left">
@@ -15,7 +17,16 @@ export const Comment = ({ children }) => {
 						Was are delightful solicitude discovered collecting man day. Resolving neglected sir tolerably
 						but existence conveying for. Day his put off unaffected literature partiality inhabiting.
 					</p>
-					<a class="pull-right btn btn-primary btn-outlined" href="#">
+					<a
+						className={
+							isAuthenticated ? (
+								'pull-right btn btn-primary btn-outlined'
+							) : (
+								'pull-right btn btn-primary btn-outlined disabled'
+							)
+						}
+						href="#"
+					>
 						Reply
 					</a>
 				</div>
@@ -24,3 +35,12 @@ export const Comment = ({ children }) => {
 		</div>
 	);
 };
+
+Comment.propTypes = {
+	isAuthenticated : PropTypes.bool
+};
+
+const mapStateToProps = (state) => ({
+	isAuthenticated : state.auth.isAuthenticated
+});
+export default connect(mapStateToProps)(Comment);
