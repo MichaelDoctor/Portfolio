@@ -1,10 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { HeadHelmet } from '../components/all/HeadHelmet';
 import { Banner } from '../components/all/Banner';
 import { Footer } from '../components/all/Footer';
 import { BlogList } from '../components/blog/BlogList';
-import { connect } from 'react-redux';
 import { Pagination } from '../components/all/Pagination';
 import BlogCreate from '../components/blog/BlogCreate';
 

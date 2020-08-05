@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { HeadHelmet } from '../components/all/HeadHelmet';
 import { Footer } from '../components/all/Footer';
 import { BlogDetail } from '../components/blog/BlogDetail';
