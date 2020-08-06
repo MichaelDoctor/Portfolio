@@ -14,7 +14,7 @@ class BlogPost(models.Model):
     content = models.TextField()
 
     class Meta:
-        ordering = ('date',)
+        ordering = ('-id',)
 
     # Auto create slug field
     def save(self, *args, **kwargs):
