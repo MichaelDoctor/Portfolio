@@ -28,6 +28,13 @@ class PostDetailView(RetrieveAPIView):
     lookup_field = 'slug'
 
 
+class CommentDetailView(RetrieveAPIView):
+    permission_classes = (permissions.AllowAny,)
+    serializer_class = CommentSerializer
+    queryset = Comment.objects.all().order_by()
+    lookup_field = 'pk'
+
+
 class CreatePostView(APIView):
     permission_classes = (permissions.IsAuthenticated,)
     serializer_class = BlogPostSerializer
