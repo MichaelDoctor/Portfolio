@@ -15,12 +15,6 @@ class PostsView(ListAPIView):
     queryset = BlogPost.objects.all().order_by()
 
 
-class CommentsView(ListAPIView):
-    permission_classes = (permissions.AllowAny,)
-    serializer_class = CommentSerializer
-    queryset = Comment.objects.all().order_by()
-
-
 class PostDetailView(APIView):
     permission_classes = (permissions.AllowAny,)
     serializer_class = BlogPostSerializer
@@ -34,13 +28,6 @@ class PostDetailView(APIView):
 
         }
         return Response(data)
-
-
-class CommentDetailView(RetrieveAPIView):
-    permission_classes = (permissions.AllowAny,)
-    serializer_class = CommentSerializer
-    queryset = Comment.objects.all().order_by()
-    lookup_field = 'pk'
 
 
 class CreatePostView(APIView):
