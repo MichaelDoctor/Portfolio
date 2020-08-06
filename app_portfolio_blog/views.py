@@ -28,10 +28,11 @@ class PostDetailView(RetrieveAPIView):
     def get_queryset(self):
         slug = self.kwargs['slug']
         post = BlogPost.objects.get(slug=slug)
-        comments = {
+        temp = {
+            'post': post
             'comments': Comment.objects.filter(blog=post.id)
         }
-        data = {**post, **comments}
+        data = {**temp}
         return data
 
 
