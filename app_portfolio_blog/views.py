@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework import permissions
 from rest_framework.authentication import BasicAuthentication, SessionAuthentication
-from .models import BlogPost
+from .models import BlogPost, Comment
 from .serializers import BlogPostSerializer, CommentSerializer
 from .forms import CommentForm
 
@@ -15,10 +15,10 @@ class PostsView(ListAPIView):
     queryset = BlogPost.objects.all().order_by()
 
 
-# class CommentsView(ListAPIView):
-#     permission_classes = (permissions.AllowAny,)
-#     serializer_class = CommentSerializer
-#     queryset = BlogPost.comments.all().order_by()
+class CommentsView(ListAPIView):
+    permission_classes = (permissions.AllowAny,)
+    serializer_class = CommentSerializer
+    queryset = Comment.objects.all().order_by()
 
 
 class PostDetailView(RetrieveAPIView):
