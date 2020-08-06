@@ -27,10 +27,10 @@ class PostDetailView(APIView):
     lookup_field = 'slug'
 
     def get(self, request, slug, format=None):
-        post = BlogPost.objects.get(slug=slug)
+        post = BlogPost.objects.filter(slug=slug).values()[0]
         data = {
-            'post': dict(post),
-            'comments': Comment.objects.filter(blog=post.id).values()
+            'post': post,
+            'comments': Comment.objects.filter(blog=post['id']).values()
 
         }
         return Response(data)
