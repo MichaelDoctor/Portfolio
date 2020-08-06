@@ -38,13 +38,14 @@ class Comment(models.Model):
     blog = models.ForeignKey(
         BlogPost, on_delete=models.CASCADE, related_name='comments')
     parent = models.ForeignKey(
-        'self', related_name='replies', null=True, blank=True)
-    author = models.ForeignKey(User, related_name='blog_comments')
+        'self', related_name='replies', null=True, blank=True, on_delete=models.CASCADE)
+    author = models.ForeignKey(
+        User, related_name="blog_comments", on_delete=models.CASCADE)
     content = models.TextField()
     date = models.DateTimeField(default=datetime.now, blank=True)
 
     class Meta:
-        ordering = ('-date')
+        ordering = ('-date',)
 
     def __str__(self):
         if not self.parent:

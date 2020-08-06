@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'app_portfolio_projects',
     'app_portfolio_skills',
     'app_portfolio_contact',
+    'app_portfolio_blog'
 ]
 
 # rest framework
