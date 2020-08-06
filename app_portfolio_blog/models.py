@@ -6,7 +6,7 @@ from django.template.defaultfilters import slugify
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=100)
-    slug = models.SlugField()
+    slug = models.SlugField(blank=True)
     img = models.ImageField(upload_to='blog_images')
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='blog_posts')
@@ -26,7 +26,7 @@ class BlogPost(models.Model):
         while (queryset):
             slug = og_slug + '-' + str(count)
             count += 1
-            queryset = queryset.filter.all().filter(slug__iexact=slug).count()
+            queryset = BlogPost.objects.all().filter(slug__iexact=slug).count()
         self.slug = slug
         super(BlogPost, self).save(*args, **kwargs)
 
@@ -45,7 +45,7 @@ class Comment(models.Model):
     date = models.DateTimeField(default=datetime.now, blank=True)
 
     class Meta:
-        ordering = ('-date',)
+        ordering = ('date',)
 
     def __str__(self):
         if not self.parent:
