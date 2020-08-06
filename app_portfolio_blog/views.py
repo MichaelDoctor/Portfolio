@@ -27,7 +27,8 @@ class PostDetailView(RetrieveAPIView):
     lookup_field = 'slug'
 
     def get_queryset(self):
-        post = BlogPost.objects.get(slug=lookup_field)
+        slug = self.kwargs['slug']
+        post = BlogPost.objects.get(slug=slug)
         temp = {
             'post': post,
             'comments': Comment.objects.filter(blog=post.id)
