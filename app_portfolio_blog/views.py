@@ -30,7 +30,7 @@ class PostDetailView(APIView):
         slug = self.kwargs['slug']
         post = BlogPost.objects.get(slug=slug)
         data = {
-            'post': dict(post)
+            'post': dict(post),
             'comments': Comment.objects.filter(blog=post.id).values()
 
         }
