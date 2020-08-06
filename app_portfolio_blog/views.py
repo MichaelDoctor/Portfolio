@@ -29,7 +29,7 @@ class PostDetailView(RetrieveAPIView):
         slug = self.kwargs['slug']
         post = BlogPost.objects.get(slug=slug)
         temp = {
-            'post': post
+            'post': post,
             'comments': Comment.objects.filter(blog=post.id)
         }
         data = {**temp}
