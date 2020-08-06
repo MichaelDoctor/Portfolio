@@ -24,10 +24,10 @@ class CommentsView(ListAPIView):
 class PostDetailView(RetrieveAPIView):
     permission_classes = (permissions.AllowAny,)
     serializer_class = BlogPostSerializer
+    lookup_field = 'slug'
 
     def get_queryset(self):
-        slug = self.kwargs['slug']
-        post = BlogPost.objects.get(slug=slug)
+        post = BlogPost.objects.get(slug=lookup_field)
         temp = {
             'post': post,
             'comments': Comment.objects.filter(blog=post.id)
