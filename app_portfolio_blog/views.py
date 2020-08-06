@@ -26,8 +26,7 @@ class PostDetailView(APIView):
     serializer_class = BlogPostSerializer
     lookup_field = 'slug'
 
-    def get(self, request, format=None):
-        slug = self.kwargs['slug']
+    def get(self, request, slug, format=None):
         post = BlogPost.objects.get(slug=slug)
         data = {
             'post': dict(post),
