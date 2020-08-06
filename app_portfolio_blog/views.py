@@ -14,6 +14,7 @@ class PostsView(ListAPIView):
     serializer_class = BlogPostSerializer
     queryset = BlogPost.objects.all().order_by()
 
+
 # class CommentsView(ListAPIView):
 #     permission_classes = (permissions.AllowAny,)
 #     serializer_class = CommentSerializer
@@ -24,6 +25,7 @@ class PostDetailView(RetrieveAPIView):
     permission_classes = (permissions.AllowAny,)
     serializer_class = BlogPostSerializer
     queryset = BlogPost.objects.all().order_by()
+    lookup_field = 'slug'
 
 
 class CreatePostView(APIView):
