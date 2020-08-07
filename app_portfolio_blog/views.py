@@ -1,7 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView, RetrieveAPIView
-from rest_framework import permissions
+from rest_framework import permissions, status
 from rest_framework.authentication import BasicAuthentication, SessionAuthentication
+from rest_framework.parsers import MultiPartParser, FormParser
 from .models import BlogPost, Comment
 from .serializers import BlogPostSerializer, CommentSerializer
 from .forms import CommentForm
@@ -12,7 +13,7 @@ from rest_framework.response import Response
 class PostsView(ListAPIView):
     permission_classes = (permissions.AllowAny,)
     serializer_class = BlogPostSerializer
-    queryset = BlogPost.objects.all().order_by()
+    queryset = BlogPost.objects.all().order_by('-id')
 
 
 class PostDetailView(APIView):
@@ -27,28 +28,32 @@ class PostDetailView(APIView):
             'comments': Comment.objects.filter(blog=post['id']).values()
 
         }
-        return Response(data)
+        return Response(data, status=status.HTTP_200_OK)
 
 
 class CreatePostView(APIView):
     permission_classes = (permissions.IsAuthenticated,)
-    serializer_class = BlogPostSerializer
+    parser_classes = (MultiPartParser, FormParser,)
     authentication_classes = (SessionAuthentication, BasicAuthentication,)
 
     def post(self, request, format=None):
-        data = self.request.data
-        username = str(self.request.user)
-        serializer = BlogPostSerializer(data, many=True)
-        return Response(serializer.data)
+        serializer = BlogPostSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class CreateCommentView(APIView):
     permission_classes = (permissions.IsAuthenticated,)
-    serializer_class = CommentSerializer
+    parser_classes = (MultiPartParser, FormParser,)
     authentication_classes = (SessionAuthentication, BasicAuthentication,)
 
     def post(self, request, format=None):
-        data = self.request.data
-        username = str(self.request.user)
-        serializer = CommentSerializer(data, many=True)
-        return Response(serializer.data)
+        serializer = CommentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
