@@ -21,7 +21,6 @@ export const CONTACT_SUCCESS = 'CONTACT_SUCCESS';
 export const CONTACT_FAIL = 'CONTACT_FAIL';
 
 // Blog Profiles
-export const GET_PROFILES = 'GET_PROFILES';
-export const DELETE_PROFILE = 'DELETE_PROFILE';
-export const ADD_PROFILE = 'ADD_PROFILE';
-export const CLEAR_PROFILES = 'CLEAR_PROFILES';
+export const GET_POSTS = 'GET_POSTS';
+export const GET_POST = 'GET_POST';
+export const CREATE_POST = 'CREATE_POST';
