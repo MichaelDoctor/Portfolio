@@ -30,10 +30,9 @@ class GetUsername(APIView):
         try:
             data = User.objects.filter(id=pk).values()[0]
             content = {
-                'pk': data[pk],
+                'pk': data['id'],
                 'username': data['username']
             }
             return Response(content)
         except:
-
             return Response({'pk': pk, 'username': 'Anon'})
