@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { HeadHelmet } from '../components/all/HeadHelmet';
 import { Banner } from '../components/all/Banner';
 import { Footer } from '../components/all/Footer';
-import { BlogList } from '../components/blog/BlogList';
+import BlogList from '../components/blog/BlogList';
 import { Pagination } from '../components/all/Pagination';
 import BlogCreate from '../components/blog/BlogCreate';
-import { getPostList, getUsers } from '../redux/actions/blog';
+import { getPostList } from '../redux/actions/blog';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -37,6 +37,7 @@ const BlogPosts = ({ getPostList, blog: { postList, users, postIds } }) => {
 								<hr />
 								{posts.map((post) => (
 									<BlogList
+										key={post.id}
 										id={post.id}
 										title={post.title}
 										author={post.author}

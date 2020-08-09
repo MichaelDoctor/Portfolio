@@ -1,8 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getNumComments } from '../../redux/actions/blog';
+import { connect } from 'react-redux';
+import axios from 'axios';
 
-export const BlogList = ({ id, title, slug, img, date, content, author }) => {
+const BlogList = ({ id, title, slug, img, date, content, author }) => {
+	const [ comments, setComments ] = useState(0);
+	const [ username, setUsername ] = useState('');
+	const formattedDate = new Date(date.split('T')[0]);
+	useEffect(
+		() => {
+			axios
+				.get(`https://michael-doctor.me/auth/user/${author}/`)
+				.then((res) => {
+					return res.data;
+				})
+				.then((result) => {
+					setUsername(result.username);
+				});
+			axios
+				.get(`https://michael-doctor.me/api/blogs/comment/${id}/`)
+				.then((res) => {
+					return res.data;
+				})
+				.then((result) => {
+					setComments(result.length);
+				});
+		},
+		[ id, author, comments, username ]
+	);
 	return (
 		<div>
 			<div className="blog-item">
@@ -20,15 +45,15 @@ export const BlogList = ({ id, title, slug, img, date, content, author }) => {
 					</a>
 					<div class="entry-meta">
 						<span>
-							<i class="fa fa-user" /> <a href="#linktoprofilelater"> {author}</a>
+							<i class="fa fa-user" /> <a href="#linktoprofilelater"> {username}</a>
 						</span>&nbsp;
 						<span>
-							<i class="fa fa-clock" /> {date}
+							<i class="fa fa-clock" /> {formattedDate.toDateString()}
 						</span>&nbsp;
 						<span>
 							<i class="fa fa-comment" />&nbsp;
 							<a href={`${slug}#comments`}>
-								<span class="counter">{id}</span> Comments
+								<span class="counter">{comments}</span> Comments
 							</a>
 						</span>
 					</div>
@@ -43,3 +68,5 @@ export const BlogList = ({ id, title, slug, img, date, content, author }) => {
 		</div>
 	);
 };
+
+export default connect(null, {})(BlogList);

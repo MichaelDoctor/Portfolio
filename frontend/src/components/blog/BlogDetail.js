@@ -6,7 +6,11 @@ export const BlogDetail = () => {
 		<div className="blog">
 			<div className="blog-item">
 				<div class="blog-featured-image">
-					<img class="img-responsive img-blog" src="https://placehold.it/1200x600" alt="Blog Post" />
+					<img
+						class="img-responsive img-blog center-block"
+						src="https://placehold.it/1200x600"
+						alt="Blog Post"
+					/>
 					<div class="overlay">
 						<a class="preview btn btn-outlined btn-primary" href="#blog-content" rel="prettyPhoto">
 							<i class="fa fa-link" />

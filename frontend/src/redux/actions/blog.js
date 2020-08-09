@@ -1,4 +1,4 @@
-import { CREATE_POST, GET_POST, GET_POSTS, GET_USERS, GET_COMMENTS } from './types';
+import { CREATE_POST, GET_POST, GET_POSTS } from './types';
 import { errorMessage } from './messages';
 import axios from 'axios';
 import { setErrors, setAlert } from './alerts';
@@ -46,17 +46,10 @@ export const getUser = (user) => (dispatch) => {
 	});
 };
 
-// get Users
-export const getUsers = (userList) => (dispatch) => {
-	axios.all(userList.map((user) => axios.get(`${baseUrl}/auth/user/${user}/`))).then((res) => {
-		dispatch({ type: GET_USERS, payload: res });
-	});
-};
-
 // get number of comments
-export const getNumComments = (blog, fn) => (dispatch) => {
+export const getNumComments = (blog) => (dispatch) => {
 	axios.get(`${baseUrl}/api/blogs/comment/${blog}/`).then((res) => {
-		fn(res.data.length);
+		return res.data.length;
 	});
 };
 
