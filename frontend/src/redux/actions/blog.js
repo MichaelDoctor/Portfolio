@@ -1,4 +1,4 @@
-import { CREATE_POST, GET_POST, GET_POSTS } from './types';
+import { CREATE_POST, CLEAR_POST } from './types';
 import { errorMessage } from './messages';
 import axios from 'axios';
 import { setErrors, setAlert } from './alerts';
@@ -6,36 +6,11 @@ import { setErrors, setAlert } from './alerts';
 // const baseUrl = 'http://0.0.0.0:5000';
 const baseUrl = 'https://michael-doctor.me';
 
-// List of posts
-export const getPostList = () => (dispatch) => {
-	axios.get(`${baseUrl}/api/blogs/`).then((res) => {
-		dispatch({
-			type    : GET_POSTS,
-			payload : res.data
-		});
-	});
-};
-
-// Detail post view
-export const getPost = (slug) => (dispatch) => {
-	axios
-		.get(`${baseUrl}/api/blogs/blog/${slug}`)
-		.then((res) => {
-			dispatch({
-				type    : GET_POST,
-				payload : res.data
-			});
-		})
-		.catch((err) => {
-			dispatch(setAlert('Post does not exist', 'danger'));
-		});
-};
-
 //Create post
 export const createPost = ({ formData, csrfmiddlewaretoken }) => (dispatch) => {
 	const config = {
 		headers : {
-			'Content-Type' : 'multipart/form-date',
+			'Content-Type' : 'multipart/form-data',
 			'X-CSRFTOKEN'  : csrfmiddlewaretoken
 		}
 	};
@@ -51,8 +26,6 @@ export const createPost = ({ formData, csrfmiddlewaretoken }) => (dispatch) => {
 		})
 		.catch((err) => {
 			dispatch(setAlert('Error Creating Post', 'danger'));
-			dispatch(setErrors(err.response.data));
-			dispatch(errorMessage(err.response.data, err.response.status));
 		});
 };
 
@@ -69,11 +42,17 @@ export const createComment = ({ formData, csrfmiddlewaretoken, slug }) => (dispa
 		.post(`${baseUrl}/api/blogs/create/comment/`, formData, config)
 		.then((res) => {
 			console.log(res);
-			getPostList(slug);
 		})
 		.catch((err) => {
 			dispatch(setAlert('Error creating comment', 'danger'));
 			dispatch(setErrors(err.response.data));
 			dispatch(errorMessage(err.response.data, err.response.status));
 		});
+};
+
+// For redirect
+export const postCreated = () => (dispatch) => {
+	dispatch({
+		type : CLEAR_POST
+	});
 };

@@ -6,13 +6,12 @@ import BlogList from '../components/blog/BlogList';
 import { Pagination } from '../components/all/Pagination';
 import BlogCreate from '../components/blog/BlogCreate';
 import axios from 'axios';
+import { postCreated } from '../redux/actions/blog';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
-const BlogPosts = () => {
-	const description =
-		'This is blog page displays all posts by all users. This project utilizes database relationships, user authorization with private routes, and blog posts with comments and replies. ';
-
+const BlogPosts = ({ blog, postCreated }) => {
 	const [ posts, setPosts ] = useState([]);
 	useEffect(
 		() => {
@@ -28,10 +27,16 @@ const BlogPosts = () => {
 		[ posts ]
 	);
 
+	if (blog.post) {
+		postCreated();
+	}
 	return (
 		<div>
 			<HeadHelmet title="Blog Project" />
-			<Banner title="Blog Project" description={description} />
+			<Banner
+				title="Blog Project"
+				description="This is blog page displays all posts by all users. This project utilizes database relationships, user authorization with private routes, and blog posts with comments and replies. "
+			/>
 			<div id="content-wrapper">
 				<section id="blog" class="white">
 					<div class="container">
@@ -64,5 +69,13 @@ const BlogPosts = () => {
 		</div>
 	);
 };
+BlogPosts.propTypes = {
+	blog        : PropTypes.object,
+	postCreated : PropTypes.func.isRequired
+};
 
-export default connect(null, {})(BlogPosts);
+const mapStateToProps = (state) => ({
+	blog : state.blog
+});
+
+export default connect(mapStateToProps, { postCreated })(BlogPosts);

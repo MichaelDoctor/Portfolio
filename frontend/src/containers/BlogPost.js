@@ -2,7 +2,7 @@ import React from 'react';
 import { HeadHelmet } from '../components/all/HeadHelmet';
 import { Footer } from '../components/all/Footer';
 import { BlogDetail } from '../components/blog/BlogDetail';
-const BlogPost = (props) => {
+const BlogPost = () => {
 	const slug = window.location.pathname.slice(11, window.location.pathname.length - 1);
 	return (
 		<div>
@@ -13,8 +13,7 @@ const BlogPost = (props) => {
 						<div class="gap" />
 						<div class="row">
 							<div className="col-lg-12">
-								<h1>{slug}</h1>
-								<BlogDetail />
+								<BlogDetail slug={slug} />
 							</div>
 						</div>
 					</div>

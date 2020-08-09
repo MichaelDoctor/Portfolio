@@ -74,10 +74,17 @@ img.avatar.img-thumbnail.comment-avatar {
 	border: none;
 	border-radius: 0;
 }
+.form-control {
+	padding: 10px 5px;
+	background-color: rgba(0, 0, 0, 0.1);
+	color: aliceblue;
+	border: none;
+	border-radius: 0;
+}
 
 #blog > div > div.row > div > div > div > div.blog-featured-image > img {
 	max-width: 1200px;
 	max-height: 600px;
-	object-fit: cover;
+	object-fit: contain;
 	object-position: 50% 50%;
 }

@@ -1,22 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
-const Comment = ({ children, isAuthenticated }) => {
+const Comment = ({ children, isAuthenticated, comment, id, comments }) => {
+	const [ username, setUsername ] = useState('');
+	const [ date, setDate ] = useState(new Date());
+	useEffect(
+		() => {
+			axios
+				.get(`https://michael-doctor.me/auth/user/${comment.author_id}/`)
+				.then((res) => {
+					return res.data;
+				})
+				.then((result) => {
+					setUsername(result.username);
+				});
+			setDate(new Date(comment.date.split('T')[0]));
+			console.log('hi');
+		},
+		[ comment.author_id, comment.date ]
+	);
+	const replyElements = () => {
+		return comments.map(
+			(com) => com.parent_id === id && <Comment id={com.id} comment={com} key={com.id} comments={comments} />
+		);
+	};
 	return (
-		<div class="media">
+		<div class="media comment" id={id}>
 			<div class="pull-left">
 				<img class="avatar img-thumbnail comment-avatar" src="http://placehold.it/400x400" alt="User avatar" />
 			</div>
 			<div class="media-body">
 				<div class="well">
 					<div class="media-heading">
-						<strong>Michael Doctor</strong>&nbsp; <small>August 1, 2020</small>
+						<strong>{username}</strong>&nbsp; <small>{date.toDateString()}</small>
 					</div>
-					<p>
-						Was are delightful solicitude discovered collecting man day. Resolving neglected sir tolerably
-						but existence conveying for. Day his put off unaffected literature partiality inhabiting.
-					</p>
+					<p>{comment.content}</p>
 					<a
 						className={
 							isAuthenticated ? (
@@ -30,6 +50,7 @@ const Comment = ({ children, isAuthenticated }) => {
 						Reply
 					</a>
 				</div>
+				{replyElements()}
 				{children}
 			</div>
 		</div>

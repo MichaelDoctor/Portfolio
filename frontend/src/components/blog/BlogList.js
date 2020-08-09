@@ -53,7 +53,7 @@ const BlogList = ({ id, title, slug, img, date, content, author }) => {
 						<span>
 							<i class="fa fa-comment" />&nbsp;
 							<a href={`${slug}#comments`}>
-								<span class="counter">{comments}</span> Comments
+								<span>{comments}</span> Comments
 							</a>
 						</span>
 					</div>
@@ -65,6 +65,7 @@ const BlogList = ({ id, title, slug, img, date, content, author }) => {
 					</div>
 				</div>
 			</div>
+			<hr />
 		</div>
 	);
 };
