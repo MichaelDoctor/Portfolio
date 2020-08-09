@@ -1,9 +1,11 @@
-import { GET_POST, GET_POSTS, CREATE_POST } from '../actions/types';
+import { GET_POST, GET_POSTS, CREATE_POST, GET_USERS, GET_COMMENTS } from '../actions/types';
 
 const initialState = {
-	postList : null,
-	post     : null,
-	comments : []
+	postList    : null,
+	post        : null,
+	comments    : [],
+	users       : [],
+	commentLens : []
 };
 
 export default (state = initialState, action) => {
@@ -11,8 +13,13 @@ export default (state = initialState, action) => {
 		case GET_POSTS:
 			return {
 				postList : action.payload,
-				post     : null,
-				comments : []
+				users    : action.users,
+				postIds  : action.posts
+			};
+		case GET_USERS:
+			return {
+				...state,
+				users : action.payload
 			};
 		case GET_POST:
 			return {

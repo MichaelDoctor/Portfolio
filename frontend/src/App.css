@@ -74,3 +74,10 @@ img.avatar.img-thumbnail.comment-avatar {
 	border: none;
 	border-radius: 0;
 }
+
+#blog > div > div.row > div > div > div > div.blog-featured-image > img {
+	max-width: 1200px;
+	max-height: 600px;
+	object-fit: cover;
+	object-position: 50% 50%;
+}

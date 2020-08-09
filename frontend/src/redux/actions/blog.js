@@ -1,4 +1,4 @@
-import { CREATE_POST, GET_POST, GET_POSTS } from './types';
+import { CREATE_POST, GET_POST, GET_POSTS, GET_USERS, GET_COMMENTS } from './types';
 import { errorMessage } from './messages';
 import axios from 'axios';
 import { setErrors, setAlert } from './alerts';
@@ -9,9 +9,17 @@ const baseUrl = 'https://michael-doctor.me';
 // List of posts
 export const getPostList = () => (dispatch) => {
 	axios.get(`${baseUrl}/api/blogs/`).then((res) => {
+		let postIds = [];
+		let userIds = [];
+		res.data.forEach((post) => {
+			postIds.push(post.id);
+			userIds.push(post.author);
+		});
 		dispatch({
 			type    : GET_POSTS,
-			payload : res.data
+			payload : res.data,
+			users   : userIds,
+			posts   : postIds
 		});
 	});
 };
@@ -38,10 +46,17 @@ export const getUser = (user) => (dispatch) => {
 	});
 };
 
+// get Users
+export const getUsers = (userList) => (dispatch) => {
+	axios.all(userList.map((user) => axios.get(`${baseUrl}/auth/user/${user}/`))).then((res) => {
+		dispatch({ type: GET_USERS, payload: res });
+	});
+};
+
 // get number of comments
-export const getNumComments = (blog) => (dispatch) => {
+export const getNumComments = (blog, fn) => (dispatch) => {
 	axios.get(`${baseUrl}/api/blogs/comment/${blog}/`).then((res) => {
-		return res.data.length;
+		fn(res.data.length);
 	});
 };
 

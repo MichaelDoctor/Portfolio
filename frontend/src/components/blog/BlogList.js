@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getNumComments } from '../../redux/actions/blog';
 
 export const BlogList = ({ id, title, slug, img, date, content, author }) => {
-	console.log(getNumComments(1));
 	return (
 		<div>
 			<div className="blog-item">
 				<div className="blog-featured-image">
-					<img className="img-responsive img-blog" src={img} alt="Blog Post" />
+					<img className="img-responsive img-blog center-block" src={img} alt="Blog Post" />
 					<div className="overlay">
 						<Link className="preview btn btn-outlined btn-primary" to={slug}>
 							<i className="fa fa-link" />
@@ -28,7 +27,7 @@ export const BlogList = ({ id, title, slug, img, date, content, author }) => {
 						</span>&nbsp;
 						<span>
 							<i class="fa fa-comment" />&nbsp;
-							<a href={`/${slug}#comments`}>
+							<a href={`${slug}#comments`}>
 								<span class="counter">{id}</span> Comments
 							</a>
 						</span>
