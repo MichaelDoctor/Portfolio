@@ -35,4 +35,4 @@ class GetUsername(APIView):
             }
             return Response(content)
         except:
-            return Response({'pk': pk, 'username': 'Anon'})
+            return Response({'pk': pk, 'username': '404'})

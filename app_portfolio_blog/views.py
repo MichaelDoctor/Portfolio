@@ -31,6 +31,19 @@ class PostDetailView(APIView):
         return Response(data, status=status.HTTP_200_OK)
 
 
+class CommentCount(APIView):
+    permission_classes = (permissions.AllowAny,)
+    lookup_field = 'pk'
+
+    def get(self, request, pk, format=None):
+
+        data = {
+            'length': len(Comment.objects.filter(blog=pk).values())
+
+        }
+        return Response(data, status=status.HTTP_200_OK)
+
+
 class CreatePostView(APIView):
     permission_classes = (permissions.IsAuthenticated,)
     parser_classes = (MultiPartParser, FormParser,)

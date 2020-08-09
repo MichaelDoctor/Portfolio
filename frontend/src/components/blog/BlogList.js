@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const BlogList = ({ title, author, date, img, slug, comments, content }) => {
+export const BlogList = ({ id, title, slug, img, date, content, author }) => {
 	return (
 		<div>
 			<div className="blog-item">
@@ -26,8 +26,8 @@ export const BlogList = ({ title, author, date, img, slug, comments, content }) 
 						</span>&nbsp;
 						<span>
 							<i class="fa fa-comment" />&nbsp;
-							<a href={`${slug}#comments`}>
-								<span class="counter">{comments.length}</span> Comments
+							<a href={`/${slug}#comments`}>
+								<span class="counter">{id}</span> Comments
 							</a>
 						</span>
 					</div>
