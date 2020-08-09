@@ -5,21 +5,27 @@ import { Footer } from '../components/all/Footer';
 import BlogList from '../components/blog/BlogList';
 import { Pagination } from '../components/all/Pagination';
 import BlogCreate from '../components/blog/BlogCreate';
-import { getPostList } from '../redux/actions/blog';
+import axios from 'axios';
 
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const BlogPosts = ({ getPostList, blog: { postList, users, postIds } }) => {
+const BlogPosts = () => {
 	const description =
 		'This is blog page displays all posts by all users. This project utilizes database relationships, user authorization with private routes, and blog posts with comments and replies. ';
 
-	const [ posts, setPosts ] = useState(postList);
+	const [ posts, setPosts ] = useState([]);
 	useEffect(
 		() => {
-			getPostList();
+			axios
+				.get(`https://michael-doctor.me/api/blogs/`)
+				.then((res) => {
+					return res.data;
+				})
+				.then((result) => {
+					setPosts(result);
+				});
 		},
-		[ getPostList, posts ]
+		[ posts ]
 	);
 
 	return (
@@ -59,13 +65,4 @@ const BlogPosts = ({ getPostList, blog: { postList, users, postIds } }) => {
 	);
 };
 
-BlogPosts.propTypes = {
-	getPostList : PropTypes.func.isRequired,
-	blog        : PropTypes.object.isRequired
-};
-
-const mapStateToProps = (state) => ({
-	blog : state.blog
-});
-
-export default connect(mapStateToProps, { getPostList })(BlogPosts);
+export default connect(null, {})(BlogPosts);

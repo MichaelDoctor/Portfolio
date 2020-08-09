@@ -9,17 +9,9 @@ const baseUrl = 'https://michael-doctor.me';
 // List of posts
 export const getPostList = () => (dispatch) => {
 	axios.get(`${baseUrl}/api/blogs/`).then((res) => {
-		let postIds = [];
-		let userIds = [];
-		res.data.forEach((post) => {
-			postIds.push(post.id);
-			userIds.push(post.author);
-		});
 		dispatch({
 			type    : GET_POSTS,
-			payload : res.data,
-			users   : userIds,
-			posts   : postIds
+			payload : res.data
 		});
 	});
 };
@@ -37,20 +29,6 @@ export const getPost = (slug) => (dispatch) => {
 		.catch((err) => {
 			dispatch(setAlert('Post does not exist', 'danger'));
 		});
-};
-
-// get User
-export const getUser = (user) => (dispatch) => {
-	axios.get(`${baseUrl}/auth/user/${user}/`).then((res) => {
-		return res.data.username;
-	});
-};
-
-// get number of comments
-export const getNumComments = (blog) => (dispatch) => {
-	axios.get(`${baseUrl}/api/blogs/comment/${blog}/`).then((res) => {
-		return res.data.length;
-	});
 };
 
 //Create post
