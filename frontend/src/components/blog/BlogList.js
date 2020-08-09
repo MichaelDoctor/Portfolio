@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getNumComments } from '../../redux/actions/blog';
 
 export const BlogList = ({ id, title, slug, img, date, content, author }) => {
+	console.log(getNumComments(1));
 	return (
 		<div>
 			<div className="blog-item">

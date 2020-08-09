@@ -31,6 +31,20 @@ export const getPost = (slug) => (dispatch) => {
 		});
 };
 
+// get User
+export const getUser = (user) => (dispatch) => {
+	axios.get(`${baseUrl}/auth/user/${user}/`).then((res) => {
+		return res.data.username;
+	});
+};
+
+// get number of comments
+export const getNumComments = (blog) => (dispatch) => {
+	axios.get(`${baseUrl}/api/blogs/comment/${blog}/`).then((res) => {
+		return res.data.length;
+	});
+};
+
 //Create post
 export const createPost = ({ formData, csrfmiddlewaretoken }) => (dispatch) => {
 	const config = {
