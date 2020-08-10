@@ -15,7 +15,7 @@ const BlogForm = ({ createPost, blog, auth }) => {
 		img     : null
 	});
 	useEffect(() => {
-		setData({ csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value });
+		setData({ ...data, csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value });
 	}, []);
 	const handleChange = (e) => {
 		setData({
@@ -38,7 +38,7 @@ const BlogForm = ({ createPost, blog, auth }) => {
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
+		console.log(data);
 		if (!data.title) {
 			setAlert('Title required', 'danger');
 		}
@@ -60,72 +60,77 @@ const BlogForm = ({ createPost, blog, auth }) => {
 	};
 	if (blog.post) return <Redirect to="/blog/" />;
 	return (
-		<div id="content-wrapper">
-			<section id="blog" className="white">
-				<div className="container">
-					<div className="row">
-						<div className="col-lg-12">
-							<div className="blog-content">
-								<h3 className="main-title center">Create a post</h3>
-								<hr />
-								<form className="form-horizontal">
-									<DjangoCSRFToken />
-									<div className="form-group">
-										<div className="col-sm-12">
-											<input
-												type="text"
-												className="form-control"
-												name="title"
-												placeholder="Title"
-												onChange={(e) => handleChange(e)}
-												required
-											/>
-										</div>
-									</div>
-									<div className="form-group">
-										<div className="col-sm-12">
-											<div class="custom-file">
+		<div>
+			<div id="content-wrapper">
+				<section id="blog" className="white">
+					<div className="container">
+						<div className="row">
+							<div className="col-lg-12">
+								<div className="blog-content">
+									<h3 className="main-title center">Create a post</h3>
+									<hr />
+									<form className="form-horizontal">
+										<DjangoCSRFToken />
+										<div className="form-group">
+											<div className="col-sm-12">
 												<input
-													type="file"
-													className="custom-file-input hidden"
-													id="validatedCustomFile"
-													onChange={(e) => imageChange(e)}
-													name="img"
-													accept="image/png, image/jpeg"
+													type="text"
+													className="form-control"
+													name="title"
+													placeholder="Title"
+													onChange={(e) => handleChange(e)}
 													required
 												/>
-												<label
-													className="custom-file-label btn btn-primary btn-outlined"
-													for="validatedCustomFile"
-													id="fileButton"
-												>
-													Upload an image...
-												</label>
 											</div>
 										</div>
-									</div>
-
-									<div className="form-group">
-										<div className="col-sm-12">
-											<textarea
-												rows="8"
-												className="form-control"
-												name="content"
-												placeholder="Content"
-												onChange={(e) => handleChange(e)}
-												required
-											/>
+										<div className="form-group">
+											<div className="col-sm-12">
+												<div class="custom-file">
+													<input
+														type="file"
+														className="custom-file-input hidden"
+														id="validatedCustomFile"
+														onChange={(e) => imageChange(e)}
+														name="img"
+														accept="image/png, image/jpeg"
+														required
+													/>
+													<label
+														className="custom-file-label btn btn-primary btn-outlined"
+														for="validatedCustomFile"
+														id="fileButton"
+													>
+														Upload an image...
+													</label>
+												</div>
+											</div>
 										</div>
-									</div>
-									<button onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-outlined">
-										Submit
-									</button>
-								</form>
+
+										<div className="form-group">
+											<div className="col-sm-12">
+												<textarea
+													rows="8"
+													className="form-control"
+													name="content"
+													placeholder="Content"
+													onChange={(e) => handleChange(e)}
+													required
+												/>
+											</div>
+										</div>
+										<button
+											onClick={(e) => handleSubmit(e)}
+											className="btn btn-primary btn-outlined"
+										>
+											Submit
+										</button>
+									</form>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			</div>
 			<Footer />
 		</div>
 	);

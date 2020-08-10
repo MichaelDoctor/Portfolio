@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DjangoCSRFToken from 'django-react-csrftoken';
-import { createComment } from '../../redux/actions/blog';
+import { createComment, postCreated } from '../../redux/actions/blog';
 import { setAlert } from '../../redux/actions/alerts';
 
-const CommentForm = ({ auth, id, createComment }) => {
+const CommentForm = ({ auth, id, createComment, blog, postCreated }) => {
 	const [ inputs, setInputs ] = useState({
 		blog                : '',
 		author              : '',
@@ -38,7 +38,6 @@ const CommentForm = ({ auth, id, createComment }) => {
 			setAlert('Comment required', 'danger');
 		}
 		else {
-			console.log(inputs);
 			const { csrfmiddlewaretoken } = inputs;
 
 			let formData = new FormData();
@@ -48,6 +47,10 @@ const CommentForm = ({ auth, id, createComment }) => {
 			createComment({ formData, csrfmiddlewaretoken });
 		}
 	};
+	if (blog.comment) {
+		postCreated();
+		window.location.reload();
+	}
 	return (
 		<div id="comment-form">
 			<h3 className="main-title">Leave a comment</h3>
@@ -93,9 +96,14 @@ const CommentForm = ({ auth, id, createComment }) => {
 
 CommentForm.propTypes = {
 	auth          : PropTypes.object.isRequired,
-	createComment : PropTypes.func.isRequired
+	createComment : PropTypes.func.isRequired,
+	blog          : PropTypes.object.isRequired,
+	postCreated   : PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state) => ({ auth: state.auth });
+const mapStateToProps = (state) => ({
+	auth : state.auth,
+	blog : state.blog
+});
 
-export default connect(mapStateToProps, { createComment })(CommentForm);
+export default connect(mapStateToProps, { createComment, postCreated })(CommentForm);
