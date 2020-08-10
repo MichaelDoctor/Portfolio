@@ -52,15 +52,26 @@ const CommentForm = ({ auth: { isAuthenticated, user }, id, createComment }) => 
 				<DjangoCSRFToken />
 				<div className="form-group">
 					<div className="col-sm-12">
-						<textarea
-							rows="8"
-							className="form-control"
-							placeholder={isAuthenticated ? 'Comment' : 'Login to Leave a Comment'}
-							disabled={isAuthenticated ? 'false' : 'true'}
-							onChange={(e) => handleChange(e)}
-							name="content"
-							required
-						/>
+						{isAuthenticated ? (
+							<input
+								type="text"
+								className="form-control"
+								placeholder="Comment"
+								onChange={(e) => handleChange(e)}
+								name="content"
+								required
+							/>
+						) : (
+							<input
+								type="text"
+								className="form-control"
+								placeholder="Login to leave a comment"
+								disabled
+								onChange={(e) => handleChange(e)}
+								name="content"
+								required
+							/>
+						)}
 					</div>
 				</div>
 

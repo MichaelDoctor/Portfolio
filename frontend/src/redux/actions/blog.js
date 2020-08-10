@@ -9,8 +9,8 @@ const baseUrl = 'https://michael-doctor.me';
 export const createPost = ({ formData, csrfmiddlewaretoken }) => (dispatch) => {
 	const config = {
 		headers : {
-			'Content-Type' : 'multipart/form-data',
-			'X-CSRFTOKEN'  : csrfmiddlewaretoken
+			'content-type' : 'multipart/form-data'
+			// 'X-CSRFTOKEN'  : csrfmiddlewaretoken
 		}
 	};
 

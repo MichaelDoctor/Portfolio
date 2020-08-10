@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import DjangoCSRFToken from 'django-react-csrftoken';
 
 const Comment = ({ children, isAuthenticated, comment, id, comments }) => {
 	const [ username, setUsername ] = useState('');
@@ -36,19 +37,47 @@ const Comment = ({ children, isAuthenticated, comment, id, comments }) => {
 						<strong>{username}</strong>&nbsp; <small>{date.toDateString()}</small>
 					</div>
 					<p>{comment.content}</p>
-					<a
-						className={
-							isAuthenticated ? (
-								'pull-right btn btn-primary btn-outlined'
-							) : (
-								'pull-right btn btn-primary btn-outlined disabled'
-							)
-						}
-						href="#"
+					<button
+						className="pull-right btn btn-primary btn-outlined"
+						data-toggle="collapse"
+						data-target={`#reply_field${id}`}
+						aria-expanded="false"
+						aria-controls={`reply_field${id}`}
 					>
 						Reply
-					</a>
+					</button>
+					<form class="collapse" id={`reply_field${id}`}>
+						<DjangoCSRFToken />
+						<div className="col-sm-6">
+							{isAuthenticated ? (
+								<input
+									type="text"
+									className="form-control"
+									placeholder="Comment"
+									name="content"
+									required
+								/>
+							) : (
+								<input
+									type="text"
+									className="form-control"
+									placeholder="Login to leave a comment"
+									disabled
+									name="content"
+									required
+								/>
+							)}
+						</div>
+						<div className="col-sm-4">
+							{isAuthenticated ? (
+								<button className="btn btn-primary btn-outlined">Submit</button>
+							) : (
+								<a className="btn btn-primary btn-outlined disabled">Submit</a>
+							)}
+						</div>
+					</form>
 				</div>
+
 				{replyElements()}
 				{children}
 			</div>
