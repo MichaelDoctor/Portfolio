@@ -9,8 +9,8 @@ const baseUrl = 'https://michael-doctor.me';
 export const createPost = ({ formData, csrfmiddlewaretoken }) => (dispatch) => {
 	const config = {
 		headers : {
-			'content-type' : 'multipart/form-data'
-			// 'X-CSRFTOKEN'  : csrfmiddlewaretoken
+			'Content-Type' : 'multipart/form-data',
+			'X-CSRFTOKEN'  : csrfmiddlewaretoken
 		}
 	};
 
@@ -32,8 +32,7 @@ export const createPost = ({ formData, csrfmiddlewaretoken }) => (dispatch) => {
 export const createComment = ({ formData, csrfmiddlewaretoken }) => (dispatch) => {
 	const config = {
 		headers : {
-			'Content-Type' : 'multipart/form-data',
-			'X-CSRFTOKEN'  : csrfmiddlewaretoken
+			'Content-Type' : 'multipart/form-data'
 		}
 	};
 

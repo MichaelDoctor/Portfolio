@@ -35,6 +35,7 @@ const CommentForm = ({ auth: { isAuthenticated, user }, id, createComment }) => 
 				...inputs,
 				author : user.pk
 			});
+			console.log(inputs);
 			const { csrfmiddlewaretoken } = inputs;
 
 			let formData = new FormData();

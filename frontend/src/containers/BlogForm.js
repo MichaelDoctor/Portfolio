@@ -5,6 +5,7 @@ import DjangoCSRFToken from 'django-react-csrftoken';
 import { createPost } from '../redux/actions/blog';
 import { Redirect } from 'react-router-dom';
 import { setAlert } from '../redux/actions/alerts';
+import { Footer } from '../components/all/Footer';
 
 const BlogForm = ({ createPost, blog, auth }) => {
 	const [ data, setData ] = useState({
@@ -125,6 +126,7 @@ const BlogForm = ({ createPost, blog, auth }) => {
 					</div>
 				</div>
 			</section>
+			<Footer />
 		</div>
 	);
 };
