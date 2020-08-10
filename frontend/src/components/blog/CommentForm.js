@@ -5,16 +5,30 @@ import DjangoCSRFToken from 'django-react-csrftoken';
 import { createComment } from '../../redux/actions/blog';
 import { setAlert } from '../../redux/actions/alerts';
 
-const CommentForm = ({ auth: { isAuthenticated, user }, id, createComment }) => {
+const CommentForm = ({ auth, id, createComment }) => {
 	const [ inputs, setInputs ] = useState({
-		blog                : id,
+		blog                : '',
 		author              : '',
 		content             : '',
 		csrfmiddlewaretoken : ''
 	});
-	useEffect(() => {
-		setInputs({ csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value });
-	}, []);
+	useEffect(
+		() => {
+			setInputs({
+				...inputs,
+				csrfmiddlewaretoken : document.getElementsByName('csrfmiddlewaretoken')[0].value,
+				blog                : id
+			});
+
+			if (auth.isAuthenticated) {
+				setInputs({
+					...inputs,
+					author : auth.user.pk
+				});
+			}
+		},
+		[ id ]
+	);
 	const handleChange = (e) => {
 		setInputs({
 			...inputs,
@@ -27,14 +41,7 @@ const CommentForm = ({ auth: { isAuthenticated, user }, id, createComment }) => 
 		if (!inputs.content) {
 			setAlert('Comment required', 'danger');
 		}
-		else if (!user) {
-			setAlert('Login required', 'danger');
-		}
 		else {
-			setInputs({
-				...inputs,
-				author : user.pk
-			});
 			console.log(inputs);
 			const { csrfmiddlewaretoken } = inputs;
 
@@ -53,7 +60,7 @@ const CommentForm = ({ auth: { isAuthenticated, user }, id, createComment }) => 
 				<DjangoCSRFToken />
 				<div className="form-group">
 					<div className="col-sm-12">
-						{isAuthenticated ? (
+						{auth.isAuthenticated ? (
 							<input
 								type="text"
 								className="form-control"
@@ -76,7 +83,7 @@ const CommentForm = ({ auth: { isAuthenticated, user }, id, createComment }) => 
 					</div>
 				</div>
 
-				{isAuthenticated ? (
+				{auth.isAuthenticated ? (
 					<button onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-outlined">
 						Comment
 					</button>
