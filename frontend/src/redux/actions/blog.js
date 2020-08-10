@@ -46,6 +46,7 @@ export const createComment = ({ formData, csrfmiddlewaretoken }) => (dispatch) =
 				type    : CREATE_COMMENT,
 				payload : res.data
 			});
+			window.location.reload();
 		})
 		.catch((err) => {
 			dispatch(setAlert('Error creating comment', 'danger'));

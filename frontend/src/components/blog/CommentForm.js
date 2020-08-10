@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import DjangoCSRFToken from 'django-react-csrftoken';
 import { createComment, postCreated } from '../../redux/actions/blog';
 import { setAlert } from '../../redux/actions/alerts';
-
-const CommentForm = ({ auth, id, createComment, blog, postCreated }) => {
+const CommentForm = ({ auth, id, createComment }) => {
 	const [ inputs, setInputs ] = useState({
 		blog                : '',
 		author              : '',
@@ -47,10 +46,7 @@ const CommentForm = ({ auth, id, createComment, blog, postCreated }) => {
 			createComment({ formData, csrfmiddlewaretoken });
 		}
 	};
-	if (blog.comment) {
-		postCreated();
-		window.location.reload();
-	}
+
 	return (
 		<div id="comment-form">
 			<h3 className="main-title">Leave a comment</h3>
@@ -96,14 +92,11 @@ const CommentForm = ({ auth, id, createComment, blog, postCreated }) => {
 
 CommentForm.propTypes = {
 	auth          : PropTypes.object.isRequired,
-	createComment : PropTypes.func.isRequired,
-	blog          : PropTypes.object.isRequired,
-	postCreated   : PropTypes.func.isRequired
+	createComment : PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
-	auth : state.auth,
-	blog : state.blog
+	auth : state.auth
 });
 
-export default connect(mapStateToProps, { createComment, postCreated })(CommentForm);
+export default connect(mapStateToProps, { createComment })(CommentForm);
