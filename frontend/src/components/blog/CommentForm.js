@@ -14,16 +14,12 @@ const CommentForm = ({ auth, id, createComment }) => {
 	});
 	useEffect(
 		() => {
-			setInputs({
-				...inputs,
-				csrfmiddlewaretoken : document.getElementsByName('csrfmiddlewaretoken')[0].value,
-				blog                : id
-			});
-
 			if (auth.isAuthenticated) {
 				setInputs({
 					...inputs,
-					author : auth.user.pk
+					author              : auth.user.pk,
+					csrfmiddlewaretoken : document.getElementsByName('csrfmiddlewaretoken')[0].value,
+					blog                : id
 				});
 			}
 		},
