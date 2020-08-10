@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import DjangoCSRFToken from 'django-react-csrftoken';
 import { createPost } from '../redux/actions/blog';
 import { Redirect } from 'react-router-dom';
+import { setAlert } from '../redux/actions/alerts';
 
 const BlogForm = ({ createPost, blog, auth }) => {
 	const [ data, setData ] = useState({
@@ -38,13 +39,13 @@ const BlogForm = ({ createPost, blog, auth }) => {
 		e.preventDefault();
 
 		if (!data.title) {
-			console.log('need title');
+			setAlert('Title required', 'danger');
 		}
 		else if (!data.img) {
-			console.log('need image');
+			setAlert('Image required', 'danger');
 		}
 		else if (!data.content) {
-			console.log('need content');
+			setAlert('Content required', 'danger');
 		}
 		else {
 			const { csrfmiddlewaretoken } = data;

@@ -23,3 +23,4 @@ export const CONTACT_FAIL = 'CONTACT_FAIL';
 // Blog Profiles
 export const CLEAR_POST = 'CLEAR_POST';
 export const CREATE_POST = 'CREATE_POST';
+export const CREATE_COMMENT = 'CREATE_COMMENT';

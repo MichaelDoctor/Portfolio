@@ -17,7 +17,6 @@ const Comment = ({ children, isAuthenticated, comment, id, comments }) => {
 					setUsername(result.username);
 				});
 			setDate(new Date(comment.date.split('T')[0]));
-			console.log('hi');
 		},
 		[ comment.author_id, comment.date ]
 	);

@@ -74,7 +74,7 @@ export const BlogDetail = ({ slug }) => {
 						</div>
 					</div>
 					<div className="gap" />
-					<CommentForm />
+					<CommentForm id={post.id} />
 				</div>
 			</div>
 		</div>

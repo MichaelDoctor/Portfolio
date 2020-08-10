@@ -1,9 +1,9 @@
-import { CLEAR_POST, CREATE_POST } from '../actions/types';
+import { CLEAR_POST, CREATE_POST, CREATE_COMMENT } from '../actions/types';
 
 const initialState = {
 	postList : null,
 	post     : null,
-	comments : []
+	comment  : null
 };
 
 export default (state = initialState, action) => {
@@ -11,8 +11,13 @@ export default (state = initialState, action) => {
 		case CREATE_POST:
 			return {
 				...state,
-				post     : action.payload,
-				comments : []
+				post    : action.payload,
+				comment : null
+			};
+		case CREATE_COMMENT:
+			return {
+				...state,
+				comment : action.payload
 			};
 		case CLEAR_POST:
 		default:
