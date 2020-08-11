@@ -20,6 +20,7 @@ export default (state = initialState, action) => {
 				comment : action.payload
 			};
 		case CLEAR_POST:
+			return initialState;
 		default:
 			return state;
 	}
