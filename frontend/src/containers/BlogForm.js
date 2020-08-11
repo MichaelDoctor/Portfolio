@@ -9,7 +9,7 @@ import { Footer } from '../components/all/Footer';
 
 const BlogForm = ({ createPost, blog, auth }) => {
 	const [ data, setData ] = useState({
-		author  : 8,
+		author  : auth.user.pk,
 		title   : '',
 		content : '',
 		img     : null
