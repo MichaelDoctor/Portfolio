@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DjangoCSRFToken from 'django-react-csrftoken';
-import { createComment, postCreated } from '../../redux/actions/blog';
+import { createComment } from '../../redux/actions/blog';
 import { setAlert } from '../../redux/actions/alerts';
 const CommentForm = ({ auth, id, createComment }) => {
 	const [ inputs, setInputs ] = useState({
@@ -22,7 +22,7 @@ const CommentForm = ({ auth, id, createComment }) => {
 				});
 			}
 		},
-		[ id ]
+		[ id, auth ]
 	);
 	const handleChange = (e) => {
 		setInputs({

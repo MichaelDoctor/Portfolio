@@ -34,7 +34,9 @@ export const BlogDetail = ({ slug }) => {
 	const commentElements = () => {
 		return comments.map(
 			(comment) =>
-				!comment.parent_id && <Comment id={comment.id} comment={comment} key={comment.id} comments={comments} />
+				!comment.parent_id && (
+					<Comment blog_id={post.id} id={comment.id} comment={comment} key={comment.id} comments={comments} />
+				)
 		);
 	};
 	return (

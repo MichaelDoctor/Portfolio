@@ -9,7 +9,7 @@ import { Footer } from '../components/all/Footer';
 
 const BlogForm = ({ createPost, blog, auth }) => {
 	const [ data, setData ] = useState({
-		author  : auth.user.pk,
+		author  : 8,
 		title   : '',
 		content : '',
 		img     : null
@@ -38,7 +38,6 @@ const BlogForm = ({ createPost, blog, auth }) => {
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(data);
 		if (!data.title) {
 			setAlert('Title required', 'danger');
 		}

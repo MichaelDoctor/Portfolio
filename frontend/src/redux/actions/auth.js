@@ -97,6 +97,7 @@ export const logout = ({ csrfmiddlewaretoken }) => (dispatch) => {
 			dispatch({
 				type : LOGOUT
 			});
+			window.location.reload();
 		})
 		.catch((err) => {
 			dispatch(setErrors(err.response.data));

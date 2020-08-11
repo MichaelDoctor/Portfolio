@@ -57,7 +57,7 @@ const BlogList = ({ id, title, slug, img, date, content, author }) => {
 							</a>
 						</span>
 					</div>
-					<p>{content} Make this only show a small ammount of post content later</p>
+					<p>{content}</p>
 					<div class="read-more-wrapper">
 						<a class="btn btn-outlined btn-primary" href={slug}>
 							Read More

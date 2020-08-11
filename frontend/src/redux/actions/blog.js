@@ -13,7 +13,6 @@ export const createPost = ({ formData, csrfmiddlewaretoken }) => (dispatch) => {
 			'X-CSRFTOKEN'  : csrfmiddlewaretoken
 		}
 	};
-	console.log(formData);
 
 	axios
 		.post(`${baseUrl}/api/blogs/create/post/`, formData, config)
