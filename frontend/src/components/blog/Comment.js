@@ -30,7 +30,7 @@ const Comment = ({ children, comment, id, comments, blog_id }) => {
 			<div class="pull-left">
 				<img
 					class="avatar img-thumbnail comment-avatar"
-					src="https://lh3.googleusercontent.com/proxy/GLKW60dvF6BqviWrnwyVcD8k_3wcyMjW_oYsxDcIWYChzF1tLEliBQ1re0R4r5N6FYGo4SuQ7uQmhGJAV0dyErqNHec9GGZgQg"
+					src="https://res.cloudinary.com/hsse18xji/image/upload/v1597182430/media/blog_images/smiley_tvba40.jpg"
 					alt="User avatar"
 				/>
 			</div>
