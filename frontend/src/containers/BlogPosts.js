@@ -13,23 +13,26 @@ import { connect } from 'react-redux';
 
 const BlogPosts = ({ blog, postCreated }) => {
 	const [ posts, setPosts ] = useState([]);
+	useEffect(() => {
+		axios
+			.get(`https://michael-doctor.me/api/blogs/`)
+			.then((res) => {
+				return res.data;
+			})
+			.then((result) => {
+				setPosts(result);
+			});
+	}, []);
 	useEffect(
 		() => {
-			axios
-				.get(`https://michael-doctor.me/api/blogs/`)
-				.then((res) => {
-					return res.data;
-				})
-				.then((result) => {
-					setPosts(result);
-				});
+			if (blog.post) {
+				postCreated();
+			}
+			console.log('hello');
 		},
-		[ posts ]
+		[ blog, postCreated ]
 	);
 
-	if (blog.post) {
-		postCreated();
-	}
 	return (
 		<div>
 			<HeadHelmet title="Blog Project" />
