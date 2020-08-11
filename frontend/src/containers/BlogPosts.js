@@ -3,7 +3,6 @@ import { HeadHelmet } from '../components/all/HeadHelmet';
 import { Banner } from '../components/all/Banner';
 import { Footer } from '../components/all/Footer';
 import BlogList from '../components/blog/BlogList';
-import { Pagination } from '../components/all/Pagination';
 import BlogCreate from '../components/blog/BlogCreate';
 import axios from 'axios';
 import { postCreated } from '../redux/actions/blog';
@@ -11,26 +10,21 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
-const BlogPosts = ({ blog, postCreated }) => {
+const BlogPosts = ({ postCreated }) => {
 	const [ posts, setPosts ] = useState([]);
-	useEffect(() => {
-		axios
-			.get(`https://michael-doctor.me/api/blogs/`)
-			.then((res) => {
-				return res.data;
-			})
-			.then((result) => {
-				setPosts(result);
-			});
-	}, []);
 	useEffect(
 		() => {
-			if (blog.post) {
-				postCreated();
-			}
-			console.log('hello');
+			axios
+				.get(`https://michael-doctor.me/api/blogs/`)
+				.then((res) => {
+					return res.data;
+				})
+				.then((result) => {
+					setPosts(result);
+				});
+			postCreated();
 		},
-		[ blog, postCreated ]
+		[ postCreated ]
 	);
 
 	return (
@@ -61,8 +55,6 @@ const BlogPosts = ({ blog, postCreated }) => {
 										content={post.content}
 									/>
 								))}
-
-								<Pagination />
 							</div>
 						</div>
 					</div>
@@ -73,12 +65,7 @@ const BlogPosts = ({ blog, postCreated }) => {
 	);
 };
 BlogPosts.propTypes = {
-	blog        : PropTypes.object,
 	postCreated : PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state) => ({
-	blog : state.blog
-});
-
-export default connect(mapStateToProps, { postCreated })(BlogPosts);
+export default connect(null, { postCreated })(BlogPosts);
