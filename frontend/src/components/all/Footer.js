@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
 	return (
@@ -48,15 +49,15 @@ export const Footer = () => {
 										<div className="pull-left">
 											<img
 												className="widget-img"
-												src="https://michaeldoctor.imfast.io/portfolio/images/portfolio/folio01.jpg"
-												alt=""
+												src="https://res.cloudinary.com/hsse18xji/image/upload/v1/media/photos/2020/08/11/blog_lg7ahg"
+												alt="Social Media Clone"
 											/>
 										</div>
 										<div className="media-body">
 											<span className="media-heading">
-												<a href="#!">Update Later</a>
+												<Link to="/blog/">Social Media Clone</Link>
 											</span>
-											<small className="muted">Update later</small>
+											<small className="muted">Django, React, Redux</small>
 										</div>
 									</div>
 									<div className="media">
