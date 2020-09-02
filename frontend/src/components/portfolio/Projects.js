@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Project } from './Project';
 import axios from 'axios';
 import { Preloader } from '../all/Preloader';
+import './css/Projects.css';
 
 export const Projects = () => {
 	const [ projects, setProjects ] = useState([]);

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export const Project = ({ className, img, title, author, datetime, date, content, link }) => {
 	return (
