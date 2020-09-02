@@ -9,9 +9,9 @@ export const Project = ({ className, img, title, author, datetime, date, content
 					<div className="post-img-content">
 						<img src={img} className="img-responsive" alt={`${title}`} />
 						<div className="overlay">
-							<Link className="preview btn btn-outlined btn-primary" to={link}>
+							<a className="preview btn btn-outlined btn-primary" href={link}>
 								<i className="fa fa-link" />
-							</Link>
+							</a>
 						</div>
 					</div>
 					<div className="content">
@@ -23,9 +23,9 @@ export const Project = ({ className, img, title, author, datetime, date, content
 						</div>
 						<div>{content}</div>
 						<div className="read-more-wrapper">
-							<Link to={link} className="btn btn-outlined btn-primary">
+							<a href={link} className="btn btn-outlined btn-primary">
 								Check it out
-							</Link>
+							</a>
 						</div>
 					</div>
 				</div>

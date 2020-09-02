@@ -8,20 +8,23 @@ export const Projects = () => {
 	const [ loading, setLoading ] = useState(true);
 	const [ filtered, setFiltered ] = useState([]);
 	const [ type, setType ] = useState('All');
-	useEffect(() => {
-		const getProjects = () => {
-			try {
-				axios.get(`https://michael-doctor.me/api/projects/`).then((res) => res.data).then((result) => {
-					setProjects(result);
-					setFiltered(result);
-					setLoading(false);
-				});
-			} catch (err) {
-				console.error(err);
-			}
-		};
-		getProjects();
-	}, []);
+	useEffect(
+		() => {
+			const getProjects = () => {
+				try {
+					axios.get(`https://michael-doctor.me/api/projects/`).then((res) => res.data).then((result) => {
+						setProjects(result);
+						setFiltered(result);
+						setLoading(false);
+					});
+				} catch (err) {
+					console.error(err);
+				}
+			};
+			getProjects();
+		},
+		[ loading ]
+	);
 
 	const handleClick = (e, word) => {
 		const filters = document.getElementsByName('project-filter');
