@@ -226,7 +226,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # alauth config
-ACCOUNT_ADAPTER = 'project_backend.adapter.CustomSocialAccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'project_backend.adapter.CustomSocialAccountAdapter'
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 LOGIN_REDIRECT_URL = "/"
 ACCOUNT_EMAIL_REQUIRED = True
