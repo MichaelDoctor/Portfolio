@@ -3,11 +3,13 @@ import dj_database_url
 
 try:
     import local_settings.local_settings as envs
-    DEBUG = envs.DEBUG
+    # DEBUG = envs.DEBUG
+    DEBUG = False
     SECRET_KEY = envs.SECRET_KEY
     DATABASE_URL = envs.DATABASE_URL
 except:
-    DEBUG = False or os.environ.get('DEBUG')
+    # DEBUG = False or os.environ.get('DEBUG')
+    DEBUG = False
     SECRET_KEY = os.environ.get('SECRET_KEY')
     DATABASE_URL = os.environ.get('DATABASE_URL')
 
