@@ -959,6 +959,7 @@
 }
 
 .contact-form {
+  display: block;
   margin-top: auto;
   margin-bottom: auto;
   padding-top: 0px;
@@ -982,6 +983,7 @@
 }
 
 .intro-right {
+  display: block;
   margin: auto;
 }
 
@@ -1004,6 +1006,11 @@
 
 .intro-form:focus {
   border-color: #018d7d;
+}
+
+.contact-result {
+  max-width: 80%;
+  margin: auto;
 }
 
 @media screen and (max-width: 991px) {
@@ -1318,6 +1325,10 @@
     min-width: 100%;
   }
 
+  .contact-form {
+    display: block;
+  }
+
   .contact-form-grid {
     margin-top: 0px;
     grid-auto-flow: row;
@@ -1327,6 +1338,17 @@
     grid-template-columns: 20vw;
     -ms-grid-rows: 4vh;
     grid-template-rows: 4vh;
+  }
+
+  .intro-right {
+    display: none;
+  }
+
+  .contact-result {
+    max-width: 80%;
+    min-width: 80%;
+    margin-right: 0px;
+    margin-left: 0px;
   }
 }
 
