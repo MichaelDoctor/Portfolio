@@ -16,10 +16,20 @@ const Footer = () => {
         </div>
         <div className="footer-links">
           <h5 className="footer-header">Links</h5>
-          <a href="#projects" className="link">
+          <a
+            href="https://github.com/MichaelDoctor"
+            className="link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fab fa-github" /> Github
           </a>
-          <a href="#projects" className="link">
+          <a
+            href="https://www.linkedin.com/in/michael-doctor-403/"
+            className="link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fab fa-linkedin" /> LinkedIn
           </a>
         </div>
@@ -31,7 +41,7 @@ const Footer = () => {
             <br />
             Calgary, AB
           </div>
-          <a href="#projects" className="link">
+          <a href="#intro" className="link">
             <i className="fab fa-google" /> michaeldoctoryyc@gmail.com
           </a>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import NavTab from './NavTab';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -12,13 +13,13 @@ const Navbar = () => {
       className="navbar w-nav"
     >
       <div className="container w-container">
-        <a href="#slider" className="brand hover1 w-nav-brand">
+        <Link to="/" className="brand hover1 w-nav-brand">
           <div className="nav-logo">
             <i className="fas fa-code" /> MICHAEL DOCTOR
           </div>
-        </a>
+        </Link>
         <nav role="navigation" className="nav-links w-nav-menu">
-          <NavTab url="#slider" text="Home" />
+          <NavTab url="#intro" text="Home" />
           <NavTab url="#projects" text="Projects" />
           <NavTab url="#about" text="About Me" />
           <NavTab url="#intro" text="Contact Me" />

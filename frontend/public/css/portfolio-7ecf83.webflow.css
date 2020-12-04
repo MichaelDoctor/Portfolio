@@ -150,6 +150,10 @@
   text-transform: uppercase;
 }
 
+.intro.notfound-content {
+  top: auto;
+}
+
 .intro-heading {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -163,6 +167,13 @@
   background-color: transparent;
   font-size: 25px;
   font-weight: 400;
+}
+
+.intro-heading.sub-text.notfound-heading {
+  max-width: 100%;
+  min-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .intro-heading.slider-icon {
@@ -195,6 +206,11 @@
   overflow: visible;
   max-width: 100%;
   min-width: 100%;
+}
+
+.container.notfound-container {
+  max-height: 100vh;
+  min-height: 100vh;
 }
 
 .slider-desc {
@@ -1340,6 +1356,10 @@
     grid-template-rows: 4vh;
   }
 
+  .intro-right {
+    display: block;
+  }
+
   .contact-result {
     max-width: 80%;
     min-width: 80%;
@@ -1455,25 +1475,3 @@
     grid-column-end: span 3;
   }
 }
-
-/* @font-face {
-  font-family: 'Fa brands 400';
-  src: url('../fonts/fa-brands-400.woff2') format('woff2'), url('../fonts/fa-brands-400.eot') format('embedded-opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Fa 400';
-  src: url('../fonts/fa-regular-400.eot') format('embedded-opentype'), url('../fonts/fa-regular-400.ttf') format('truetype'), url('../fonts/fa-regular-400.svg') format('svg');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Fa solid 900';
-  src: url('../fonts/fa-solid-900.eot') format('embedded-opentype'), url('../fonts/fa-solid-900.woff') format('woff'), url('../fonts/fa-solid-900.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-} */
