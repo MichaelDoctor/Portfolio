@@ -16,7 +16,7 @@ const About = () => {
             FULL-STACK WEB DEVELOPER
           </div>
         </div>
-        <div className="section-desc">
+        <div className="section-desc slide-left">
           <div className="about-divider"></div>
           <div className="about-desc">
             Currently, I&#x27;m a software development student at Southern
