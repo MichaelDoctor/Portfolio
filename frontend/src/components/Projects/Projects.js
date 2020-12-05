@@ -19,7 +19,7 @@ const Projects = () => {
             </div>
           </div>
           <div data-w-id="555ee04a-b52e-f8fb-a4a6-d21ac831f8d7" className="projects slide-left">
-            <div className="project-holder">
+            <div className="project-container">
             {projects.map(project=>(<Project 
                     key={project.id}
 										img={project.img}
