@@ -27,7 +27,7 @@ const Project = ({ img, title, author, date, content, link }) => {
             <div className="proj-desc-content">{content}</div>
           </div>
           <div className="project-btn-container">
-            <a href={link} className="slider-btn hover1 proj-btn w-button">
+            <a href={link} className="slider-btn hover1 proj-btn w-button" target="_blank" rel="noopener noreferrer">
               Check it out
             </a>
           </div>

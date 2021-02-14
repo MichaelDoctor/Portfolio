@@ -2,7 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer/Footer';
 import Navbar from '../components/Navbar/Navbar';
+import useScript from '../hooks/useScript.hook';
 const NotFound = () => {
+  useScript(
+    'https://res.cloudinary.com/hsse18xji/raw/upload/v1606877900/portfolio/js/jquery_xpecxx.js',
+  );
+  useScript(
+    'https://res.cloudinary.com/hsse18xji/raw/upload/v1607053094/portfolio/js/webflow.animation_skydrw.js',
+  );
   return (
     <div className="container notfound-container">
       <Navbar />

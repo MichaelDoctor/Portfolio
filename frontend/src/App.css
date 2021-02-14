@@ -1,0 +1,21 @@
+textarea {
+  resize: none;
+}
+
+button:focus{
+  outline: 0;
+}
+
+/* Add to main css later */
+.comment-content {
+  overflow: hidden;
+  max-width: 95%;
+  min-width: 95%;
+  margin-top: 10px;
+  margin-left: 5%;
+  font-family: Open Sans;
+  font-size: 1rem;
+  line-height: 1rem;
+  text-transform: none;
+  white-space: normal;
+}
