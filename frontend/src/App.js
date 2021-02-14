@@ -12,7 +12,7 @@ function App() {
     <Suspense fallback={<PageLoader />}>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/Swift_1" component={Blog1} />
+        <Route exact path="/blog/1" component={Blog1} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

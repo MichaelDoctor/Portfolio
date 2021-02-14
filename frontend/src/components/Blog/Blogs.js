@@ -11,7 +11,7 @@ const Blogs = () => {
       author: 'Michael Doctor',
       date: 'February 13, 2021',
       content: 'Temporary content. Think of one later!',
-      link: '/Swift_1',
+      link: '/blog/1',
     },
   ];
 
