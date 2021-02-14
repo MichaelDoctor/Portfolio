@@ -12,11 +12,11 @@ const Frameworks = () => {
         className="section-heading right slide-right"
       >
         <div className="section-title">
-          <h1 className="heading">Frameworks</h1>
+          <h1 className="heading div-head">Frameworks</h1>
         </div>
         <div className="hr"></div>
         <div className="section-desc">
-          <div>These are the frameworks I use!</div>
+          <div className="about-sub">These are the frameworks I use!</div>
         </div>
       </div>
       <div

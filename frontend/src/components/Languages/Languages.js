@@ -12,11 +12,11 @@ const Languages = () => {
         className="section-heading left slide-left"
       >
         <div className="section-title">
-          <h1 className="heading">Languages</h1>
+          <h1 className="heading div-head">Languages</h1>
         </div>
         <div className="hr"></div>
         <div className="section-desc">
-          <div>These are the languages I use!</div>
+          <div className="about-sub">These are the languages I use!</div>
         </div>
       </div>
       <div

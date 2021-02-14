@@ -19,10 +19,11 @@ const Navbar = () => {
           </div>
         </Link>
         <nav role="navigation" className="nav-links w-nav-menu">
-          <NavTab url="#intro" text="Home" />
-          <NavTab url="#projects" text="Projects" />
-          <NavTab url="#about" text="About Me" />
-          <NavTab url="#intro" text="Contact Me" />
+          <NavTab url="/#intro" text="Home" />
+          <NavTab url="/#projects" text="Projects" />
+          <NavTab url="/#blogs" text="Blogs" />
+          <NavTab url="/#about" text="About Me" />
+          <NavTab url="/#intro" text="Contact Me" />
         </nav>
         <div className="menu-button hover1 w-nav-button">
           <div className="icon w-icon-nav-menu"></div>

@@ -9,6 +9,7 @@ import Projects from '../components/Projects/Projects';
 import Footer from '../components/Footer/Footer';
 
 import useScript from '../hooks/useScript.hook';
+import Blogs from '../components/Blog/Blogs';
 
 const Home = () => {
   useScript(
@@ -33,6 +34,7 @@ const Home = () => {
         <div className="info-content">
           <About />
           <Projects />
+          <Blogs />
         </div>
         <Footer />
       </div>

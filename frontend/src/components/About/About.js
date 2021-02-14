@@ -8,12 +8,12 @@ const About = () => {
       >
         <div className="about-header slide-left">
           <div className="section-title">
-            <h1 className="heading">A Little Bit about me</h1>
+            <h1 className="heading div-head">A Little Bit about me</h1>
           </div>
           <div className="hr"></div>
           <div className="about-sub">
-            CALGARY BASED SOFTWARE DEVELOPMENT STUDENT. ASPIRING
-            FULL-STACK WEB AND iOS DEVELOPER.
+            Calgary based Software Developer. Aspiring Full-Stack Web and iOS
+            Developer.
           </div>
         </div>
         <div className="section-desc slide-left">
@@ -22,8 +22,8 @@ const About = () => {
             Currently, I&#x27;m a software development student at Southern
             Alberta Institute of Technology (SAIT). I&#x27;m passionate about
             full-stack web development and iOS development. My preferred
-            frameworks are React, Express, and UIKit. The programming
-            languages that I use most are Javascript and Swift.
+            frameworks are React, Express, and UIKit. The programming languages
+            that I use most are Javascript and Swift.
           </div>
           <div className="about-divider end"></div>
         </div>

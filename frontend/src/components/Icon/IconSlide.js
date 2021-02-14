@@ -4,7 +4,7 @@ const IconSlide = ({ icon, title, direction }) => {
     <div className={direction}>
       <div className="grid-icon-container">
         <div className="grid-icon">
-          <h1 className="heading">
+          <h1 className="heading logo-heading">
             <span className="grid-fa">
               <i className={icon} />
             </span>
@@ -12,7 +12,7 @@ const IconSlide = ({ icon, title, direction }) => {
         </div>
       </div>
       <div className="grid-name">
-        <h4 className="heading">{title}</h4>
+        <h4 className="heading logo-heading">{title}</h4>
       </div>
     </div>
   );

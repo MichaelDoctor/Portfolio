@@ -42,7 +42,7 @@ const Footer = () => {
             Calgary, AB
           </div>
           <a href="#intro" className="link">
-            <i className="fab fa-google" /> michaeldoctoryyc@gmail.com
+            <i className="fab fa-google" /> michaeldoctoryyc
           </a>
         </div>
       </div>

@@ -58,10 +58,10 @@ const Intro = () => {
           <h3 className="intro-heading slider-name">Michael Doctor</h3>
           <div className="hr slider-hr"></div>
           <h6 className="intro-heading sub-text">
-            I&#x27;m a calgary based Software developer.
+            Not A Real Doctor. <br />A Calgary Based Software Developer.
             <br />
             <span className="slider-desc">
-              <br />I can&#x27;t perform cpr or save a life
+              <br />I can&#x27;t save a life
               <br />
               But I can code!{' '}
             </span>
@@ -99,7 +99,7 @@ const Intro = () => {
                     <DjangoCSRFToken />
                     <div className="contact-form-grid">
                       <div
-                        id="w-node-25c5fe1a622d-92169540"
+                        id="w-node-_3eab9ac5-2a77-c5c9-e70d-25c5fe1a622d-92169540"
                         className="input-container"
                       >
                         <input
@@ -114,7 +114,7 @@ const Intro = () => {
                         />
                       </div>
                       <div
-                        id="w-node-25c5fe1a6231-92169540"
+                        id="w-node-_3eab9ac5-2a77-c5c9-e70d-25c5fe1a6231-92169540"
                         className="input-container"
                       >
                         <input
@@ -129,7 +129,7 @@ const Intro = () => {
                         />
                       </div>
                       <div
-                        id="w-node-25c5fe1a6235-92169540"
+                        id="w-node-_3eab9ac5-2a77-c5c9-e70d-25c5fe1a6235-92169540"
                         className="input-container"
                       >
                         <input
@@ -144,7 +144,7 @@ const Intro = () => {
                         />
                       </div>
                       <div
-                        id="w-node-25c5fe1a6239-92169540"
+                        id="w-node-_3eab9ac5-2a77-c5c9-e70d-25c5fe1a6239-92169540"
                         className="input-container"
                       >
                         <textarea
@@ -158,7 +158,7 @@ const Intro = () => {
                         ></textarea>
                       </div>
                       <div
-                        id="w-node-f5352b0e60c0-92169540"
+                        id="w-node-_790286dd-0c84-9803-c390-f5352b0e60c0-92169540"
                         className="input-container"
                       >
                         <input
