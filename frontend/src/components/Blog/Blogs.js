@@ -6,11 +6,11 @@ const Blogs = () => {
     {
       id: 1,
       img:
-        'https://res.cloudinary.com/hsse18xji/image/upload/v1/media/photos/2020/09/03/beer_nyllny',
+        'https://developer.apple.com/swift/images/swift-og.png',
       title: 'Swift Part 1',
       author: 'Michael Doctor',
       date: 'February 13, 2021',
-      content: 'Temporary content. Think of one later!',
+      content: 'Are you a developer with Java experience? Then this blog post is for you! From Comments to Extensions, this blog introduces the basics of the Swift Programming Language!',
       link: '/blog/1',
     },
   ];
@@ -48,6 +48,7 @@ const Blogs = () => {
               date={blog.date}
               content={blog.content}
               link={blog.link}
+              tab={true}
             />
           ))}
         </div>

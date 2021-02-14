@@ -1,5 +1,5 @@
 import React from 'react';
-const Project = ({ img, title, author, date, content, link }) => {
+const Project = ({ img, title, author, date, content, link, tab }) => {
   return (
     <div className="project-content">
       <div className="project-gap" />
@@ -27,9 +27,20 @@ const Project = ({ img, title, author, date, content, link }) => {
             <div className="proj-desc-content">{content}</div>
           </div>
           <div className="project-btn-container">
-            <a href={link} className="slider-btn hover1 proj-btn w-button" target="_blank" rel="noopener noreferrer">
-              Check it out
-            </a>
+            {!tab ? (
+              <a
+                href={link}
+                className="slider-btn hover1 proj-btn w-button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Check it out
+              </a>
+            ) : (
+              <a href={link} className="slider-btn hover1 proj-btn w-button">
+                Check it out
+              </a>
+            )}
           </div>
         </div>
       </div>
