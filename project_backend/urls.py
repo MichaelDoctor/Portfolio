@@ -9,7 +9,7 @@ urlpatterns = [
     path('api/skills/', include('app_portfolio_skills.urls')),
     path('api/projects/', include('app_portfolio_projects.urls')),
     path('api/contact/', include('app_portfolio_contact.urls')),
-    path('api/blogs/', include('app_portfolio_blog.urls')),
+    path('api/blog/', include('app_portfolio_blog.urls')),
     path('auth/', include('dj_rest_auth.urls')),
     path('allauth/', include('allauth.urls')),
     path('auth/register/', include('dj_rest_auth.registration.urls')),
