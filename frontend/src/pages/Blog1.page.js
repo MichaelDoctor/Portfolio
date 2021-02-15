@@ -15,7 +15,7 @@ const Blog1 = () => {
   return (
     <div className="container">
       <Navbar />
-      <BlogWrap>
+      <BlogWrap blog={1}>
         <BlogMainHeader
           titleMain="Swift Blog Part 1:"
           titleSub="The Language"

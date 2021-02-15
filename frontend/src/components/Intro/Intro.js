@@ -69,7 +69,7 @@ const Intro = () => {
           </h6>
           <h6 className="intro-heading slider-icon">
             <span className="text-span-2">
-              <i classNameName="fas fa-laptop-code" />
+              <i className="fas fa-laptop-code" />
             </span>
           </h6>
           <a
@@ -133,7 +133,7 @@ const Intro = () => {
                         className="input-container"
                       >
                         <input
-                          type="tel"
+                          type="text"
                           className="intro-form w-input"
                           maxLength="256"
                           name="subject"

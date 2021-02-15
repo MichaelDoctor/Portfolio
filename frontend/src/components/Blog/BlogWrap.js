@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from '../Footer/Footer';
 import BlogCommentSection from './BlogCommentSection';
 
-const BlogWrap = ({ children }) => {
+const BlogWrap = ({ blog, children }) => {
   return (
     <div className="content-container">
       <div className="nav-gap" />
@@ -11,7 +11,7 @@ const BlogWrap = ({ children }) => {
           <div className="blog-wrap">{children}</div>
         </div>
       </div>
-      <BlogCommentSection />
+      <BlogCommentSection blog={blog} />
       <Footer />
     </div>
   );

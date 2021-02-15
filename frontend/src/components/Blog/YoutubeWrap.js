@@ -14,7 +14,7 @@ const YoutubeWrap = () => {
           title="YouTube embed"
           frameBorder="0"
           allow="autoplay; fullscreen"
-          allowFullScreen="true"
+          allowFullScreen={true}
         ></iframe>
       </div>
     </div>
