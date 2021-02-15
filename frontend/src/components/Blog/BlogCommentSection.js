@@ -21,11 +21,11 @@ const BlogCommentSection = ({ blog }) => {
   useEffect(() => {
     if (comments) {
       setLoadingComments(false);
-      console.log(comments);
-      // replace loading === true with PageLoader
     }
-  }, [comments, loadingComments]);
+  }, [comments]);
   const baseUrl = 'https://michael-doctor.me';
+  // const baseUrl = 'http://localhost:8000';
+
   useAxios(`${baseUrl}/api/blog/comment/${blog}/`, setComments);
   const handleChange = e => {
     const { name, value } = e.target;
@@ -54,7 +54,19 @@ const BlogCommentSection = ({ blog }) => {
     axios
       .post(`${baseUrl}/api/blog/create/comment/`, body, config)
       .then(res => {
-        commentRef.current.value = 'Comment Created';
+        commentRef.current.value = '';
+        let tempComments = {};
+
+        comments
+          ? (tempComments = {
+              length: comments.length + 1,
+              comments: [res.data, ...comments.comments],
+            })
+          : (tempComments = {
+              length: 1,
+              comments: [res.data],
+            });
+        setComments(tempComments);
       })
       .catch(err => {
         commentRef.current.value =
@@ -70,7 +82,10 @@ const BlogCommentSection = ({ blog }) => {
       <div className="hr comment-hr" />
       <div className="comment-item comments">
         <div className="num-com-wrap">
-          <div className="comment-name">{!loadingComments ? (comments.length):("Loading")} Comment{loadingComments ? ("s"): (comments.length === 1) ? (""): ("s")}</div>
+          <div className="comment-name">
+            {!loadingComments ? comments.length : 'Loading'} Comment
+            {loadingComments ? 's' : comments.length === 1 ? '' : 's'}
+          </div>
         </div>
         <div className="comment-form-wrap">
           <div className="blog-form-block">
@@ -105,16 +120,18 @@ const BlogCommentSection = ({ blog }) => {
             </form>
           </div>
         </div>
-        {!loadingComments ? (comments.comments.map(({id, author, content, date})=>(
-          <BlogComment
-          key={id}
-          name={author}
-          date={moment(date).format('MMMM DD, YYYY')}
-          content={content}
-        />
-        )
-        )):(<PageLoader />)
-        }
+        {!loadingComments ? (
+          comments.comments.map(({ id, author, content, date }) => (
+            <BlogComment
+              key={id}
+              name={author}
+              date={moment(date).format('MMMM DD, YYYY')}
+              content={content}
+            />
+          ))
+        ) : (
+          <PageLoader />
+        )}
       </div>
     </div>
   );

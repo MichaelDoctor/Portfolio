@@ -17,9 +17,11 @@ class Comments(APIView):
     lookup_field = 'pk'
 
     def get(self, request, pk, format=None):
+        comments = Comment.objects.filter(
+            blog=int(pk)).values().order_by('-id')
         data = {
-            'length': len(Comment.objects.filter(blog=int(pk)).values().order_by('-id')),
-            'comments': Comment.objects.filter(blog=int(pk)).values().order_by('-id'),
+            'length': len(comments),
+            'comments': comments,
         }
         return Response(data, status=status.HTTP_200_OK)
 
