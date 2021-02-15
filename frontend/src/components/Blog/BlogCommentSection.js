@@ -94,7 +94,7 @@ const BlogCommentSection = ({ blog }) => {
               <input
                 type="text"
                 className="blog-text-field w-input"
-                maxLength="256"
+                maxLength="100"
                 name="author"
                 placeholder="Name"
                 id="author"
