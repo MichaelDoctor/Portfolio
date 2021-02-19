@@ -78,8 +78,6 @@ const BlogCommentSection = ({ blog }) => {
   return (
     <div className="comment-section">
       <div className="hr" />
-      <div className="comment-item comment-form-border"></div>
-      <div className="hr comment-hr" />
       <div className="comment-item comments">
         <div className="num-com-wrap">
           <div className="comment-name">
