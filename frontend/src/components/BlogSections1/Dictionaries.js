@@ -71,11 +71,11 @@ export const Dictionaries = () => {
       </div>
       <div className="blog-code">
         <div className="code">
-          ogamOrder[&quot;food coma&quot;]
+          wiki[&quot;food coma&quot;]
           <br />
-          ogamOrder[&quot;Bangers and mash&quot;] // nil
+          wiki[&quot;Bangers and mash&quot;] // nil
           <br />
-          ogamOrder[&quot;Bangers and mash&quot;, default: &quot;Some type of
+          wiki[&quot;Bangers and mash&quot;, default: &quot;Some type of
           food&quot;]
         </div>
       </div>
