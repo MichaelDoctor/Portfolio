@@ -141,7 +141,12 @@ export const Closures = () => {
         into understanding it. Look at the FedEx logo:
         <br />
       </div>
-      <div className="blog-img"></div>
+      <div
+        className="blog-img"
+        style={{
+          backgroundImage: `url("https://www.fedex.com/content/dam/fedex-com/logos/FedEx-Logo.png")`,
+        }}
+      ></div>
       <div className="about-desc blog-content">
         Look in between the capital E and x. You can see an arrow. Now that
         you&#x27;ve seen the arrow, it can never be unseen. Now, imagine
