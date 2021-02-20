@@ -10,9 +10,7 @@ const Introduction = () => {
       </div>
       <div className="about-desc blog-content">
         Both Java and Swift are general-purpose, compiled programming languages.
-        So if you understand Java, Swift will make sense to you (hopefully)! The
-        programming language Swift is used for macOS, iOS, watchOS, tvOS, and
-        more. This blog will focus on the Swift language for now.
+        So if you understand Java, Swift will make sense to you (hopefully)! Swift was developed by Apple and used for macOS, iOS, watchOS, tvOS, and more. In this blog, we will focus on learning how to read and write the Swift language. It's similar to learning how to do karate. We must learn how to "wax on, wax off" before winning a tournament with an illegal kick 🥋. In my next blog, I will show you how to use Swift to create an iOS app!
       </div>
       <div className="about-desc blog-content">
         Basic programming knowledge is required to understand this blog. If you

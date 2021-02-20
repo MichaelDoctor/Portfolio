@@ -20,7 +20,7 @@ const Blog1 = () => {
           titleMain="Swift Blog Part 1:"
           titleSub="The Language"
           author="Michael Doctor"
-          date="February 13, 2021"
+          date="February 15, 2021"
         />
         <BlogSections />
       </BlogWrap>

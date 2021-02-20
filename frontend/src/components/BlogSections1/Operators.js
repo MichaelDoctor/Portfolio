@@ -50,7 +50,7 @@ const Operators = () => {
       </div>
       <div className="about-desc blog-content">
         <strong className="blog-bold">Comparison Operators </strong>are pretty
-        straight forward and often used with conditionals. The only difference
+        straightforward and often used with conditionals. The only difference
         is that in Swift, we can check if Strings are equal using comparison
         operators (🤯 No more .equals(&quot;string&quot;)):
         <br />
