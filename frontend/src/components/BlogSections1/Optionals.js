@@ -63,7 +63,7 @@ export const Optionals = () => {
         <br />
       </div>
       <div className="about-desc blog-content">
-        The <strong className="blog-bold">if-let Statement </strong>attempts to
+        The if-let statement or <strong className="blog-bold">Optional Binding </strong>attempts to
         unwrap the Optional by implementing the if-else conditional. If the
         unwrapped returns nothing (unwrapped == nil), the else block is
         executed:

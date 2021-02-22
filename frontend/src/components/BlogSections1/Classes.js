@@ -333,6 +333,9 @@ export const Classes = () => {
           /* &quot;Mr. Stark, I don&#x27;t feel so good\n&quot; */
         </div>
       </div>
+      <div className="about-desc blog-content">
+        In Swift, the use of Structs is more used than Classes. You only use Classes if you need a reference-based object, should be inherited, or need the ability to deinitialized.
+      </div>
     </BlogSection>
   );
 };
