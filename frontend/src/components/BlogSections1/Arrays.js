@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react';
 import BlogSection from '../Blog/BlogSection';
+import YoutubeWrap from '../Blog/YoutubeWrap';
 
 const Arrays = () => {
   return (
@@ -73,6 +74,7 @@ const Arrays = () => {
           inMyStomach += [&quot;C3. Krabby Patty&quot;]
         </div>
       </div>
+      <YoutubeWrap link="https://www.youtube.com/embed/6XywUI6nYsQ"/>
     </BlogSection>
   );
 };

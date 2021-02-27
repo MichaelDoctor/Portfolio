@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react';
 import BlogSection from '../Blog/BlogSection';
+import YoutubeWrap from '../Blog/YoutubeWrap';
 
 export const Classes = () => {
   return (
@@ -336,6 +337,7 @@ export const Classes = () => {
       <div className="about-desc blog-content">
         In Swift, the use of Structs is more used than Classes. You only use Classes if you need a reference-based object, should be inherited, or need the ability to deinitialized.
       </div>
+      <YoutubeWrap link="https://www.youtube.com/embed/zeW-ibe-8Qc"/>
     </BlogSection>
   );
 };

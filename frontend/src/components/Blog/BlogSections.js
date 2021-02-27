@@ -15,8 +15,8 @@ import Operators from '../BlogSections1/Operators';
 import { Optionals } from '../BlogSections1/Optionals';
 import { Protocols } from '../BlogSections1/Protocols';
 import Setup from '../BlogSections1/Setup';
-import Summary from '../BlogSections1/Summary';
 import Variables from '../BlogSections1/Variables';
+import Sets from '../BlogSections1/Sets'
 
 const BlogSections = () => {
   return (
@@ -30,6 +30,7 @@ const BlogSections = () => {
       <Conditionals />
       <Loops />
       <Functions />
+      <Sets />
       <Dictionaries />
       <Optionals />
       <Enums />
@@ -37,7 +38,6 @@ const BlogSections = () => {
       <Closures />
       <Protocols />
       <Extensions />
-      <Summary />
       <End />
     </div>
   );

@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react';
 import BlogSection from '../Blog/BlogSection';
+import YoutubeWrap from '../Blog/YoutubeWrap';
 
 export const Dictionaries = () => {
   return (
@@ -98,6 +99,7 @@ export const Dictionaries = () => {
           me.feeling
         </div>
       </div>
+      <YoutubeWrap link="https://www.youtube.com/embed/hS7YUE3lGoc"/>
     </BlogSection>
   );
 };

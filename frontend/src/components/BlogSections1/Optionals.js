@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react';
 import BlogSection from '../Blog/BlogSection';
+import YoutubeWrap from '../Blog/YoutubeWrap';
 
 export const Optionals = () => {
   return (
@@ -120,6 +121,7 @@ export const Optionals = () => {
           <br />    .uppercased()
         </div>
       </div>
+      <YoutubeWrap link="https://www.youtube.com/embed/wVlbl3Ck6NU"/>
     </BlogSection>
   );
 };
