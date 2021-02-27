@@ -151,9 +151,9 @@ export const Closures = () => {
         Look in between the capital E and x. You can see an arrow. Now that
         you&#x27;ve seen the arrow, it can never be unseen. Now, imagine
         everything in between the first arrow and the open brace as what&#x27;s
-        returned. So if you ever see more than one arrow, you&#x27;ll think of
-        FedEx and the vast amount of times that I&#x27;ve typed the word arrow
-        in this paragraph. Fun fact, when an Air Nomad receives their blue arrow
+        returned. So if you ever see more than one arrow you&#x27;ll think of
+        FedEx, the vast amount of times that I&#x27;ve typed the word arrow
+        in this paragraph, and returning Closures. Fun fact, when an Air Nomad receives their blue arrow
         tattoos when they master air bending (I recommend watching Avatar: the
         Last 💨 if you haven&#x27;t already).
         <br />

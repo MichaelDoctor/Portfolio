@@ -6,7 +6,7 @@ const Setup = () => {
     <BlogSection title="Setup">
       <div className="about-desc blog-content">
         This blog will only be of use if you have a Mac computer with macOS
-        10.15 or higher. So join me on the dark side and get trapped in the
+        10.15 or higher. So join me in the dark side and get trapped in the
         Apple ecosystem! 😈
       </div>
       <div
@@ -29,7 +29,7 @@ const Setup = () => {
         Swift Online Program
       </a>
       <div className="about-desc blog-content">
-        So with that out of the way, let&#x27;s install the Xcode IDE:
+        With that out of the way, let&#x27;s install the Xcode IDE:
         <br />
       </div>
       <ol className="blog-list">

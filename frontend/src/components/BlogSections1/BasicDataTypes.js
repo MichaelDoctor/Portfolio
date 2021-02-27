@@ -23,7 +23,7 @@ const BasicDataTypes = () => {
       </a>
       <div className="about-desc blog-content">
         Sometimes we want to declare a variable and add data later. If we tried
-        the with the previous method, Swift&#x27;s stomach will growl again:
+        that with the previous method, Swift&#x27;s stomach will growl again:
         <br />
       </div>
       <div className="blog-code">
@@ -81,7 +81,7 @@ const BasicDataTypes = () => {
         <br />
       </div>
       <div className="about-desc blog-content">
-        But now you might be wondering why &quot;first&quot; and
+        You might be wondering why &quot;first&quot; and
         &quot;second&quot; contain two things that should never be in the same
         sentence with each other. Well, that&#x27;s because I didn&#x27;t get to
         finish my String. Let&#x27;s fix that with{' '}

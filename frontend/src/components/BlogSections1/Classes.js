@@ -267,7 +267,7 @@ export const Classes = () => {
         prepend <strong className="blog-bold">final </strong>to it. Similar to
         Java, parent Classes allow their children to inherit and override their
         methods. Like how a child can override the genetics they inherited from
-        their parent. The parents could be 5&#x27;7&quot; and somehow the child
+        their parents. The parents could be 5&#x27;7&quot; and somehow the child
         becomes 6&#x27;9&quot; 🥺. I should have drank more milk as a kid.
         Anyway, a subclass can <strong className="blog-bold">inherit </strong>
         from a superclass, <strong className="blog-bold">override </strong>and
@@ -335,7 +335,7 @@ export const Classes = () => {
         </div>
       </div>
       <div className="about-desc blog-content">
-        In Swift, the use of Structs is more used than Classes. You only use Classes if you need a reference-based object, should be inherited, or need the ability to deinitialized.
+        In Swift, the use of Structs is more used than Classes. You only use Classes if you need a reference-based object, an object that should be inherited, or need the ability to deinitialize an object.
       </div>
       <YoutubeWrap link="https://www.youtube.com/embed/zeW-ibe-8Qc"/>
     </BlogSection>

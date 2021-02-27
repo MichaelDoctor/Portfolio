@@ -88,7 +88,7 @@ export const Optionals = () => {
       <div className="about-desc blog-content">
         The <strong className="blog-bold">Nil Coalescing </strong>attempts to
         unwrap the Optional by assigning it to a variable, returning a default
-        value. Similar to when I make a weird joke, two question marks are
+        value if it is nil. Similar to when I make a weird joke, two question marks are
         typed. It is created by placing two question marks followed by a default
         value:
         <br />

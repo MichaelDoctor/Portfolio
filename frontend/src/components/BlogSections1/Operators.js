@@ -18,7 +18,7 @@ const Operators = () => {
         mathematical, relational or logical operation. The basic{' '}
         <strong className="blog-bold">math operators</strong> would be the same
         things we learned as kids. The only difference is that we need to care
-        about the type of data. Meaning, that we need to{' '}
+        about the type of data. That mean's that we need to{' '}
         <strong className="blog-bold">convert </strong>some values in Swift:
         <br />
       </div>

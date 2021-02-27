@@ -14,9 +14,9 @@ const Variables = () => {
         Constants and Variables Docs
       </a>
       <div className="about-desc blog-content">
-        We will begin with something simple first. Let&#x27;s create
+        We will begin with something simple. Let&#x27;s create
         <strong className="blog-bold"> Comments</strong>! Similar to Youtube,
-        you can create a comment at the bottom of this blog 😅. But, in Swift we
+        you can create a comment at the bottom of this blog 😅. But in Swift, we
         can create single line comments with &quot;command&quot; +
         &quot;/&quot;. We can also create documentation comments by typing
         &quot;command&quot; + &quot;option&quot; + &quot;/&quot;. : <br />
@@ -57,7 +57,7 @@ const Variables = () => {
       </div>
       <div className="about-desc blog-content">
         You will notice that any differences between Swift and Java are usually
-        the syntax. Now let&#x27;s start coding. Let&#x27;s start by storing
+        the syntax. Now let&#x27;s start by storing
         data in a <strong className="blog-bold">Variable </strong>without type
         annotation:
         <br />
