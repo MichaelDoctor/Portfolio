@@ -5,6 +5,7 @@ import './App.css'
 
 const Home = lazy(() => import('./pages/Home.page'));
 const Blog1 = lazy(() => import('./pages/Blog1.page'));
+const Blog2 = lazy(() => import('./pages/Blog2.page'));
 const NotFound = lazy(() => import('./pages/NotFound.page'));
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/blog/1" component={Blog1} />
+        <Route exact path="/blog/2" component={Blog2} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

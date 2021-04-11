@@ -1,6 +1,6 @@
 import React from 'react';
 import BlogMainHeader from '../components/Blog/BlogMainHeader';
-import BlogSections from '../components/Blog2/BlogSections';
+import BlogSections from '../components/Blog/BlogSections2';
 import BlogWrap from '../components/Blog/BlogWrap';
 import Navbar from '../components/Navbar/Navbar';
 import useScript from '../hooks/useScript.hook';

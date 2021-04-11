@@ -13,8 +13,18 @@ const Blogs = () => {
       content: 'Are you a developer with Java experience? Then this blog post is for you! From Comments to Extensions, this blog introduces the basics of the Swift Programming Language!',
       link: '/blog/1',
     },
+    {
+      id: 2,
+      img:
+        'https://developer.apple.com/swift/images/swift-og.png',
+      title: 'Swift Part 2',
+      author: 'Michael Doctor',
+      date: 'April 10, 2021',
+      content: 'Are you someone who always has to decide on what to eat? Then this blog is for you. This is the sequel to my first Swift Blog. It uses the knowledge from the original, to create an iOS App to save the Food Pickers of the World.',
+      link: '/blog/2',
+    },
   ];
-
+  
   return (
     <div className="projects-container" id="blogs">
       <div
