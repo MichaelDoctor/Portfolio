@@ -30,7 +30,7 @@ const UpdateFunction = () => {
         </div>
       </div>
       <div className="about-desc blog-content">
-        This function is pretty simple. The update function takes the item and
+        This function is pretty simple. The update function takes the item and the
         new name of the item as parameters. The name property of the item is
         updated to the new name. The function then attempts to save the updated
         item. <br />

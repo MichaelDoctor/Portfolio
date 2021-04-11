@@ -6,7 +6,7 @@ const Storyboard = () => {
   return (
     <BlogSection title="StoryBoard">
       <div className="about-desc blog-content">
-        This step relies heavily on the GUI of Xcode. Follow this video to setup
+        This step relies heavily on the GUI of Xcode. Follow this video to set up
         our storyboard:
         <br />
       </div>
@@ -15,7 +15,7 @@ const Storyboard = () => {
         In the video, the Navigation Controller,{' '}
         <strong className="blog-bold">Cell Identifier</strong>,{' '}
         <strong className="blog-bold">Storyboard ID</strong>, and button code
-        connection is shown.
+        connection are shown.
         <br />
       </div>
     </BlogSection>

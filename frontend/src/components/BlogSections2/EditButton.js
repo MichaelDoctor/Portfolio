@@ -6,7 +6,7 @@ const EditButton = () => {
     <BlogSection title="Detail View Controller: Edit Touch Up Inside">
       <div className="about-desc blog-content">
         Our UI is complete and connected to our Controller files. The first file
-        we will work on will be the DetailViewController. This view will be be
+        we will work on will be the DetailViewController. This view will be
         shown when a cell is selected. The Navigation Controller will push this
         view and show it to the user.
         <br />
@@ -124,7 +124,7 @@ const EditButton = () => {
         similar to the <strong className="blog-bold">if-let statement</strong>{' '}
         mentioned in my first blog. They both unwrap optionals if they are not
         null. In a guard-let statement, if the optional is null, then it will
-        exit the current function, loop, or condition. In this case we create
+        exit the current function, loop, or condition. In this case, we create
         the field and newName constants. It checks if there is a value in the
         textField. If it passes the checks, we call the updateItem function and
         change the title of the view. Lastly, the alert object is presented to

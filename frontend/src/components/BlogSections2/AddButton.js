@@ -46,7 +46,7 @@ const AddButton = () => {
         </div>
       </div>
       <div className="about-desc blog-content">
-        First we are creating a UIAlertController object and assigning it to the
+        First, we are creating a UIAlertController object and assigning it to the
         alert constant. A text field is added to the alert object. A submit
         button is also created with a handler closure that is similar to the
         edit button shown earlier. The difference would be that this function is

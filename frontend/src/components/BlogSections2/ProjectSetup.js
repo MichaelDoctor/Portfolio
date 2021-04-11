@@ -53,7 +53,7 @@ const ProjectSetup = () => {
       <div className="about-desc blog-content">
         In the project setup, we enabled Core Data.{' '}
         <strong className="blog-bold">Core Data</strong> is a framework for
-        connected objects and is not actually a database. All we need to know
+        connected objects and is not a database. All we need to know
         for now is that it will allow us to manipulate and keep our data
         persistent.
         <br />

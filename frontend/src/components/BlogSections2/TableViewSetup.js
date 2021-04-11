@@ -5,8 +5,8 @@ const TableViewSetup = () => {
   return (
     <BlogSection title="View Controller: Table View Setup">
       <div className="about-desc blog-content">
-        For UITableView to display data, we must set up a few function.
-        Thankfully, we can let Xcode&#x27;s auto complete setup the functions
+        For UITableView to display data, we must set up a few functions.
+        Thankfully, we can let Xcode&#x27;s auto-complete set up the functions
         for us! In Xcode, type &quot;
         <strong className="blog-bold">numberOfRowsInSection</strong>&quot; and
         select the suggestion starting with tableView and add the following:
@@ -73,7 +73,7 @@ const TableViewSetup = () => {
         <br />
       </div>
       <div className="about-desc blog-content">
-        The final function we need to setup our table view is the &quot;
+        The final function we need to set up our table view is the &quot;
         <strong className="blog-bold">didSelectRowAt</strong>&quot;:
         <br />
       </div>
@@ -108,7 +108,7 @@ const TableViewSetup = () => {
         if-let statement instantiates our DetailViewController using the{' '}
         <strong className="blog-bold">Storyboard ID</strong> that we set in the
         Storyboard section. If it passes the if-let statement, the item property
-        that we set in our DetailViewController will be sent the selected cell.
+        that we set in our DetailViewController will be sent to the selected cell.
         After, the navigationController will push the view to the
         DetailViewController that we created earlier.
         <br />

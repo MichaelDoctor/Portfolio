@@ -6,7 +6,7 @@ const CoreDataSetup = () => {
   return (
     <BlogSection title="Core Data Setup">
       <div className="about-desc blog-content">
-        Now lets setup our Core Data:
+        Now let's set up our Core Data:
         <br />
       </div>
       <ol className="blog-list">
@@ -58,7 +58,7 @@ const CoreDataSetup = () => {
           <div className="about-desc blog-content blog-content-list">
             At the very top of the screen
             <br />
-            click &quot;Editor&quot;
+            Click &quot;Editor&quot;
           </div>
         </li>
         <li className="blog-list-item">
@@ -81,7 +81,7 @@ const CoreDataSetup = () => {
       </ol>
       <YoutubeWrap link="https://www.youtube.com/embed/Qr-37gYgjr0"/>
       <div className="about-desc blog-content">
-        In our project, all of our coding will go into the{' '}
+        In our project, all of our code will go into the{' '}
         <strong className="blog-bold">ViewController.swift</strong> file and
         another file called{' '}
         <strong className="blog-bold">DetailViewController.swift</strong>. These
@@ -194,10 +194,10 @@ const CoreDataSetup = () => {
         </div>
       </div>
       <div className="about-desc blog-content">
-        In this app, the ViewController.swift file will be a list of Food items.
-        If one of these Food items is clicked, the corresponding
+        In this app, the ViewController.swift file will be a list of FoodItems.
+        If one of these FoodItems is clicked, the corresponding
         DetailViewController.swift file will be instantiated. In this view, we
-        will be able to edit or delete the selected Food item. The connection
+        will be able to edit or delete the selected FoodItem. The connection
         between ViewController and the DetailViewController will be shown later.
         <br />
       </div>
