@@ -3,7 +3,7 @@ import BlogSection from '../Blog/BlogSection';
 
 const ViewWillAppear = () => {
   return (
-    <BlogSection title="View Controller:<br/>View Will Appear">
+    <BlogSection title="View Controller: View Will Appear">
       <div className="about-desc blog-content">
         In Xcode, type &quot;
         <strong className="blog-bold">viewWillAppear</strong>
