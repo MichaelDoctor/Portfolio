@@ -79,7 +79,7 @@ const CoreDataSetup = () => {
           </div>
         </li>
       </ol>
-      <YoutubeWrap link="https://www.youtube.com/embed/wVlbl3Ck6NU"/>
+      <YoutubeWrap link="https://www.youtube.com/embed/Qr-37gYgjr0"/>
       <div className="about-desc blog-content">
         In our project, all of our coding will go into the{' '}
         <strong className="blog-bold">ViewController.swift</strong> file and

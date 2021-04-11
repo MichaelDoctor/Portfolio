@@ -10,15 +10,14 @@ const Storyboard = () => {
         our storyboard:
         <br />
       </div>
-      <YoutubeWrap link="https://www.youtube.com/embed/wVlbl3Ck6NU"/>
+      <YoutubeWrap link="https://www.youtube.com/embed/mXIEjTiOUdI"/>
       <div className="about-desc blog-content">
         In the video, the Navigation Controller,{' '}
         <strong className="blog-bold">Cell Identifier</strong>,{' '}
         <strong className="blog-bold">Storyboard ID</strong>, and button code
-        connection is shown. The final UI should look like the image below:
+        connection is shown.
         <br />
       </div>
-      <div className="blog-img"></div>
     </BlogSection>
   );
 };

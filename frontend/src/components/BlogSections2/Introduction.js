@@ -22,7 +22,7 @@ const Introduction = () => {
         of the food options for you! 👏👏👏 You can find the demo code here:
       </div>
       <a
-        href="https://github.com/MichaelDoctor/Blog-2-Demo"
+        href="https://github.com/MichaelDoctor/FoodPickerDemo"
         target="_blank"
         rel="noopener noreferrer"
         className="blog-link"

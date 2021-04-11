@@ -44,7 +44,12 @@ const ProjectSetup = () => {
           </div>
         </li>
       </ol>
-      <div className="blog-img"></div>
+      <div
+        className="blog-img"
+        style={{
+          backgroundImage: `url("https://res.cloudinary.com/hsse18xji/image/upload/v1618178685/portfolio/images/bg/ProjectSetup_nbepys.png")`,
+        }}
+      ></div>
       <div className="about-desc blog-content">
         In the project setup, we enabled Core Data.{' '}
         <strong className="blog-bold">Core Data</strong> is a framework for
