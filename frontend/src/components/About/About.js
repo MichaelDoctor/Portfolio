@@ -19,7 +19,7 @@ const About = () => {
         <div className="section-desc slide-left">
           <div className="about-divider"></div>
           <div className="about-desc">
-            Currently, I&#x27;m a software development student at Southern
+            Currently, I&#x27;m a software development gradaute from the Southern
             Alberta Institute of Technology (SAIT). I&#x27;m passionate about
             full-stack web development and iOS development. My preferred
             frameworks are React, Express, and UIKit. The programming languages
