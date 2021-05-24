@@ -30,11 +30,19 @@ class CreateContact(APIView):
 
         try:
             send_mail(data['subject'],
-                      'Name: {}\nEmail: {}\n\nMessage: {}'.format(data['name'], data['email'], data['message']), 'michaeldoctoryyc@gmail.com', ['michaeldoctoryyc@gmail.com'], fail_silently=False)
+                      'Name: {}\nEmail: {}\n\nMessage: {}'.format(
+                      data['name'],
+                      data['email'],
+                      data['message']
+            ),
+                'michaeldoctoryyc@gmail.com',
+                ['michaeldoctoryyc@gmail.com'],
+                fail_silently=False
+            )
             contact = Contact(name=data['name'], email=data['email'],
                               subject=data['subject'], message=data['message'])
             contact.save()
 
             return Response({'msg': 'Message successfully sent'})
-        except:
+        except Exception:
             return ServerError

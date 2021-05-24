@@ -1,7 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework import permissions
 from rest_framework.response import Response
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.authentication import SessionAuthentication, \
+    BasicAuthentication
 from django.contrib.auth.models import User
 
 
@@ -34,5 +35,5 @@ class GetUsername(APIView):
                 'username': data['username']
             }
             return Response(content)
-        except:
+        except Exception:
             return Response({'pk': pk, 'username': '404'})
