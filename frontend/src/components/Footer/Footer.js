@@ -25,7 +25,7 @@ const Footer = () => {
             <i className="fab fa-github" /> Github
           </a>
           <a
-            href="https://www.linkedin.com/in/michael-doctor-403/"
+            href="https://www.linkedin.com/in/michaeldoctor/"
             className="link"
             target="_blank"
             rel="noopener noreferrer"
